@@ -1,28 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Main Home Page -->
   <url>
     <loc>https://hedlundappliance.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
 
+  <!-- Core Service Pages -->
   <url>
     <loc>https://hedlundappliance.com/refrigerator-repair-jacksonville/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://hedlundappliance.com/washer-repair-jacksonville/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://hedlundappliance.com/dryer-repair-jacksonville/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://hedlundappliance.com/oven-repair-jacksonville/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 
-   <url>
+  <url>
     <loc>https://hedlundappliance.com/dishwasher-repair-jacksonville/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
-  
+
+  <!-- Neighborhood Landing Pages -->
+  <url>
+    <loc>https://hedlundappliance.com/locations/jacksonville-beach/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/atlantic-beach/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/neptune-beach/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/ponte-vedra-beach/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/san-pablo/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/intracoastal-west/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/southside/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/mandarin/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/downtown-jax/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
 </urlset>
