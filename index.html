@@ -496,55 +496,106 @@
       color: #ffffff;
     }
 
-    /* SERVICE AREA & NORTHEAST FLORIDA VECTOR MAP */
-    .service-area {
+    /* OVERHAULED SERVICE AREA & DASHBOARD */
+    .service-area-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: flex-start;
+      gap: 40px;
+      align-items: start;
     }
 
-    .service-area p {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-    }
-
-    .area-box {
+    .area-dashboard {
       background: var(--bg-card);
       border: 1px solid var(--border-medium);
       padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
-    .area-box h3 {
-      font-size: 1.3rem;
-      font-weight: 800;
-      color: var(--text-white);
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1px dashed var(--border-light);
-    }
-
-    ul.area-list {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    ul.area-list li {
-      font-family: var(--font-mono);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text-main);
+    .dashboard-header {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--border-medium);
+      margin-bottom: 24px;
+    }
+
+    .dashboard-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+    }
+
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    .zone-group {
+      margin-bottom: 24px;
+    }
+
+    .zone-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .zone-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .zone-pills {
+      display: flex;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
-    ul.area-list li::before {
-      content: '▪';
-      color: var(--accent);
+    .pill {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-main);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .pill.zip-pill {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .map-container {
@@ -624,7 +675,8 @@
     }
 
     @media (max-width: 850px) {
-      .hero-layout {
+      .hero-layout,
+      .service-area-grid {
         grid-template-columns: 1fr;
       }
       .dryer-wrapper {
@@ -633,8 +685,7 @@
     }
 
     @media (max-width: 700px) {
-      .header-inner,
-      .service-area {
+      .header-inner {
         display: block;
       }
 
@@ -647,11 +698,7 @@
         grid-template-columns: 1fr;
       }
 
-      ul.area-list {
-        grid-template-columns: 1fr;
-      }
-
-      .area-box {
+      .area-dashboard {
         margin-top: 28px;
       }
 
@@ -891,18 +938,19 @@
       </div>
     </section>
 
+    <!-- OVERHAULED SERVICE AREA SECTION -->
     <section>
-      <div class="wrap service-area">
+      <div class="wrap service-area-grid">
 
+        <!-- LEFT COLUMN: MAP & MAP INFO -->
         <div>
           <div class="eyebrow">Primary Coverage Zone</div>
           <h2>Jacksonville Service Radius</h2>
 
           <p>
-            Based near San Pablo Road South, Hedlund Appliance Service provides prompt repair calls across Duval and St. Johns county communities.
+            Based near San Pablo Road South, Hedlund Appliance Service provides rapid, technical repair response across Duval and St. Johns County communities.
           </p>
 
-          <!-- NORTHEAST FLORIDA MAP & RADIUS OVERLAY DIAGRAM -->
           <div class="map-container">
             <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Grid Lines -->
@@ -912,11 +960,11 @@
               <!-- NORTHEAST FLORIDA COASTLINE & GEOGRAPHY -->
               <path d="M 10,20 L 320,20 L 330,40 L 332,90 L 335,130 L 340,180 L 348,230 L 358,300 L 365,350 L 10,350 Z" fill="#0e2443" stroke="#8892b0" stroke-width="2" opacity="0.7"/>
               
-              <!-- St. Johns River Path (Jacksonville Loop to Atlantic Ocean) -->
+              <!-- St. Johns River Path -->
               <path d="M 120,350 L 140,280 L 160,200 L 170,130 Q 180,90 230,90 L 332,90" fill="none" stroke="#0a192f" stroke-width="8"/>
               <text x="180" y="115" fill="#8892b0" font-family="monospace" font-size="8" opacity="0.6">ST. JOHNS RIVER</text>
 
-              <!-- County Boundary Line (Duval / St. Johns) -->
+              <!-- County Boundary Line -->
               <path d="M 50,220 H 345" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
               <text x="60" y="212" fill="#8892b0" font-family="monospace" font-size="8">DUVAL COUNTY</text>
               <text x="60" y="235" fill="#8892b0" font-family="monospace" font-size="8">ST. JOHNS COUNTY</text>
@@ -924,12 +972,12 @@
               <!-- Ocean Label -->
               <text x="360" y="160" fill="#8892b0" font-family="monospace" font-size="10" letter-spacing="2">ATLANTIC OCEAN</text>
               
-              <!-- Key Area Text Labels -->
+              <!-- Area Text Labels -->
               <text x="210" y="70" fill="#e6f1ff" font-family="monospace" font-size="9" font-weight="bold">Downtown Jax</text>
               <text x="310" y="115" fill="#64ffda" font-family="monospace" font-size="8">Jax Beach</text>
               <text x="325" y="210" fill="#64ffda" font-family="monospace" font-size="8">Ponte Vedra</text>
 
-              <!-- 20-MILE SERVICE RADIUS CIRCLE (CENTERED AT 1701 SAN PABLO RD S) -->
+              <!-- 20-MILE SERVICE RADIUS CIRCLE -->
               <circle cx="295" cy="120" r="95" fill="rgba(100, 255, 218, 0.12)" stroke="#64ffda" stroke-width="2" stroke-dasharray="5 5"/>
               
               <!-- BUSINESS LOCATION PIN -->
@@ -945,21 +993,51 @@
           </div>
         </div>
 
-        <div class="area-box">
-          <h3>Areas We Serve</h3>
+        <!-- RIGHT COLUMN: OVERHAULED DASHBOARD BOARD -->
+        <div class="area-dashboard">
+          <div class="dashboard-header">
+            <div class="dashboard-title">Dispatch Zones</div>
+            <div class="status-badge">ACTIVE COVERAGE</div>
+          </div>
 
-          <ul class="area-list">
-            <li>Jacksonville</li>
-            <li>Jacksonville Beach</li>
-            <li>Atlantic Beach</li>
-            <li>Neptune Beach</li>
-            <li>Ponte Vedra Beach</li>
-            <li>ZIP: 32224</li>
-            <li>ZIP: 32223</li>
-            <li>ZIP: 32222</li>
-            <li>ZIP: 32225</li>
-            <li>ZIP: 32226</li>
-          </ul>
+          <!-- ZONE 1: BEACHES -->
+          <div class="zone-group">
+            <span class="zone-label">// Coastal &amp; Beaches Zone</span>
+            <div class="zone-pills">
+              <span class="pill">Jacksonville Beach</span>
+              <span class="pill">Atlantic Beach</span>
+              <span class="pill">Neptune Beach</span>
+              <span class="pill">Ponte Vedra Beach</span>
+            </div>
+          </div>
+
+          <!-- ZONE 2: METRO & INLAND -->
+          <div class="zone-group">
+            <span class="zone-label">// East Jax &amp; Metro Hubs</span>
+            <div class="zone-pills">
+              <span class="pill">San Pablo</span>
+              <span class="pill">Intracoastal West</span>
+              <span class="pill">Southside</span>
+              <span class="pill">Mandarin</span>
+            </div>
+          </div>
+
+          <!-- ZONE 3: COMPACT ZIP BADGES -->
+          <div class="zone-group">
+            <span class="zone-label">// Primary ZIP Dispatch Codes</span>
+            <div class="zone-pills">
+              <span class="pill zip-pill">32224</span>
+              <span class="pill zip-pill">32225</span>
+              <span class="pill zip-pill">32250</span>
+              <span class="pill zip-pill">32233</span>
+              <span class="pill zip-pill">32266</span>
+              <span class="pill zip-pill">32082</span>
+              <span class="pill zip-pill">32223</span>
+              <span class="pill zip-pill">32222</span>
+              <span class="pill zip-pill">32226</span>
+              <span class="pill zip-pill">32256</span>
+            </div>
+          </div>
         </div>
 
       </div>
