@@ -68,26 +68,24 @@
   </script>
 
   <style>
-  <style>
     :root {
-      /* MONOCHROME HIGH-CONTRAST PALETTE */
-      --bg-main: #ffffff;
-      --bg-subtle: #f8f8f9;
-      --bg-dark: #121212;
-      --bg-card: #ffffff;
+      /* ARCHITECTURAL BLUEPRINT PALETTE */
+      --bg-blueprint: #0a192f;
+      --bg-subtle: #112240;
+      --bg-card: #0e2443;
       
-      --text-black: #000000;
       --text-white: #ffffff;
-      --text-main: #111111;
-      --text-muted: #555555;
+      --text-main: #e6f1ff;
+      --text-muted: #8892b0;
       
-      --border-strong: #000000;
-      --border-medium: #888888;
-      --border-light: #e0e0e0;
+      --border-strong: #ffffff;
+      --border-medium: rgba(255, 255, 255, 0.4);
+      --border-light: rgba(255, 255, 255, 0.15);
 
-      /* CALIBRATION ACCENT — hazard/safety orange, used the way a schematic uses a redline */
-      --accent: #ff4f12;
-      --accent-dim: #ffe4d8;
+      /* LIGHT GREEN ACCENTS */
+      --accent: #64ffda;
+      --accent-dim: rgba(100, 255, 218, 0.15);
+      --accent-dark: #00b386;
 
       --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -97,7 +95,7 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
-      background-color: var(--bg-main);
+      background-color: var(--bg-blueprint);
       color: var(--text-main);
       line-height: 1.6;
     }
@@ -128,7 +126,7 @@
       box-shadow: 0 0 0 3px var(--accent-dim);
     }
 
-    /* REGISTRATION / CROP MARKS — corner ticks used on technical sheets to align plates */
+    /* REGISTRATION / CROP MARKS */
     .reg-marks { position: relative; }
     .reg-marks::before, .reg-marks::after {
       content: '';
@@ -147,7 +145,7 @@
       border-right: 2px solid var(--accent);
     }
 
-    /* DIMENSION LINE — a measurement callout styled like a drafting tolerance line */
+    /* DIMENSION LINE */
     .dim-line {
       display: flex;
       align-items: center;
@@ -184,28 +182,30 @@
       letter-spacing: 0.05em;
     }
     .btn-primary {
-      background: var(--text-black);
-      color: var(--text-white);
-      border: 2px solid var(--text-black);
+      background: var(--accent);
+      color: var(--bg-blueprint);
+      border: 2px solid var(--accent);
     }
     .btn-primary:hover {
-      background: #333333;
+      background: #4cd6b3;
+      border-color: #4cd6b3;
       transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
     }
     .btn-outline {
-      border: 2px solid var(--text-black);
-      color: var(--text-black);
+      border: 2px solid var(--text-white);
+      color: var(--text-white);
       background: transparent;
     }
     .btn-outline:hover {
-      background: var(--text-black);
-      color: var(--text-white);
+      background: var(--text-white);
+      color: var(--bg-blueprint);
     }
 
     /* HEADER */
     header {
-      background: var(--bg-main);
-      border-bottom: 2px solid var(--text-black);
+      background: var(--bg-blueprint);
+      border-bottom: 2px solid var(--border-medium);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -221,13 +221,13 @@
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      color: var(--text-black);
+      color: var(--text-white);
       font-family: var(--font-mono);
       font-weight: 800;
       font-size: 1.2rem;
       letter-spacing: -0.02em;
     }
-    .logo-link svg { width: 32px; height: 32px; stroke: var(--text-black); }
+    .logo-link svg { width: 32px; height: 32px; stroke: var(--accent); }
     nav { display: flex; gap: 28px; }
     nav a {
       color: var(--text-main);
@@ -237,29 +237,29 @@
       font-size: 0.9rem;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--border-medium); }
+    nav a:hover { color: var(--accent); }
     .call-btn {
       display: flex;
       align-items: center;
       gap: 8px;
-      color: var(--text-white);
-      background: var(--text-black);
+      color: var(--bg-blueprint);
+      background: var(--accent);
       font-family: var(--font-mono);
       font-weight: 800;
       text-decoration: none;
-      border: 2px solid var(--text-black);
-      border-bottom: 3px solid var(--accent);
+      border: 2px solid var(--accent);
       padding: 8px 18px;
+      transition: all 0.2s ease;
     }
-    .call-btn:hover { background: #333333; }
-    .call-btn svg { stroke: var(--accent); }
+    .call-btn:hover { background: #4cd6b3; }
+    .call-btn svg { stroke: var(--bg-blueprint); }
 
-    /* PAPER & ARCHITECTURAL GRIDS */
+    /* BLUEPRINT DRAFTING GRID */
     .paper-grid {
-      background-color: var(--bg-main);
+      background-color: var(--bg-blueprint);
       background-image: 
-        linear-gradient(var(--border-light) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
       background-size: 30px 30px;
       padding: 80px 0;
     }
@@ -268,7 +268,7 @@
     .hero {
       padding: 90px 0 100px;
       position: relative;
-      border-bottom: 2px solid var(--text-black);
+      border-bottom: 2px solid var(--border-medium);
     }
     .hero-top {
       display: flex;
@@ -276,8 +276,9 @@
       font-family: var(--font-mono);
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--text-black);
-      border-bottom: 2px solid var(--text-black);
+      color: var(--accent);
+      border-bottom: 2px stroke var(--border-medium);
+      border-bottom-style: dashed;
       padding-bottom: 12px;
       margin-bottom: 40px;
     }
@@ -290,12 +291,12 @@
     
     /* HOOK QUESTION BOX */
     .hero-hook-box {
-      background: var(--text-black);
-      border: 2px solid var(--text-black);
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
       border-left: 6px solid var(--accent);
       padding: 20px 24px;
       margin-bottom: 28px;
-      box-shadow: 4px 4px 0px rgba(0,0,0,0.15);
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
     }
     .hero-hook-question {
       font-family: var(--font-sans);
@@ -310,12 +311,12 @@
       line-height: 1.08;
       margin-bottom: 24px;
       font-weight: 900;
-      color: var(--text-black);
+      color: var(--text-white);
       letter-spacing: -0.03em;
     }
     .hero p.lede {
       font-size: 1.25rem;
-      color: #333333;
+      color: var(--text-muted);
       font-weight: 600;
       margin-bottom: 36px;
       max-width: 620px;
@@ -327,14 +328,14 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 16px;
-      border-top: 2px solid var(--text-black);
+      border-top: 2px solid var(--border-medium);
       padding-top: 28px;
     }
     .stat .num {
       font-family: var(--font-mono);
       font-size: 1.8rem;
       font-weight: 800;
-      color: var(--text-black);
+      color: var(--text-white);
     }
     .stat .num::after {
       content: '';
@@ -346,7 +347,7 @@
     }
     .stat .lbl { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
 
-    /* SCHEMATIC REFRIGERATOR — DOOR SWINGS OPEN ON A HINGE TO REVEAL THE PHONE NUMBER INSIDE */
+    /* SCHEMATIC REFRIGERATOR */
     .fridge-hero-container {
       position: relative;
       display: flex;
@@ -369,9 +370,9 @@
     .fridge-cabinet {
       width: 300px;
       height: 400px;
-      background: #ffffff;
-      border: 3px solid var(--text-black);
-      box-shadow: 8px 8px 0px var(--text-black);
+      background: var(--bg-card);
+      border: 2px solid var(--text-white);
+      box-shadow: 8px 8px 0px rgba(0,0,0,0.4);
       position: relative;
     }
 
@@ -382,8 +383,8 @@
       top: 96px;
       left: 0;
       right: 0;
-      height: 3px;
-      background: var(--text-black);
+      height: 2px;
+      background: var(--text-white);
       z-index: 3;
     }
 
@@ -393,30 +394,30 @@
       top: -3px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--text-black);
-      color: var(--text-white);
+      background: var(--bg-blueprint);
+      color: var(--accent);
       font-family: var(--font-mono);
       font-size: 0.6rem;
       font-weight: 800;
       letter-spacing: 0.1em;
       padding: 3px 10px;
       z-index: 4;
-      border-bottom: 2px solid var(--accent);
+      border: 1px solid var(--accent);
     }
 
-    /* INTERIOR — sits behind the door, shelves + phone number live here */
+    /* INTERIOR */
     .fridge-interior {
       position: absolute;
       inset: 3px;
-      background: #f4f4f6;
+      background: var(--bg-subtle);
       display: flex;
       flex-direction: column;
       padding: 106px 14px 14px;
       gap: 14px;
     }
     .fridge-shelf {
-      height: 2px;
-      background: var(--border-light);
+      height: 1px;
+      background: var(--border-medium);
       position: relative;
       width: 100%;
     }
@@ -432,7 +433,7 @@
       align-items: center;
       gap: 6px;
       text-decoration: none;
-      color: var(--text-black);
+      color: var(--text-white);
       text-align: center;
     }
     .fridge-phone-eyebrow {
@@ -449,15 +450,16 @@
       letter-spacing: -0.02em;
       border: 1px dashed var(--accent);
       padding: 6px 12px;
-      background: #ffffff;
+      background: var(--bg-card);
+      color: var(--accent);
     }
 
-    /* THE DOOR — hinged on the right, swings open then closed on a loop */
+    /* THE DOOR */
     .fridge-door {
       position: absolute;
       inset: 3px;
-      background: #ffffff;
-      border-left: 2px solid var(--text-black);
+      background: var(--bg-card);
+      border-left: 2px solid var(--text-white);
       transform-origin: right center;
       transform-style: preserve-3d;
       z-index: 5;
@@ -467,7 +469,7 @@
     }
     .fridge-door-freezer {
       height: 93px;
-      border-bottom: 3px solid var(--text-black);
+      border-bottom: 2px solid var(--text-white);
       position: relative;
     }
     .fridge-door-main { flex: 1; position: relative; }
@@ -476,9 +478,9 @@
       left: 16px;
       top: 12px;
       bottom: 12px;
-      width: 8px;
-      background: var(--text-black);
-      border-radius: 3px;
+      width: 6px;
+      background: var(--accent);
+      border-radius: 2px;
     }
     .fridge-door-freezer .fridge-door-handle { top: 10px; bottom: 10px; }
     .fridge-door-badge {
@@ -508,14 +510,17 @@
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 48px;
-      border-bottom: 2px solid var(--text-black);
+      border-bottom: 2px solid var(--border-medium);
       padding-bottom: 16px;
     }
     .section-head h2 {
       font-size: 2.2rem;
-      color: var(--text-black);
+      color: var(--text-white);
       font-weight: 900;
       letter-spacing: -0.02em;
+    }
+    .section-head .desc {
+      color: var(--text-muted);
     }
     .section-head .sheet-id {
       font-family: var(--font-mono);
@@ -533,15 +538,15 @@
       gap: 24px;
     }
     .svc-card {
-      background: var(--bg-main);
-      border: 2px solid var(--text-black);
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
       padding: 32px;
       position: relative;
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
     }
     .svc-card:hover {
       transform: translateY(-4px);
-      box-shadow: 6px 6px 0px var(--accent);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
       border-color: var(--accent);
     }
     .svc-card .fig {
@@ -564,40 +569,39 @@
     .svc-card svg {
       width: 36px;
       height: 36px;
-      stroke: var(--text-black);
+      stroke: var(--accent);
       stroke-width: 2;
       fill: none;
       margin-bottom: 18px;
     }
     .svc-card h3 {
       font-size: 1.35rem;
-      color: var(--text-black);
+      color: var(--text-white);
       font-weight: 800;
       margin-bottom: 10px;
     }
     .svc-card p {
       font-size: 0.95rem;
-      color: #333333;
+      color: var(--text-muted);
       line-height: 1.5;
     }
     .svc-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
-.svc-card-link:focus .svc-card {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .svc-card-link:focus .svc-card {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
 
     /* REVIEWS BAND & CARDS */
     .reviews-band {
       background: var(--bg-subtle);
-      color: var(--text-black);
+      color: var(--text-main);
       padding: 80px 0;
-      border-top: 2px solid var(--text-black);
-      border-bottom: 2px solid var(--text-black);
+      border-top: 2px solid var(--border-medium);
+      border-bottom: 2px solid var(--border-medium);
     }
     .reviews-inner {
       display: flex;
@@ -605,7 +609,7 @@
       justify-content: space-between;
       gap: 40px;
       margin-bottom: 48px;
-      border-bottom: 2px solid var(--text-black);
+      border-bottom: 2px dashed var(--border-medium);
       padding-bottom: 24px;
     }
     .reviews-score {
@@ -617,10 +621,10 @@
       font-family: var(--font-mono);
       font-size: 3.8rem;
       font-weight: 900;
-      color: var(--text-black);
+      color: var(--accent);
       line-height: 1;
     }
-    .reviews-score .stars { color: var(--text-black); font-size: 1.4rem; letter-spacing: 2px; }
+    .reviews-score .stars { color: var(--accent); font-size: 1.4rem; letter-spacing: 2px; }
 
     .review-grid {
       display: grid;
@@ -628,21 +632,21 @@
       gap: 24px;
     }
     .review-card {
-      background: var(--bg-main);
-      border: 2px solid var(--text-black);
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
       padding: 28px;
-      box-shadow: 4px 4px 0px var(--text-black);
+      box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
     .review-stars { font-size: 1.1rem; color: var(--accent); margin-bottom: 12px; }
-    .review-text { font-size: 0.95rem; font-style: italic; color: #222222; margin-bottom: 20px; line-height: 1.5; }
+    .review-text { font-size: 0.95rem; font-style: italic; color: var(--text-main); margin-bottom: 20px; line-height: 1.5; }
     .review-author {
       font-family: var(--font-mono);
       font-weight: 800;
       font-size: 0.85rem;
-      color: var(--text-black);
+      color: var(--accent);
       border-top: 1px solid var(--border-light);
       padding-top: 12px;
     }
@@ -656,22 +660,25 @@
     }
     .about-note {
       font-family: var(--font-mono);
-      background: var(--text-black);
-      color: var(--text-white);
+      background: var(--bg-card);
+      color: var(--accent);
       border-left: 4px solid var(--accent);
+      border: 1px solid var(--border-medium);
+      border-left-width: 4px;
       padding: 12px 16px;
       font-size: 0.85rem;
       font-weight: 700;
       margin-bottom: 20px;
     }
-    .about h2 { font-size: 2.2rem; font-weight: 900; color: var(--text-black); margin-bottom: 16px; }
-    .about p { font-size: 1.05rem; margin-bottom: 16px; color: var(--text-main); }
+    .about h2 { font-size: 2.2rem; font-weight: 900; color: var(--text-white); margin-bottom: 16px; }
+    .about p { font-size: 1.05rem; margin-bottom: 16px; color: var(--text-muted); }
     .credentials { list-style: none; }
     .credentials li {
       display: flex;
       gap: 12px;
       margin-bottom: 16px;
       font-size: 1rem;
+      color: var(--text-main);
     }
     .credentials .tick { color: var(--accent); font-family: var(--font-mono); font-weight: 900; }
 
@@ -690,12 +697,13 @@
       border-bottom: 1px solid var(--border-light);
       font-size: 1rem;
       font-weight: 600;
+      color: var(--text-main);
     }
-    .area-list .d { font-family: var(--font-mono); color: var(--text-black); font-weight: 800; }
+    .area-list .d { font-family: var(--font-mono); color: var(--accent); font-weight: 800; }
 
     .solar-blueprint-container {
-      background: var(--bg-main);
-      border: 2px solid var(--text-black);
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
       padding: 24px;
       position: relative;
     }
@@ -705,16 +713,16 @@
       display: block;
     }
 
-    /* DIRECT CONTACT SECTION (NO FORM) */
+    /* DIRECT CONTACT SECTION */
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr;
       gap: 0;
-      background: var(--bg-main);
-      border: 2px solid var(--text-black);
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
     }
     .contact-col { padding: 40px; }
-    .contact-col h3 { font-size: 1.6rem; font-weight: 800; color: var(--text-black); margin-bottom: 24px; }
+    .contact-col h3 { font-size: 1.6rem; font-weight: 800; color: var(--text-white); margin-bottom: 24px; }
     
     .contact-grid-info {
       display: grid;
@@ -730,18 +738,18 @@
       border-bottom: 1px solid var(--border-light);
     }
     .info-line .k { font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
-    .info-line .v { font-size: 1.05rem; font-weight: 700; color: var(--text-black); margin-top: 2px; }
+    .info-line .v { font-size: 1.05rem; font-weight: 700; color: var(--text-white); margin-top: 2px; }
 
     /* FOOTER */
     footer {
-      background: var(--bg-main);
-      color: var(--text-black);
-      border-top: 2px solid var(--text-black);
+      background: var(--bg-blueprint);
+      color: var(--text-main);
+      border-top: 2px solid var(--border-medium);
       padding: 60px 0 30px;
     }
     .gbp-footer-block {
       background: var(--bg-subtle);
-      border: 2px solid var(--text-black);
+      border: 1px solid var(--border-medium);
       padding: 32px;
       margin-bottom: 40px;
     }
@@ -749,20 +757,20 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--text-black);
+      border-bottom: 1px solid var(--border-medium);
       padding-bottom: 16px;
       margin-bottom: 24px;
     }
     .gbp-title h4 {
       font-size: 1.5rem;
-      color: var(--text-black);
+      color: var(--text-white);
       font-weight: 800;
     }
     .gbp-title p {
       font-family: var(--font-mono);
       font-size: 0.85rem;
       font-weight: 700;
-      color: var(--text-muted);
+      color: var(--accent);
     }
     .gbp-grid {
       display: grid;
@@ -773,13 +781,13 @@
       font-family: var(--font-mono);
       font-size: 0.8rem;
       font-weight: 800;
-      color: var(--text-black);
+      color: var(--accent);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
     .gbp-item p, .gbp-item li {
       font-size: 0.95rem;
-      color: #333333;
+      color: var(--text-muted);
       line-height: 1.5;
     }
     .gbp-item ul { list-style: none; }
@@ -791,7 +799,7 @@
       font-size: 0.8rem;
       font-weight: 700;
       color: var(--text-muted);
-      border-top: 2px solid var(--text-black);
+      border-top: 1px dashed var(--border-medium);
       padding-top: 20px;
     }
 
@@ -874,13 +882,12 @@
           </div>
         </div>
 
-        <!-- REFRIGERATOR CABINET — DOOR SWINGS OPEN TO REVEAL THE PHONE NUMBER INSIDE -->
+        <!-- REFRIGERATOR CABINET -->
         <div class="fridge-hero-container">
           <div class="fridge-drawing-label">DET. A — FIG 00.1 // OPEN-DOOR STATE</div>
           <div class="fridge-cabinet">
             <div class="fridge-plate">HAS // MODEL J-2026</div>
 
-            <!-- interior, revealed once the door swings past it -->
             <div class="fridge-interior">
               <div class="fridge-shelf"></div>
               <div class="fridge-phone-shelf">
@@ -892,7 +899,6 @@
               <div class="fridge-shelf"></div>
             </div>
 
-            <!-- the door itself, hinged on the right -->
             <div class="fridge-door">
               <div class="fridge-door-freezer">
                 <div class="fridge-door-handle"></div>
@@ -910,103 +916,48 @@
   </section>
 
   <!-- SERVICES SECTION -->
-<section id="services" class="paper-grid" style="border-top:2px solid var(--text-black);">
-  <div class="wrap">
-    <div class="section-head">
-      <div>
-        <div class="eyebrow">Capabilities &amp; Scope</div>
-        <h2>Appliance Repair Services</h2>
+  <section id="services" class="paper-grid">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Capabilities &amp; Scope</div>
+          <h2>Appliance Repair Services</h2>
+        </div>
+        <div class="desc">Fast diagnostics and lasting repairs for all major residential household appliances.</div>
+        <div class="sheet-id">SHEET 02 // SERVICES</div>
       </div>
-      <div class="desc">Fast diagnostics and lasting repairs for all major residential household appliances.</div>
-      <div class="sheet-id">SHEET 02 // SERVICES</div>
-    </div>
-
-    <div class="svc-grid">
-
-      <a href="/washer-repair-jacksonville/" class="svc-card-link" aria-label="Washer Repair in Jacksonville">
-        <div class="svc-card">
-          <div class="fig">FIG 01.1 — WASHERS</div>
-          <div class="callout-dim">TOL ±0.5MM // FRONT & TOP LOAD</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="2"/><circle cx="8" cy="6" r="1"/></svg>
-          <h3>Washing Machine Repair</h3>
-          <p>Fixing drainage issues, spin cycle failures, leaks, unusual noises, and error codes across top-load and front-load units.</p>
-        </div>
-      </a>
-
-      <a href="/dryer-repair-jacksonville/" class="svc-card-link" aria-label="Dryer Repair in Jacksonville">
-        <div class="svc-card">
-          <div class="fig">FIG 01.2 — DRYERS</div>
-          <div class="callout-dim">TOL ±0.5MM // ELECTRIC & GAS</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="12" r="6"/><path d="M12 18a6 6 0 0 0 6-6"/><circle cx="7" cy="6" r="1"/><circle cx="10" cy="6" r="1"/></svg>
-          <h3>Clothes Dryer Repair</h3>
-          <p>Restoring heat to electric and gas dryers, replacing worn belts, thermal fuses, rollers, and resolving squeaking or tumbling issues.</p>
-        </div>
-      </a>
-
-      <a href="/refrigerator-repair-jacksonville/" class="svc-card-link" aria-label="Refrigerator Repair in Jacksonville">
-        <div class="svc-card">
-          <div class="fig">FIG 01.3 — REFRIGERATORS</div>
-          <div class="callout-dim">TOL ±0.5MM // COMPRESSOR SYS</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="5" x2="9" y2="7"/><line x1="9" y1="14" x2="9" y2="17"/></svg>
-          <h3>Refrigerator &amp; Freezer Repair</h3>
-          <p>Diagnosing cooling failures, faulty defrost cycles, ice maker malfunctions, noisy compressors, and water dispenser leaks.</p>
-        </div>
-      </a>
-
-      <div class="svc-card">
-        <div class="fig">FIG 01.4 — DISHWASHERS</div>
-        <div class="callout-dim">TOL ±0.5MM // WASH ARM ASSY</div>
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="8" x2="21" y2="8"/><circle cx="7" cy="5.5" r="1"/><path d="M8 12v4m4-4v4m4-4v4"/></svg>
-        <h3>Dishwashers</h3>
-        <p>Resolving standing water, poor cleaning performance, latch failures, circulation pump issues, and spray arm blockages.</p>
-      </div>
-
-      <a href="/oven-range-repair-jacksonville/" class="svc-card-link" aria-label="Oven and Range Repair in Jacksonville">
-        <div class="svc-card">
-          <div class="fig">FIG 01.5 — RANGES &amp; OVENS</div>
-          <div class="callout-dim">TOL ±0.5MM // GAS & ELECTRIC</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="8" cy="7" r="1.5"/><circle cx="16" cy="7" r="1.5"/><rect x="7" y="11" width="10" height="7" rx="1"/></svg>
-          <h3>Oven, Stove &amp; Range Repair</h3>
-          <p>Repairing broken heating elements, igniters, temperature control sensors, touchpads, and door latch mechanisms.</p>
-        </div>
-      </a>
-
-      <div class="svc-card">
-        <div class="fig">FIG 01.6 — GENERAL</div>
-        <div class="callout-dim">TOL N/A // FULL SYSTEM CHECK</div>
-        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        <h3>Comprehensive Diagnostics</h3>
-        <p>Honest evaluations to determine whether a unit is cost-effective to repair or due for replacement before any work begins.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
 
       <div class="svc-grid">
-        <div class="svc-card">
-          <div class="fig">FIG 01.1 — WASHERS</div>
-          <div class="callout-dim">TOL ±0.5MM // FRONT & TOP LOAD</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="2"/><circle cx="8" cy="6" r="1"/></svg>
-          <h3>Washing Machines</h3>
-          <p>Fixing drainage issues, spin cycle failures, leaks, unusual noises, and error codes across top-load and front-load units.</p>
-        </div>
 
-        <div class="svc-card">
-          <div class="fig">FIG 01.2 — DRYERS</div>
-          <div class="callout-dim">TOL ±0.5MM // ELECTRIC & GAS</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="12" r="6"/><path d="M12 18a6 6 0 0 0 6-6"/><circle cx="7" cy="6" r="1"/><circle cx="10" cy="6" r="1"/></svg>
-          <h3>Clothes Dryers</h3>
-          <p>Restoring heat to electric and gas dryers, replacing worn belts, thermal fuses, rollers, and resolving squeaking or tumbling issues.</p>
-        </div>
+        <a href="/washer-repair-jacksonville/" class="svc-card-link" aria-label="Washer Repair in Jacksonville">
+          <div class="svc-card">
+            <div class="fig">FIG 01.1 — WASHERS</div>
+            <div class="callout-dim">TOL ±0.5MM // FRONT & TOP LOAD</div>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="2"/><circle cx="8" cy="6" r="1"/></svg>
+            <h3>Washing Machine Repair</h3>
+            <p>Fixing drainage issues, spin cycle failures, leaks, unusual noises, and error codes across top-load and front-load units.</p>
+          </div>
+        </a>
 
-        <div class="svc-card">
-          <div class="fig">FIG 01.3 — REFRIGERATORS</div>
-          <div class="callout-dim">TOL ±0.5MM // COMPRESSOR SYS</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="5" x2="9" y2="7"/><line x1="9" y1="14" x2="9" y2="17"/></svg>
-          <h3>Refrigerators &amp; Freezers</h3>
-          <p>Diagnosing cooling failures, faulty defrost cycles, ice maker malfunctions, noisy compressors, and water dispenser leaks.</p>
-        </div>
+        <a href="/dryer-repair-jacksonville/" class="svc-card-link" aria-label="Dryer Repair in Jacksonville">
+          <div class="svc-card">
+            <div class="fig">FIG 01.2 — DRYERS</div>
+            <div class="callout-dim">TOL ±0.5MM // ELECTRIC & GAS</div>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="12" r="6"/><path d="M12 18a6 6 0 0 0 6-6"/><circle cx="7" cy="6" r="1"/><circle cx="10" cy="6" r="1"/></svg>
+            <h3>Clothes Dryer Repair</h3>
+            <p>Restoring heat to electric and gas dryers, replacing worn belts, thermal fuses, rollers, and resolving squeaking or tumbling issues.</p>
+          </div>
+        </a>
+
+        <a href="/refrigerator-repair-jacksonville/" class="svc-card-link" aria-label="Refrigerator Repair in Jacksonville">
+          <div class="svc-card">
+            <div class="fig">FIG 01.3 — REFRIGERATORS</div>
+            <div class="callout-dim">TOL ±0.5MM // COMPRESSOR SYS</div>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="5" y1="10" x2="19" y2="10"/><line x1="9" y1="5" x2="9" y2="7"/><line x1="9" y1="14" x2="9" y2="17"/></svg>
+            <h3>Refrigerator &amp; Freezer Repair</h3>
+            <p>Diagnosing cooling failures, faulty defrost cycles, ice maker malfunctions, noisy compressors, and water dispenser leaks.</p>
+          </div>
+        </a>
 
         <div class="svc-card">
           <div class="fig">FIG 01.4 — DISHWASHERS</div>
@@ -1016,13 +967,15 @@
           <p>Resolving standing water, poor cleaning performance, latch failures, circulation pump issues, and spray arm blockages.</p>
         </div>
 
-        <div class="svc-card">
-          <div class="fig">FIG 01.5 — RANGES &amp; OVENS</div>
-          <div class="callout-dim">TOL ±0.5MM // GAS & ELECTRIC</div>
-          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="8" cy="7" r="1.5"/><circle cx="16" cy="7" r="1.5"/><rect x="7" y="11" width="10" height="7" rx="1"/></svg>
-          <h3>Ovens, Stoves &amp; Ranges</h3>
-          <p>Repairing broken heating elements, igniters, temperature control sensors, touchpads, and door latch mechanisms.</p>
-        </div>
+        <a href="/oven-range-repair-jacksonville/" class="svc-card-link" aria-label="Oven and Range Repair in Jacksonville">
+          <div class="svc-card">
+            <div class="fig">FIG 01.5 — RANGES &amp; OVENS</div>
+            <div class="callout-dim">TOL ±0.5MM // GAS & ELECTRIC</div>
+            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="8" cy="7" r="1.5"/><circle cx="16" cy="7" r="1.5"/><rect x="7" y="11" width="10" height="7" rx="1"/></svg>
+            <h3>Oven, Stove &amp; Range Repair</h3>
+            <p>Repairing broken heating elements, igniters, temperature control sensors, touchpads, and door latch mechanisms.</p>
+          </div>
+        </a>
 
         <div class="svc-card">
           <div class="fig">FIG 01.6 — GENERAL</div>
@@ -1031,11 +984,12 @@
           <h3>Comprehensive Diagnostics</h3>
           <p>Honest evaluations to determine whether a unit is cost-effective to repair or due for replacement before any work begins.</p>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- 5-STAR REVIEWS SECTION -->
+  <!-- REVIEWS SECTION -->
   <section id="reviews" class="reviews-band">
     <div class="wrap">
       <div class="reviews-inner">
@@ -1043,7 +997,7 @@
           <div class="big">4.9</div>
           <div class="meta">
             <div class="stars">★★★★★</div>
-            <div style="font-family:var(--font-mono); font-weight:700; font-size:0.9rem; text-transform:uppercase; margin-top:4px;">190+ Verified Reviews on Google</div>
+            <div style="font-family:var(--font-mono); font-weight:700; font-size:0.9rem; text-transform:uppercase; margin-top:4px; color:var(--text-white);">190+ Verified Reviews on Google</div>
           </div>
         </div>
         <div>
@@ -1051,7 +1005,6 @@
         </div>
       </div>
 
-      <!-- REVIEW CARDS -->
       <div class="review-grid">
         <div class="review-card">
           <div>
@@ -1116,7 +1069,7 @@
   </section>
 
   <!-- COVERAGE SECTION -->
-  <section id="coverage" class="paper-grid" style="border-top:2px solid var(--text-black);">
+  <section id="coverage" class="paper-grid">
     <div class="wrap">
       <div class="section-head">
         <div>
@@ -1159,48 +1112,48 @@
 
         <div class="solar-blueprint-container">
           <svg class="solar-blueprint-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="250" y1="0" x2="250" y2="500" stroke="#cccccc" stroke-dasharray="4 4"/>
-            <line x1="0" y1="250" x2="500" y2="250" stroke="#cccccc" stroke-dasharray="4 4"/>
+            <line x1="250" y1="0" x2="250" y2="500" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4 4"/>
+            <line x1="0" y1="250" x2="500" y2="250" stroke="rgba(255,255,255,0.2)" stroke-dasharray="4 4"/>
             
-            <circle cx="250" cy="250" r="60" stroke="#888888" stroke-width="1" stroke-dasharray="2 2"/>
-            <text x="255" y="185" fill="#000000" font-family="JetBrains Mono" font-size="8" font-weight="bold">5 MI ORBIT</text>
+            <circle cx="250" cy="250" r="60" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="2 2"/>
+            <text x="255" y="185" fill="#64ffda" font-family="JetBrains Mono" font-size="8" font-weight="bold">5 MI ORBIT</text>
 
-            <circle cx="250" cy="250" r="120" stroke="#888888" stroke-width="1" stroke-dasharray="4 4"/>
-            <text x="255" y="125" fill="#000000" font-family="JetBrains Mono" font-size="8" font-weight="bold">12 MI ORBIT</text>
+            <circle cx="250" cy="250" r="120" stroke="rgba(255,255,255,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+            <text x="255" y="125" fill="#64ffda" font-family="JetBrains Mono" font-size="8" font-weight="bold">12 MI ORBIT</text>
 
-            <circle cx="250" cy="250" r="200" stroke="#ff4f12" stroke-width="2" stroke-dasharray="6 6"/>
-            <text x="255" y="45" fill="#ff4f12" font-family="JetBrains Mono" font-size="9" font-weight="bold">20 MI SERVICE BOUNDARY</text>
+            <circle cx="250" cy="250" r="200" stroke="#64ffda" stroke-width="2" stroke-dasharray="6 6"/>
+            <text x="255" y="45" fill="#64ffda" font-family="JetBrains Mono" font-size="9" font-weight="bold">20 MI SERVICE BOUNDARY</text>
 
-            <circle cx="250" cy="250" r="10" fill="#ff4f12" />
-            <circle cx="250" cy="250" r="18" stroke="#ff4f12" stroke-width="1.5"/>
-            <text x="250" y="280" fill="#000000" font-family="JetBrains Mono" font-size="10" font-weight="bold" text-anchor="middle">SAN PABLO RD S (CENTER)</text>
+            <circle cx="250" cy="250" r="10" fill="#64ffda" />
+            <circle cx="250" cy="250" r="18" stroke="#64ffda" stroke-width="1.5"/>
+            <text x="250" y="280" fill="#ffffff" font-family="JetBrains Mono" font-size="10" font-weight="bold" text-anchor="middle">SAN PABLO RD S (CENTER)</text>
 
-            <line x1="250" y1="250" x2="350" y2="230" stroke="#555555" stroke-width="1"/>
-            <circle cx="350" cy="230" r="7" fill="#000000"/>
-            <text x="362" y="234" fill="#000000" font-family="JetBrains Mono" font-size="9" font-weight="bold">Jax Beaches (~7 mi E)</text>
+            <line x1="250" y1="250" x2="350" y2="230" stroke="#8892b0" stroke-width="1"/>
+            <circle cx="350" cy="230" r="7" fill="#ffffff"/>
+            <text x="362" y="234" fill="#ffffff" font-family="JetBrains Mono" font-size="9" font-weight="bold">Jax Beaches (~7 mi E)</text>
 
-            <line x1="250" y1="250" x2="370" y2="380" stroke="#555555" stroke-width="1"/>
-            <circle cx="370" cy="380" r="8" fill="#000000"/>
-            <text x="382" y="384" fill="#000000" font-family="JetBrains Mono" font-size="9" font-weight="bold">Ponte Vedra / Nocatee (~14 mi SE)</text>
+            <line x1="250" y1="250" x2="370" y2="380" stroke="#8892b0" stroke-width="1"/>
+            <circle cx="370" cy="380" r="8" fill="#ffffff"/>
+            <text x="382" y="384" fill="#ffffff" font-family="JetBrains Mono" font-size="9" font-weight="bold">Ponte Vedra / Nocatee (~14 mi SE)</text>
 
-            <line x1="250" y1="250" x2="160" y2="140" stroke="#555555" stroke-width="1"/>
-            <circle cx="160" cy="140" r="6" fill="#000000"/>
-            <text x="60" y="135" fill="#000000" font-family="JetBrains Mono" font-size="9" font-weight="bold">Arlington (~11 mi NW)</text>
+            <line x1="250" y1="250" x2="160" y2="140" stroke="#8892b0" stroke-width="1"/>
+            <circle cx="160" cy="140" r="6" fill="#ffffff"/>
+            <text x="60" y="135" fill="#ffffff" font-family="JetBrains Mono" font-size="9" font-weight="bold">Arlington (~11 mi NW)</text>
 
-            <line x1="250" y1="250" x2="140" y2="260" stroke="#555555" stroke-width="1"/>
-            <circle cx="140" cy="260" r="7" fill="#000000"/>
-            <text x="45" y="264" fill="#000000" font-family="JetBrains Mono" font-size="9" font-weight="bold">Southside (~10 mi W)</text>
+            <line x1="250" y1="250" x2="140" y2="260" stroke="#8892b0" stroke-width="1"/>
+            <circle cx="140" cy="260" r="7" fill="#ffffff"/>
+            <text x="45" y="264" fill="#ffffff" font-family="JetBrains Mono" font-size="9" font-weight="bold">Southside (~10 mi W)</text>
 
-            <line x1="250" y1="250" x2="110" y2="370" stroke="#555555" stroke-width="1"/>
-            <circle cx="110" cy="370" r="8" fill="#000000"/>
-            <text x="15" y="385" fill="#000000" font-family="JetBrains Mono" font-size="9" font-weight="bold">Mandarin (~16 mi SW)</text>
+            <line x1="250" y1="250" x2="110" y2="370" stroke="#8892b0" stroke-width="1"/>
+            <circle cx="110" cy="370" r="8" fill="#ffffff"/>
+            <text x="15" y="385" fill="#ffffff" font-family="JetBrains Mono" font-size="9" font-weight="bold">Mandarin (~16 mi SW)</text>
           </svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- DIRECT CONTACT SECTION (NO FORM) -->
+  <!-- DIRECT CONTACT SECTION -->
   <section id="contact" class="paper-grid">
     <div class="wrap">
       <div class="section-head">
@@ -1219,7 +1172,7 @@
           <div class="contact-grid-info">
             <div class="info-line">
               <span class="k">Phone / Text</span>
-              <span class="v"><a href="tel:19043358206" style="text-decoration:none; color:var(--text-black);">(904) 335-8206</a></span>
+              <span class="v"><a href="tel:19043358206" style="text-decoration:none; color:var(--accent);">(904) 335-8206</a></span>
             </div>
             <div class="info-line">
               <span class="k">Primary Location</span>
