@@ -23,10 +23,10 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://hedlundappliance.com/og-image.jpg">
 
-  <!-- Youtube Card SEO -->
-  <meta name="youtube:card" content="summary_large_image">
-  <meta name="youtube:title" content="Appliance Repair Jacksonville, FL | Hedlund Appliance Service">
-  <meta name="youtube:description" content="Precision technical diagnostics and repair for major household appliances in Jacksonville and the Beaches.">
+  <!-- Twitter Card SEO -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Appliance Repair Jacksonville, FL | Hedlund Appliance Service">
+  <meta name="twitter:description" content="Precision technical diagnostics and repair for major household appliances in Jacksonville and the Beaches.">
 
   <style>
     :root {
@@ -112,31 +112,34 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
 
+    /* ENLARGED & BRAND-COLORED SOCIAL LINKS */
     .social-links {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 16px;
     }
 
     .social-icon {
-      color: var(--text-muted);
-      transition: color 0.2s ease, transform 0.2s ease;
+      transition: transform 0.2s ease, filter 0.2s ease;
       display: flex;
       align-items: center;
     }
 
     .social-icon:hover {
-      color: var(--accent);
-      transform: translateY(-2px);
+      transform: translateY(-2px) scale(1.1);
+      filter: brightness(1.2);
     }
 
     .social-icon svg {
-      width: 20px;
-      height: 20px;
+      width: 26px;
+      height: 26px;
     }
+
+    .social-icon.facebook svg { fill: #1877F2; }
+    .social-icon.youtube svg { fill: #FF0000; }
 
     .header-cta {
       font-family: var(--font-mono);
@@ -154,7 +157,7 @@
       color: var(--bg-blueprint);
     }
 
-    /* HERO & ANIMATED DRYER */
+    /* HERO & ENLARGED ANIMATED DRYER */
     .hero {
       padding: 72px 0 56px;
       border-bottom: 2px solid var(--border-medium);
@@ -209,68 +212,69 @@
       line-height: 1.5;
     }
 
-    /* SPINNING DRYER WITH TUMBLING REVIEWS */
+    /* LARGER DRYER WRAPPER WITH 3 TUMBLING REVIEWS */
     .dryer-wrapper {
       position: relative;
-      width: 220px;
-      height: 250px;
+      width: 280px;
+      height: 310px;
       background: var(--bg-card);
       border: 2px solid var(--border-medium);
       border-radius: 12px;
-      padding: 16px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
     }
 
     .dryer-top-panel {
       width: 100%;
-      height: 30px;
+      height: 34px;
       background: var(--bg-subtle);
       border: 1px solid var(--border-light);
       border-radius: 4px;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 10px;
+      padding: 0 12px;
     }
 
     .dryer-knob {
-      width: 14px;
-      height: 14px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--accent);
-      box-shadow: 0 0 5px var(--accent);
+      box-shadow: 0 0 6px var(--accent);
     }
 
     .dryer-display {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       color: var(--accent);
       letter-spacing: 0.05em;
+      font-weight: bold;
     }
 
     .dryer-door {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 210px;
+      height: 210px;
       border-radius: 50%;
-      border: 6px solid var(--border-strong);
-      background: radial-gradient(circle, rgba(16, 37, 66, 0.9) 0%, rgba(10, 25, 47, 0.95) 100%);
+      border: 7px solid var(--border-strong);
+      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(10, 25, 47, 0.98) 100%);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
     }
 
     .dryer-drum-spinner {
       position: absolute;
       width: 100%;
       height: 100%;
-      animation: spinDrum 4s linear infinite;
+      animation: spinDrum 5s linear infinite;
     }
 
     @keyframes spinDrum {
@@ -291,37 +295,66 @@
     .drum-fin:nth-child(2) { transform: rotate(60deg); }
     .drum-fin:nth-child(3) { transform: rotate(120deg); }
 
-    /* TUMBLING REVIEWS CARDS */
+    /* 3 INDIVIDUAL TUMBLING REVIEWS */
     .tumbling-review {
       position: absolute;
       background: rgba(10, 25, 47, 0.95);
       border: 1px solid var(--accent);
-      padding: 6px 8px;
+      padding: 8px 10px;
       border-radius: 6px;
       text-align: center;
-      animation: tumble 6s ease-in-out infinite;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      width: 150px;
+      pointer-events: none;
     }
 
     .stars {
       color: #ffd700;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       letter-spacing: 1px;
     }
 
-    .review-text {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
+    .review-desc {
+      font-size: 0.62rem;
       color: var(--text-white);
-      white-space: nowrap;
+      line-height: 1.2;
+      margin: 2px 0;
+      font-weight: 500;
     }
 
-    @keyframes tumble {
-      0% { transform: translate(-30px, 40px) rotate(0deg) scale(0.7); opacity: 0; }
-      20% { opacity: 1; }
-      50% { transform: translate(25px, -20px) rotate(180deg) scale(1); }
-      80% { opacity: 1; }
-      100% { transform: translate(-20px, -40px) rotate(360deg) scale(0.6); opacity: 0; }
+    .review-author {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .review-1 { animation: tumbleOne 9s ease-in-out infinite; }
+    .review-2 { animation: tumbleTwo 9s ease-in-out infinite 3s; }
+    .review-3 { animation: tumbleThree 9s ease-in-out infinite 6s; }
+
+    @keyframes tumbleOne {
+      0% { transform: translate(-35px, 50px) rotate(-10deg) scale(0.6); opacity: 0; }
+      15% { opacity: 1; transform: translate(0px, 10px) rotate(5deg) scale(0.95); }
+      33% { opacity: 1; transform: translate(25px, -30px) rotate(180deg) scale(0.85); }
+      45% { opacity: 0; transform: translate(-20px, -60px) rotate(360deg) scale(0.5); }
+      100% { opacity: 0; }
+    }
+
+    @keyframes tumbleTwo {
+      0% { transform: translate(35px, 50px) rotate(15deg) scale(0.6); opacity: 0; }
+      15% { opacity: 1; transform: translate(-10px, 5px) rotate(-5deg) scale(0.95); }
+      33% { opacity: 1; transform: translate(-25px, -25px) rotate(-180deg) scale(0.85); }
+      45% { opacity: 0; transform: translate(20px, -55px) rotate(-360deg) scale(0.5); }
+      100% { opacity: 0; }
+    }
+
+    @keyframes tumbleThree {
+      0% { transform: translate(0px, 60px) rotate(0deg) scale(0.6); opacity: 0; }
+      15% { opacity: 1; transform: translate(15px, 0px) rotate(-10deg) scale(0.95); }
+      33% { opacity: 1; transform: translate(-15px, -35px) rotate(180deg) scale(0.85); }
+      45% { opacity: 0; transform: translate(0px, -65px) rotate(360deg) scale(0.5); }
+      100% { opacity: 0; }
     }
 
     .cta-row {
@@ -463,7 +496,7 @@
       color: #ffffff;
     }
 
-    /* SERVICE AREA & VECTOR MAP DIAGRAM */
+    /* SERVICE AREA & NORTHEAST FLORIDA VECTOR MAP */
     .service-area {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -705,16 +738,13 @@
       </a>
       
       <div class="header-right">
-        <!-- HEADER SOCIAL LINKS -->
+        <!-- HEADER SOCIAL LINKS WITH ACCURATE SIZES AND BRAND COLORS -->
         <div class="social-links">
-          <a href="https://facebook.com" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.78 5.6c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
+          <a href="https://www.facebook.com/profile.php?id=61591790762759" target="_blank" rel="noopener" class="social-icon facebook" aria-label="Facebook Page">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.78 5.6c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
           </a>
-          <a href="https://google.com" target="_blank" rel="noopener" class="social-icon" aria-label="Google Business Profile">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.761H12.545z"/></svg>
-          </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <a href="https://youtube.com/@hedlundapplianceservice?si=MUJ07LVOVk6l1VKO" target="_blank" rel="noopener" class="social-icon youtube" aria-label="YouTube Channel">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
         </div>
         <a class="header-cta" href="tel:+19043358206">CALL (904) 335-8206</a>
@@ -744,7 +774,7 @@
           </div>
         </div>
 
-        <!-- SPINNING DRYER WITH 5 STAR REVIEWS -->
+        <!-- ENLARGED SPINNING DRYER WITH 3 LOCAL REVIEWS TUMBLING -->
         <div class="dryer-wrapper">
           <div class="dryer-top-panel">
             <div class="dryer-knob"></div>
@@ -756,10 +786,28 @@
               <div class="drum-fin"></div>
               <div class="drum-fin"></div>
             </div>
-            <div class="tumbling-review">
+
+            <!-- REVIEW CARD 1 -->
+            <div class="tumbling-review review-1">
               <div class="stars">★★★★★</div>
-              <div class="review-text">Fast Diagnostic!</div>
+              <div class="review-desc">"Fixed our dryer heater fast!"</div>
+              <div class="review-author">— Sarah M., Jax Beach</div>
             </div>
+
+            <!-- REVIEW CARD 2 -->
+            <div class="tumbling-review review-2">
+              <div class="stars">★★★★★</div>
+              <div class="review-desc">"Honest, technical expert."</div>
+              <div class="review-author">— David R., San Pablo</div>
+            </div>
+
+            <!-- REVIEW CARD 3 -->
+            <div class="tumbling-review review-3">
+              <div class="stars">★★★★★</div>
+              <div class="review-desc">"Diagnosed on first visit!"</div>
+              <div class="review-author">— Elena K., Ponte Vedra</div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -854,32 +902,45 @@
             Based near San Pablo Road South, Hedlund Appliance Service provides prompt repair calls across Duval and St. Johns county communities.
           </p>
 
-          <!-- FLORIDA MAP & RADIUS OVERLAY DIAGRAM -->
+          <!-- NORTHEAST FLORIDA MAP & RADIUS OVERLAY DIAGRAM -->
           <div class="map-container">
-            <svg viewBox="0 0 500 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
               <!-- Grid Lines -->
-              <path d="M0 50 H500 M0 100 H500 M0 150 H500 M0 200 H500 M0 250 H500 M0 300 H500" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
-              <path d="M50 0 V350 M100 0 V350 M150 0 V350 M200 0 V350 M250 0 V350 M300 0 V350 M350 0 V350 M400 0 V350 M450 0 V350" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <path d="M0 60 H500 M0 120 H500 M0 180 H500 M0 240 H500 M0 300 H500" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <path d="M60 0 V360 M120 0 V360 M180 0 V360 M240 0 V360 M300 0 V360 M360 0 V360 M420 0 V360" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
               
-              <!-- Florida Coastline Vector Outline Zoomed on North FL -->
-              <path d="M 50,20 L 220,20 L 260,35 L 290,45 L 320,65 L 340,90 L 330,130 L 320,180 L 310,240 L 305,320 L 250,330 L 200,320 L 150,320 L 100,320 L 50,320 Z" fill="#0e2443" stroke="#8892b0" stroke-width="2" opacity="0.6"/>
+              <!-- NORTHEAST FLORIDA COASTLINE & GEOGRAPHY -->
+              <path d="M 10,20 L 320,20 L 330,40 L 332,90 L 335,130 L 340,180 L 348,230 L 358,300 L 365,350 L 10,350 Z" fill="#0e2443" stroke="#8892b0" stroke-width="2" opacity="0.7"/>
               
+              <!-- St. Johns River Path (Jacksonville Loop to Atlantic Ocean) -->
+              <path d="M 120,350 L 140,280 L 160,200 L 170,130 Q 180,90 230,90 L 332,90" fill="none" stroke="#0a192f" stroke-width="8"/>
+              <text x="180" y="115" fill="#8892b0" font-family="monospace" font-size="8" opacity="0.6">ST. JOHNS RIVER</text>
+
+              <!-- County Boundary Line (Duval / St. Johns) -->
+              <path d="M 50,220 H 345" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+              <text x="60" y="212" fill="#8892b0" font-family="monospace" font-size="8">DUVAL COUNTY</text>
+              <text x="60" y="235" fill="#8892b0" font-family="monospace" font-size="8">ST. JOHNS COUNTY</text>
+
               <!-- Ocean Label -->
-              <text x="360" y="150" fill="#8892b0" font-family="monospace" font-size="10" letter-spacing="2">ATLANTIC OCEAN</text>
-              <text x="80" y="100" fill="#8892b0" font-family="monospace" font-size="12" font-weight="bold">FLORIDA</text>
-
-              <!-- St. Johns River Path -->
-              <path d="M 280,320 Q 260,200 270,120 T 300,65" fill="none" stroke="#0a192f" stroke-width="6"/>
-
-              <!-- 20-Mile Service Radius Circle -->
-              <circle cx="310" cy="85" r="70" fill="rgba(100, 255, 218, 0.12)" stroke="#64ffda" stroke-width="2" stroke-dasharray="4 4"/>
-              <circle cx="310" cy="85" r="4" fill="#64ffda"/>
+              <text x="360" y="160" fill="#8892b0" font-family="monospace" font-size="10" letter-spacing="2">ATLANTIC OCEAN</text>
               
-              <!-- Anchor Point Tag -->
-              <line x1="310" y1="85" x2="360" y2="50" stroke="#64ffda" stroke-width="1.5"/>
-              <rect x="360" y="35" width="130" height="30" fill="#0a192f" stroke="#64ffda" stroke-width="1"/>
-              <text x="365" y="48" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold">HQ: San Pablo Rd S</text>
-              <text x="365" y="59" fill="#64ffda" font-family="monospace" font-size="8">20-MILE RADIUS ZONE</text>
+              <!-- Key Area Text Labels -->
+              <text x="210" y="70" fill="#e6f1ff" font-family="monospace" font-size="9" font-weight="bold">Downtown Jax</text>
+              <text x="310" y="115" fill="#64ffda" font-family="monospace" font-size="8">Jax Beach</text>
+              <text x="325" y="210" fill="#64ffda" font-family="monospace" font-size="8">Ponte Vedra</text>
+
+              <!-- 20-MILE SERVICE RADIUS CIRCLE (CENTERED AT 1701 SAN PABLO RD S) -->
+              <circle cx="295" cy="120" r="95" fill="rgba(100, 255, 218, 0.12)" stroke="#64ffda" stroke-width="2" stroke-dasharray="5 5"/>
+              
+              <!-- BUSINESS LOCATION PIN -->
+              <circle cx="295" cy="120" r="5" fill="#64ffda"/>
+              <circle cx="295" cy="120" r="9" fill="none" stroke="#64ffda" stroke-width="1.5"/>
+
+              <!-- HQ ANCHOR TAG -->
+              <line x1="295" y1="120" x2="220" y2="165" stroke="#64ffda" stroke-width="1.5"/>
+              <rect x="120" y="165" width="160" height="34" fill="#0a192f" stroke="#64ffda" stroke-width="1"/>
+              <text x="126" y="179" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold">1701 San Pablo Rd S</text>
+              <text x="126" y="191" fill="#64ffda" font-family="monospace" font-size="8">20-MILE SERVICE RADIUS</text>
             </svg>
           </div>
         </div>
