@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Appliance Repair in [Atlantic Beach], FL | Hedlund Appliance Service</title>
-  <meta name="description" content="Fast, technical appliance repair in [Atlantic Beach] ([32250, 32240]), Jacksonville, FL. Expert diagnostics for refrigerators, washers, dryers, and more.">
+  <meta name="description" content="Fast, technical appliance repair in [Atlantic Beach] ([32233]), Jacksonville, FL. Expert diagnostics for refrigerators, washers, dryers, and more.">
   <link rel="canonical" href="https://hedlundappliance.com/locations/[neighborhood-slug]/">
   
   <style>
@@ -37,12 +37,12 @@
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Hedlund Appliance Service - [Neighborhood Name]",
+    "name": "Hedlund Appliance Service - [Atlantic Beach]",
     "telephone": "+1-904-335-8206",
     "url": "https://hedlundappliance.com/locations/[neighborhood-slug]/",
     "areaServed": {
       "@type": "AdministrativeArea",
-      "name": "[Neighborhood Name], Jacksonville, FL"
+      "name": "[Atlantic Beach], Jacksonville, FL"
     }
   }
   </script>
@@ -51,11 +51,11 @@
   <div class="wrap">
     <a class="back-link" href="/">← Back to Main Dispatch Hub</a>
     
-    <div class="eyebrow">Local Service Dispatch // [Neighborhood Name]</div>
-    <h1>Appliance Repair in [Neighborhood Name]</h1>
+    <div class="eyebrow">Local Service Dispatch // [Atlantic Beach]</div>
+    <h1>Appliance Repair in [Atlantic Beach]</h1>
 
     <p>
-      Hedlund Appliance Service provides priority technical diagnostics and troubleshooting for residents throughout **[Neighborhood Name]** and surrounding blocks. Because we operate nearby, our trucks can quickly reach homes across the **[ZIP Codes]** area.
+      Hedlund Appliance Service provides priority technical diagnostics and troubleshooting for residents throughout **[Atlantic Beach]** and surrounding blocks. Because we operate nearby, our trucks can quickly reach homes across the **[32233]** area.
     </p>
 
     <div class="card">
@@ -68,4 +68,5 @@
   </div>
 </body>
 </html>
+
 
