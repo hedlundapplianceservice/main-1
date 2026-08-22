@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Appliance Repair in [Neighborhood Name], FL | Hedlund Appliance Service</title>
+  <meta name="description" content="Fast, technical appliance repair in [Neighborhood Name] ([ZIP Codes]), Jacksonville, FL. Expert diagnostics for refrigerators, washers, dryers, and more.">
+  <link rel="canonical" href="https://hedlundappliance.com/locations/[neighborhood-slug]/">
+  
+  <style>
+    :root {
+      --bg-blueprint: #0a192f;
+      --bg-subtle: #112240;
+      --bg-card: #0e2443;
+      --text-white: #ffffff;
+      --text-main: #e6f1ff;
+      --text-muted: #8892b0;
+      --border-medium: rgba(255, 255, 255, 0.4);
+      --accent: #64ffda;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'Inter', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background-color: var(--bg-blueprint); color: var(--text-main); font-family: var(--font-sans); line-height: 1.6; }
+    .wrap { width: min(900px, calc(100% - 40px)); margin: 0 auto; padding: 60px 0; }
+    .eyebrow { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+    h1 { font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: var(--text-white); margin-bottom: 24px; line-height: 1.1; }
+    p { font-size: 1.1rem; color: var(--text-muted); margin-bottom: 20px; }
+    .card { background: var(--bg-card); border: 1px solid var(--border-medium); padding: 32px; margin-top: 32px; }
+    .back-link { font-family: var(--font-mono); color: var(--accent); text-decoration: none; font-size: 0.85rem; display: inline-block; margin-bottom: 20px; }
+    .back-link:hover { text-decoration: underline; }
+    .button { display: inline-block; margin-top: 16px; background: var(--accent); color: var(--bg-blueprint); font-family: var(--font-mono); font-weight: 800; padding: 12px 24px; text-decoration: none; text-transform: uppercase; }
+  </style>
+
+  <!-- LocalBusiness Schema with Area Specificity -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Hedlund Appliance Service - [Neighborhood Name]",
+    "telephone": "+1-904-335-8206",
+    "url": "https://hedlundappliance.com/locations/[neighborhood-slug]/",
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "[Downtown Jax], Jacksonville, FL"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back-link" href="/">← Back to Main Dispatch Hub</a>
+    
+    <div class="eyebrow">Local Service Dispatch // [Downtown Jax]</div>
+    <h1>Appliance Repair in [Downtown Jax]</h1>
+
+    <p>
+      Hedlund Appliance Service provides priority technical diagnostics and troubleshooting for residents throughout **[Downtown Jax]** and surrounding blocks. Because we operate nearby, our trucks can quickly reach homes across the **[32202, 32204, 32206]** area.
+    </p>
+
+    <div class="card">
+      <h3 style="color: var(--text-white); margin-bottom: 12px; font-size: 1.4rem;">Direct Technician Dispatch</h3>
+      <p>
+        Experiencing cooling loss in your refrigerator, a leaking dishwasher, or a dryer that won't heat? Skip the part-guessing and call our direct line for rapid scheduling.
+      </p>
+      <a class="button" href="tel:+19043358206">CALL (904) 335-8206</a>
+    </div>
+  </div>
+</body>
+</html>
 
