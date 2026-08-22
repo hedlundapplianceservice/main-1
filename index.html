@@ -67,442 +67,505 @@
   }
   </script>
 
-  <style>
-    :root {
-      /* ARCHITECTURAL BLUEPRINT PALETTE */
-      --bg-blueprint: #0a192f;
-      --bg-subtle: #112240;
-      --bg-card: #0e2443;
-      
-      --text-white: #ffffff;
-      --text-main: #e6f1ff;
-      --text-muted: #8892b0;
-      
-      --border-strong: #ffffff;
-      --border-medium: rgba(255, 255, 255, 0.4);
-      --border-light: rgba(255, 255, 255, 0.15);
-
-      /* LIGHT GREEN ACCENTS */
-      --accent: #64ffda;
-      --accent-dim: rgba(100, 255, 218, 0.15);
-      --accent-dark: #00b386;
-
-      --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      background-color: var(--bg-blueprint);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    /* TYPOGRAPHY & UTILS */
-    .mono { font-family: var(--font-mono); }
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+ <style>
+  :root {
+    /* ARCHITECTURAL BLUEPRINT PALETTE */
+    --bg-blueprint: #0a192f;
+    --bg-subtle: #112240;
+    --bg-card: #0e2443;
     
-    .eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .eyebrow::before {
-      content: '';
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 0 3px var(--accent-dim);
-    }
-
-    /* REGISTRATION / CROP MARKS */
-    .reg-marks { position: relative; }
-    .reg-marks::before, .reg-marks::after {
-      content: '';
-      position: absolute;
-      width: 14px;
-      height: 14px;
-      border-top: 2px solid var(--accent);
-      border-left: 2px solid var(--accent);
-      top: 10px;
-      left: 8px;
-    }
-    .reg-marks::after {
-      left: auto;
-      right: 8px;
-      border-left: none;
-      border-right: 2px solid var(--accent);
-    }
-
-    /* DIMENSION LINE */
-    .dim-line {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.03em;
-    }
-    .dim-line::before, .dim-line::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--accent);
-      position: relative;
-    }
-    .dim-line::before { border-left: 1px solid var(--accent); }
-    .dim-line::after { border-right: 1px solid var(--accent); }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 28px;
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      font-weight: 800;
-      text-decoration: none;
-      border-radius: 0px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .btn-primary {
-      background: var(--accent);
-      color: var(--bg-blueprint);
-      border: 2px solid var(--accent);
-    }
-    .btn-primary:hover {
-      background: #4cd6b3;
-      border-color: #4cd6b3;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
-    }
-    .btn-outline {
-      border: 2px solid var(--text-white);
-      color: var(--text-white);
-      background: transparent;
-    }
-    .btn-outline:hover {
-      background: var(--text-white);
-      color: var(--bg-blueprint);
-    }
-
-    /* HEADER */
-    header {
-      background: var(--bg-blueprint);
-      border-bottom: 2px solid var(--border-medium);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 18px 0;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .logo-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: var(--text-white);
-      font-family: var(--font-mono);
-      font-weight: 800;
-      font-size: 1.2rem;
-      letter-spacing: -0.02em;
-    }
-    .logo-link svg { width: 32px; height: 32px; stroke: var(--accent); }
-    nav { display: flex; gap: 28px; }
-    nav a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-family: var(--font-mono);
-      font-weight: 700;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    nav a:hover { color: var(--accent); }
-    .call-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--bg-blueprint);
-      background: var(--accent);
-      font-family: var(--font-mono);
-      font-weight: 800;
-      text-decoration: none;
-      border: 2px solid var(--accent);
-      padding: 8px 18px;
-      transition: all 0.2s ease;
-    }
-    .call-btn:hover { background: #4cd6b3; }
-    .call-btn svg { stroke: var(--bg-blueprint); }
-
-    /* BLUEPRINT DRAFTING GRID */
-    .paper-grid {
-      background-color: var(--bg-blueprint);
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-      background-size: 30px 30px;
-      padding: 80px 0;
-    }
-
-    /* HERO SECTION */
-    .hero {
-      padding: 90px 0 100px;
-      position: relative;
-      border-bottom: 2px solid var(--border-medium);
-    }
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: var(--accent);
-      border-bottom: 2px stroke var(--border-medium);
-      border-bottom-style: dashed;
-      padding-bottom: 12px;
-      margin-bottom: 40px;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 60px;
-      align-items: center;
-    }
+    --text-white: #ffffff;
+    --text-main: #e6f1ff;
+    --text-muted: #8892b0;
     
-    /* HOOK QUESTION BOX */
-    .hero-hook-box {
-      background: var(--bg-card);
-      border: 1px solid var(--border-medium);
-      border-left: 6px solid var(--accent);
-      padding: 20px 24px;
-      margin-bottom: 28px;
-      box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
-    }
-    .hero-hook-question {
-      font-family: var(--font-sans);
-      font-size: 1.35rem;
-      color: var(--text-white);
-      font-weight: 800;
-      line-height: 1.3;
-    }
+    --border-strong: #ffffff;
+    --border-medium: rgba(255, 255, 255, 0.4);
+    --border-light: rgba(255, 255, 255, 0.15);
 
-    .hero h1 {
-      font-size: 3.4rem;
-      line-height: 1.08;
-      margin-bottom: 24px;
-      font-weight: 900;
-      color: var(--text-white);
-      letter-spacing: -0.03em;
-    }
-    .hero p.lede {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      margin-bottom: 36px;
-      max-width: 620px;
-      line-height: 1.5;
-    }
-    .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; }
+    /* LIGHT GREEN ACCENTS */
+    --accent: #64ffda;
+    --accent-dim: rgba(100, 255, 218, 0.15);
+    --accent-dark: #00b386;
 
-    .stat-strip {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      border-top: 2px solid var(--border-medium);
-      padding-top: 28px;
-    }
-    .stat .num {
-      font-family: var(--font-mono);
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--text-white);
-    }
-    .stat .num::after {
-      content: '';
-      display: block;
-      width: 22px;
-      height: 3px;
-      background: var(--accent);
-      margin-top: 6px;
-    }
-    .stat .lbl { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
-    /* SCHEMATIC REFRIGERATOR */
-    .fridge-hero-container {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      perspective: 1400px;
-    }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-blueprint);
+    color: var(--text-main);
+    line-height: 1.6;
+  }
 
-    .fridge-drawing-label {
-      position: absolute;
-      top: -34px;
-      left: 0;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
+  /* TYPOGRAPHY & UTILS */
+  .mono { font-family: var(--font-mono); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
 
-    .fridge-cabinet {
-      width: 300px;
-      height: 400px;
-      background: var(--bg-card);
-      border: 2px solid var(--text-white);
-      box-shadow: 8px 8px 0px rgba(0,0,0,0.4);
-      position: relative;
-    }
+  /* REGISTRATION / CROP MARKS */
+  .reg-marks { position: relative; }
+  .reg-marks::before, .reg-marks::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-top: 2px solid var(--accent);
+    border-left: 2px solid var(--accent);
+    top: 10px;
+    left: 8px;
+  }
+  .reg-marks::after {
+    left: auto;
+    right: 8px;
+    border-left: none;
+    border-right: 2px solid var(--accent);
+  }
 
-    /* FREEZER / FRIDGE DIVIDER STRIP */
-    .fridge-cabinet::before {
-      content: '';
-      position: absolute;
-      top: 96px;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--text-white);
-      z-index: 3;
-    }
+  /* DIMENSION LINE */
+  .dim-line {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.03em;
+  }
+  .dim-line::before, .dim-line::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent);
+    position: relative;
+  }
+  .dim-line::before { border-left: 1px solid var(--accent); }
+  .dim-line::after { border-right: 1px solid var(--accent); }
 
-    /* BRAND PLATE ON TOP */
-    .fridge-plate {
-      position: absolute;
-      top: -3px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--bg-blueprint);
-      color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
-      padding: 3px 10px;
-      z-index: 4;
-      border: 1px solid var(--accent);
-    }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 800;
+    text-decoration: none;
+    border-radius: 0px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg-blueprint);
+    border: 2px solid var(--accent);
+  }
+  .btn-primary:hover {
+    background: #4cd6b3;
+    border-color: #4cd6b3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+  }
+  .btn-outline {
+    border: 2px solid var(--text-white);
+    color: var(--text-white);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background: var(--text-white);
+    color: var(--bg-blueprint);
+  }
 
-    /* INTERIOR */
-    .fridge-interior {
-      position: absolute;
-      inset: 3px;
-      background: var(--bg-subtle);
-      display: flex;
-      flex-direction: column;
-      padding: 106px 14px 14px;
-      gap: 14px;
-    }
-    .fridge-shelf {
-      height: 1px;
-      background: var(--border-medium);
-      position: relative;
-      width: 100%;
-    }
-    .fridge-phone-shelf {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .fridge-phone-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      color: var(--text-white);
-      text-align: center;
-    }
-    .fridge-phone-eyebrow {
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      font-weight: 800;
-      color: var(--accent);
-      letter-spacing: 0.08em;
-    }
-    .fridge-phone-number {
-      font-family: var(--font-mono);
-      font-size: 1.35rem;
-      font-weight: 900;
-      letter-spacing: -0.02em;
-      border: 1px dashed var(--accent);
-      padding: 6px 12px;
-      background: var(--bg-card);
-      color: var(--accent);
-    }
+  /* HEADER */
+  header {
+    background: var(--bg-blueprint);
+    border-bottom: 2px solid var(--border-medium);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 18px 0;
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-white);
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -0.02em;
+  }
+  .logo-link svg { width: 32px; height: 32px; stroke: var(--accent); }
+  nav { display: flex; gap: 28px; }
+  nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+  nav a:hover { color: var(--accent); }
+  .call-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--bg-blueprint);
+    background: var(--accent);
+    font-family: var(--font-mono);
+    font-weight: 800;
+    text-decoration: none;
+    border: 2px solid var(--accent);
+    padding: 8px 18px;
+    transition: all 0.2s ease;
+  }
+  .call-btn:hover { background: #4cd6b3; }
+  .call-btn svg { stroke: var(--bg-blueprint); }
 
-    /* THE DOOR */
-    .fridge-door {
-      position: absolute;
-      inset: 3px;
-      background: var(--bg-card);
-      border-left: 2px solid var(--text-white);
-      transform-origin: right center;
-      transform-style: preserve-3d;
-      z-index: 5;
-      animation: fridgeSwing 7s ease-in-out infinite;
-      display: flex;
-      flex-direction: column;
-    }
-    .fridge-door-freezer {
-      height: 93px;
-      border-bottom: 2px solid var(--text-white);
-      position: relative;
-    }
-    .fridge-door-main { flex: 1; position: relative; }
-    .fridge-door-handle {
-      position: absolute;
-      left: 16px;
-      top: 12px;
-      bottom: 12px;
-      width: 6px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-    .fridge-door-freezer .fridge-door-handle { top: 10px; bottom: 10px; }
-    .fridge-door-badge {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      font-weight: 700;
-      color: var(--text-muted);
-      writing-mode: vertical-rl;
-    }
+  /* BLUEPRINT DRAFTING GRID */
+  .paper-grid {
+    background-color: var(--bg-blueprint);
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 30px 30px;
+    padding: 80px 0;
+  }
 
-    @keyframes fridgeSwing {
-      0%, 20% { transform: rotateY(0deg); }
-      45%, 65% { transform: rotateY(-108deg); }
-      90%, 100% { transform: rotateY(0deg); }
-    }
+  /* HERO SECTION */
+  .hero {
+    padding: 90px 0 100px;
+    position: relative;
+    border-bottom: 2px solid var(--border-medium);
+  }
+  /* FIXED SYNTAX ERROR HERE (was 2px stroke var(--border-medium)) */
+  .hero-top {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    border-bottom: 2px dashed var(--border-medium);
+    padding-bottom: 12px;
+    margin-bottom: 40px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+  }
+  
+  /* HOOK QUESTION BOX */
+  .hero-hook-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-medium);
+    border-left: 6px solid var(--accent);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+  }
+  .hero-hook-question {
+    font-family: var(--font-sans);
+    font-size: 1.35rem;
+    color: var(--text-white);
+    font-weight: 800;
+    line-height: 1.3;
+  }
 
-    @media (prefers-reduced-motion: reduce) {
-      .fridge-door { animation: none; transform: rotateY(-108deg); }
+  .hero h1 {
+    font-size: 3.4rem;
+    line-height: 1.08;
+    margin-bottom: 24px;
+    font-weight: 900;
+    color: var(--text-white);
+    letter-spacing: -0.03em;
+  }
+  .hero p.lede {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 36px;
+    max-width: 620px;
+    line-height: 1.5;
+  }
+  .hero-ctas { display: flex; gap: 16px; margin-bottom: 44px; }
+
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    border-top: 2px solid var(--border-medium);
+    padding-top: 28px;
+  }
+  .stat .num {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-white);
+  }
+  .stat .num::after {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: var(--accent);
+    margin-top: 6px;
+  }
+  .stat .lbl { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+
+  /* ENHANCED SCHEMATIC REFRIGERATOR */
+  .fridge-hero-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    padding: 20px 0;
+  }
+
+  .fridge-drawing-label {
+    position: absolute;
+    top: -24px;
+    left: 0;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .fridge-cabinet {
+    width: 300px;
+    height: 420px;
+    background: #09172a;
+    border: 2px solid var(--text-white);
+    box-shadow: 12px 16px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(100, 255, 218, 0.1);
+    position: relative;
+    transform-style: preserve-3d;
+  }
+
+  /* BRAND PLATE ON TOP */
+  .fridge-plate {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-blueprint);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    padding: 2px 12px;
+    z-index: 10;
+    border: 1px solid var(--accent);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+
+  /* INTERIOR ILLUMINATION & SHELVING */
+  .fridge-interior {
+    position: absolute;
+    inset: 4px;
+    background: radial-gradient(circle at 50% 30%, #162c4e 0%, #0a182b 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 18px 16px 16px;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .fridge-freezer-shelf {
+    height: 80px;
+    border-bottom: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(100, 255, 218, 0.03);
+  }
+
+  .fridge-freezer-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    border: 1px solid var(--accent-dim);
+    padding: 2px 8px;
+  }
+
+  .fridge-shelf {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--border-medium), transparent);
+    margin: 12px 0;
+  }
+
+  .fridge-phone-shelf {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .fridge-phone-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-white);
+    text-align: center;
+    transition: transform 0.2s ease;
+  }
+
+  .fridge-phone-link:hover {
+    transform: scale(1.03);
+  }
+
+  .fridge-phone-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.4);
+  }
+
+  .fridge-phone-number {
+    font-family: var(--font-mono);
+    font-size: 1.3rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    border: 2px dashed var(--accent);
+    padding: 8px 14px;
+    background: var(--bg-card);
+    color: var(--accent);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+
+  /* 3D HINGED DOOR */
+  .fridge-door {
+    position: absolute;
+    inset: 0;
+    background: var(--bg-card);
+    border: 2px solid var(--text-white);
+    transform-origin: right center;
+    transform-style: preserve-3d;
+    z-index: 5;
+    animation: fridgeSwing 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -8px 0 15px rgba(0,0,0,0.5);
+  }
+
+  /* DOOR FRONT FACING DETAILS */
+  .fridge-door-freezer {
+    height: 100px;
+    border-bottom: 2px solid var(--text-white);
+    position: relative;
+    background: linear-gradient(135deg, var(--bg-card) 0%, #112a4f 100%);
+  }
+
+  .fridge-door-main { 
+    flex: 1; 
+    position: relative; 
+    background: linear-gradient(135deg, var(--bg-card) 0%, #112a4f 100%);
+  }
+
+  .fridge-door-handle {
+    position: absolute;
+    left: 18px;
+    top: 14px;
+    bottom: 14px;
+    width: 8px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.5), 0 0 8px rgba(100,255,218,0.6);
+  }
+
+  .fridge-door-freezer .fridge-door-handle { top: 12px; bottom: 12px; }
+
+  .fridge-door-badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* INNER DOOR SHELVES (BACKFACE VISIBILITY DETAILS) */
+  .fridge-door-inner {
+    position: absolute;
+    inset: 0;
+    background: #0b1e38;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    border: 2px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    gap: 16px;
+  }
+
+  .fridge-door-bin {
+    border: 1px solid var(--border-medium);
+    height: 35px;
+    background: rgba(255,255,255,0.05);
+  }
+
+  @keyframes fridgeSwing {
+    0%, 15% { 
+      transform: rotateY(0deg); 
     }
+    40%, 70% { 
+      transform: rotateY(-115deg); 
+    }
+    90%, 100% { 
+      transform: rotateY(0deg); 
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fridge-door { animation: none; transform: rotateY(-115deg); }
+  }
+</style>
+
 
     /* SECTION HEADERS */
     .section-head {
@@ -882,37 +945,48 @@
           </div>
         </div>
 
-        <!-- REFRIGERATOR CABINET -->
-        <div class="fridge-hero-container">
-          <div class="fridge-drawing-label">DET. A — FIG 00.1 // OPEN-DOOR STATE</div>
-          <div class="fridge-cabinet">
-            <div class="fridge-plate">HAS // MODEL J-2026</div>
+       <!-- REFRIGERATOR CABINET HTML -->
+<div class="fridge-hero-container">
+  <div class="fridge-drawing-label">DET. A — FIG 00.1 // OPEN-DOOR STATE</div>
+  <div class="fridge-cabinet">
+    <div class="fridge-plate">HAS // MODEL J-2026</div>
 
-            <div class="fridge-interior">
-              <div class="fridge-shelf"></div>
-              <div class="fridge-phone-shelf">
-                <a href="tel:19043358206" class="fridge-phone-link">
-                  <span class="fridge-phone-eyebrow">CALL OR TEXT</span>
-                  <span class="fridge-phone-number">(904) 335-8206</span>
-                </a>
-              </div>
-              <div class="fridge-shelf"></div>
-            </div>
+    <div class="fridge-interior">
+      <div class="fridge-freezer-shelf">
+        <span class="fridge-freezer-label">SUB-ZERO FREEZER</span>
+      </div>
+      
+      <div class="fridge-shelf"></div>
+      
+      <div class="fridge-phone-shelf">
+        <a href="tel:19043358206" class="fridge-phone-link">
+          <span class="fridge-phone-eyebrow">CALL OR TEXT</span>
+          <span class="fridge-phone-number">(904) 335-8206</span>
+        </a>
+      </div>
+      
+      <div class="fridge-shelf"></div>
+    </div>
 
-            <div class="fridge-door">
-              <div class="fridge-door-freezer">
-                <div class="fridge-door-handle"></div>
-                <div class="fridge-door-badge">FREEZER</div>
-              </div>
-              <div class="fridge-door-main">
-                <div class="fridge-door-handle"></div>
-                <div class="fridge-door-badge">REFRIGERATOR</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="fridge-door">
+      <div class="fridge-door-freezer">
+        <div class="fridge-door-handle"></div>
+        <div class="fridge-door-badge">FREEZER</div>
+      </div>
+      <div class="fridge-door-main">
+        <div class="fridge-door-handle"></div>
+        <div class="fridge-door-badge">REFRIGERATOR</div>
+      </div>
+      
+      <div class="fridge-door-inner">
+        <div class="fridge-door-bin"></div>
+        <div class="fridge-door-bin"></div>
+        <div class="fridge-door-bin"></div>
       </div>
     </div>
+  </div>
+</div>
+
   </section>
 
   <!-- SERVICES SECTION -->
