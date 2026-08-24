@@ -477,6 +477,198 @@
       color: var(--accent);
     }
 
+    /* INTERACTIVE OVEN REVIEWS ANIMATION */
+    .oven-section {
+      padding: 40px 0;
+      background: var(--bg-subtle);
+    }
+
+    .oven-flex {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .oven-copy {
+      flex: 1 1 320px;
+      min-width: 280px;
+    }
+
+    .oven-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      flex: 0 0 auto;
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    .oven-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      border-radius: 10px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    .oven-control-panel {
+      width: 100%;
+      height: 30px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .oven-knob-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .oven-knob {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 5px var(--accent);
+    }
+
+    .oven-display {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    .oven-cavity {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(5, 12, 25, 0.98) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .oven-cavity-content {
+      opacity: 0;
+      transition: opacity 0.3s ease 0.15s;
+    }
+
+    .oven-cavity-content .stars {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .oven-cavity-content .oven-review-line {
+      font-size: 0.8rem;
+      color: var(--text-white);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .oven-review-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--bg-blueprint);
+      background: var(--accent);
+      border: 2px solid var(--accent);
+      padding: 8px 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+
+    .oven-review-link:hover {
+      background: #4cd6b3;
+      border-color: #4cd6b3;
+    }
+
+    .oven-door {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(160deg, #16324f 0%, #0e2443 60%, #0a192f 100%);
+      border-top: 3px solid var(--border-strong);
+      transform-origin: top center;
+      transform: rotateX(0deg);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .oven-window {
+      width: 65%;
+      height: 55%;
+      border: 5px solid var(--border-medium);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-align: center;
+      letter-spacing: 0.05em;
+      padding: 10px;
+    }
+
+    .oven-handle {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 8px;
+      background: var(--border-medium);
+      border-radius: 4px;
+    }
+
+    .oven-wrapper.oven-open .oven-door {
+      transform: rotateX(-115deg);
+    }
+
+    .oven-wrapper.oven-open .oven-cavity-content {
+      opacity: 1;
+      transition-delay: 0.35s;
+    }
+
+    .oven-hint {
+      margin-top: 14px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 850px) {
+      .oven-flex {
+        flex-direction: column;
+      }
+    }
+
     /* BRAND BADGES BAR */
     .brand-badges-bar {
       display: flex;
@@ -1090,6 +1282,49 @@
       </div>
     </section>
 
+    <!-- INTERACTIVE OVEN DOOR REVIEWS ANIMATION -->
+    <section class="oven-section">
+      <div class="wrap oven-flex">
+
+        <div class="oven-copy">
+          <div class="eyebrow">// Rated 5.0 On Google</div>
+          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">See What Jacksonville Homeowners Are Saying</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Open the oven door to read verified reviews from real customers across Jacksonville and the Beaches.</p>
+        </div>
+
+        <div>
+          <div class="oven-wrapper" id="oven-wrapper" onclick="toggleOven()">
+            <div class="oven-body">
+              <div class="oven-control-panel">
+                <div class="oven-knob-row">
+                  <div class="oven-knob"></div>
+                  <div class="oven-knob"></div>
+                </div>
+                <div class="oven-display">5.0★ GOOGLE</div>
+              </div>
+
+              <div class="oven-cavity">
+                <div class="oven-cavity-content">
+                  <div class="stars">★★★★★</div>
+                  <div class="oven-review-line">Read our verified<br>Google reviews</div>
+                  <a class="oven-review-link" href="https://maps.app.goo.gl/j67vY96DJYPCxg2s9?g_st=ic" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+                    VIEW REVIEWS →
+                  </a>
+                </div>
+              </div>
+
+              <div class="oven-door">
+                <div class="oven-window">TAP TO<br>OPEN</div>
+                <div class="oven-handle"></div>
+              </div>
+            </div>
+          </div>
+          <div class="oven-hint">// Click the oven door to open</div>
+        </div>
+
+      </div>
+    </section>
+
     <section>
       <div class="wrap content">
         <div class="eyebrow">Service Catalog</div>
@@ -1321,6 +1556,10 @@
       
       const cta = document.getElementById('symptom-cta');
       cta.innerText = `DISPATCH FOR: ${issue.toUpperCase()} →`;
+    }
+
+    function toggleOven() {
+      document.getElementById('oven-wrapper').classList.toggle('oven-open');
     }
   </script>
 
