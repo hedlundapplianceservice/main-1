@@ -196,7 +196,7 @@
     .hero-layout {
       display: grid;
       grid-template-columns: 1fr auto;
-      gap: 40px;
+      gap: 72px;
       align-items: center;
     }
 
@@ -477,9 +477,128 @@
       color: var(--accent);
     }
 
+    /* MULTIMETER PROBE READOUT */
+    .probe-readout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #050c19;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid #ffb020;
+      padding: 10px 14px;
+      margin: 20px 0 22px;
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+    }
+
+    .probe-readout-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .probe-readout-value {
+      font-size: 0.85rem;
+      color: #ffb020;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .probe-readout-value.flicker {
+      animation: probeFlicker 0.4s steps(2, end) 2;
+    }
+
+    @keyframes probeFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    .probe-tip {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border-light);
+      display: inline-block;
+      margin-right: 6px;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+      vertical-align: middle;
+    }
+
+    .symptom-btn.active .probe-tip {
+      background: #ffb020;
+      box-shadow: 0 0 6px #ffb020;
+    }
+
+    .meter-jacks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-left: auto;
+      padding-left: 10px;
+    }
+
+    .meter-jack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .meter-jack-hole {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #050c19;
+      border: 3px solid;
+      box-sizing: border-box;
+    }
+
+    .meter-jack.red .meter-jack-hole {
+      border-color: #ff3b30;
+      box-shadow: 0 0 5px rgba(255, 59, 48, 0.5);
+    }
+
+    .meter-jack.black .meter-jack-hole {
+      border-color: #d0d5dd;
+    }
+
+    .meter-jack-label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* MULTIMETER TEST WIRES */
+    .wire-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      overflow: visible;
+    }
+
+    .wire-path {
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .wire-path.red { stroke: #ff3b30; filter: drop-shadow(0 0 2px rgba(255, 59, 48, 0.6)); }
+    .wire-path.black { stroke: #d0d5dd; filter: drop-shadow(0 0 2px rgba(208, 213, 221, 0.4)); }
+
+    .wire-svg.wires-visible .wire-path {
+      opacity: 0.95;
+    }
+
     /* INTERACTIVE OVEN REVIEWS ANIMATION */
     .oven-section {
-      padding: 40px 0;
+      padding: 16px 0 40px;
       background: var(--bg-subtle);
     }
 
@@ -695,6 +814,246 @@
     .brand-badge:hover {
       border-color: var(--accent);
       color: var(--text-white);
+    }
+
+    /* WASHER BRAND SHOWCASE (STACKED ABOVE DRYER) */
+    .washer-dryer-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .washer-wrapper {
+      position: relative;
+      width: 280px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+    }
+
+    .washer-top-panel {
+      width: 100%;
+      height: 34px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .washer-knob-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .washer-knob {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 6px #38bdf8;
+    }
+
+    .washer-display {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #38bdf8;
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    .washer-frame {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      perspective: 1000px;
+    }
+
+    .washer-cavity {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 7px solid var(--border-strong);
+      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(5, 12, 25, 0.98) 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .washer-cavity-inner {
+      width: 86%;
+      height: 86%;
+      overflow-y: auto;
+      padding: 8px;
+    }
+
+    .washer-brand-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .washer-brand-chip {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 3px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .washer-door {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 7px solid var(--border-strong);
+      background: linear-gradient(160deg, #16324f 0%, #0e2443 60%, #0a192f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .washer-window {
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      border: 4px solid var(--border-medium);
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #38bdf8;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .washer-handle {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 34px;
+      background: var(--border-medium);
+      border-radius: 4px;
+    }
+
+    .washer-wrapper.washer-open .washer-door {
+      transform: rotateY(-120deg);
+    }
+
+    @media (max-width: 850px) {
+      .washer-dryer-stack {
+        margin: 0 auto;
+      }
+    }
+
+    /* BLUEPRINT MEASURING LINES ON SERVICE MAP */
+    .measure-line {
+      fill: none;
+      stroke: #ffb020;
+      stroke-width: 1.5;
+      stroke-dasharray: 4 3;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .map-container:hover .measure-line {
+      opacity: 0.9;
+    }
+
+    .measure-label {
+      opacity: 0;
+      transition: opacity 0.4s ease 0.15s;
+    }
+
+    .map-container:hover .measure-label {
+      opacity: 1;
+    }
+
+    .map-hint {
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #ffb020;
+      letter-spacing: 0.03em;
+    }
+
+    /* WARRANTY STAMP */
+    .warranty-stamp-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .warranty-stamp {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 130px;
+      border: 3px solid #e8443f;
+      border-radius: 50%;
+      color: #e8443f;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      text-align: center;
+      position: relative;
+      transform: rotate(-10deg) scale(0);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.36, 1.6, 0.6, 1), opacity 0.2s ease;
+    }
+
+    .warranty-stamp::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid #e8443f;
+      border-radius: 50%;
+    }
+
+    .warranty-stamp .stamp-line1 {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .warranty-stamp .stamp-line2 {
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .warranty-stamp .stamp-line3 {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    .warranty-stamp.stamped {
+      transform: rotate(-10deg) scale(1);
+      opacity: 0.9;
     }
 
     /* SECTIONS */
@@ -1361,21 +1720,62 @@
             <a class="button secondary" href="sms:+19043358206">TEXT FOR SERVICE</a>
           </div>
 
-          <!-- BRAND TRUST BADGES -->
-          <div class="brand-badges-bar">
-            <span class="zone-label" style="margin: 0 4px 0 0;">// SERVICING:</span>
-            <span class="brand-badge">Whirlpool</span>
-            <span class="brand-badge">GE / GE Profile</span>
-            <span class="brand-badge">Sub-Zero</span>
-            <span class="brand-badge">Bosch</span>
-            <span class="brand-badge">KitchenAid</span>
-            <span class="brand-badge">LG</span>
-            <span class="brand-badge">Samsung</span>
-          </div>
-
         </div>
 
-        <div class="dryer-wrapper">
+        <div class="washer-dryer-stack">
+
+          <!-- WASHER BRAND SHOWCASE -->
+          <div class="washer-wrapper" id="washer-wrapper" onclick="toggleWasher()">
+            <div class="washer-top-panel">
+              <div class="washer-knob-row">
+                <div class="washer-knob"></div>
+                <div class="washer-knob"></div>
+              </div>
+              <div class="washer-display">BRANDS WE SERVICE</div>
+            </div>
+            <div class="washer-frame">
+              <div class="washer-cavity">
+                <div class="washer-cavity-inner">
+                  <div class="washer-brand-list">
+                    <span class="washer-brand-chip">Whirlpool</span>
+                    <span class="washer-brand-chip">GE Appliances</span>
+                    <span class="washer-brand-chip">Frigidaire</span>
+                    <span class="washer-brand-chip">LG</span>
+                    <span class="washer-brand-chip">Samsung</span>
+                    <span class="washer-brand-chip">Maytag</span>
+                    <span class="washer-brand-chip">Amana</span>
+                    <span class="washer-brand-chip">Hotpoint</span>
+                    <span class="washer-brand-chip">Kenmore</span>
+                    <span class="washer-brand-chip">Beko</span>
+                    <span class="washer-brand-chip">Bosch</span>
+                    <span class="washer-brand-chip">KitchenAid</span>
+                    <span class="washer-brand-chip">Café</span>
+                    <span class="washer-brand-chip">GE Profile</span>
+                    <span class="washer-brand-chip">LG Studio</span>
+                    <span class="washer-brand-chip">Fisher & Paykel</span>
+                    <span class="washer-brand-chip">Electrolux</span>
+                    <span class="washer-brand-chip">Thor Kitchen</span>
+                    <span class="washer-brand-chip">Thermador</span>
+                    <span class="washer-brand-chip">Miele</span>
+                    <span class="washer-brand-chip">Monogram</span>
+                    <span class="washer-brand-chip">Viking</span>
+                    <span class="washer-brand-chip">JennAir</span>
+                    <span class="washer-brand-chip">BlueStar</span>
+                    <span class="washer-brand-chip">Dacor</span>
+                    <span class="washer-brand-chip">Sub-Zero</span>
+                    <span class="washer-brand-chip">Speed Queen</span>
+                    <span class="washer-brand-chip">Asko</span>
+                  </div>
+                </div>
+              </div>
+              <div class="washer-door">
+                <div class="washer-window">TAP TO<br>VIEW<br>BRANDS</div>
+                <div class="washer-handle"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dryer-wrapper">
           <div class="dryer-top-panel">
             <div class="dryer-knob"></div>
             <div class="dryer-display">RUNNING // 5.0★</div>
@@ -1407,32 +1807,54 @@
 
           </div>
         </div>
+
+        </div>
       </div>
     </section>
 
     <!-- VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD -->
-    <section style="padding: 40px 0; background: var(--bg-subtle);">
+    <section style="padding: 40px 0 16px; background: var(--bg-subtle);">
       <div class="wrap">
         <div class="diagnostic-card">
+          <svg class="wire-svg" id="wire-svg">
+            <path class="wire-path red" id="wire-red-path" d=""></path>
+            <path class="wire-path black" id="wire-black-path" d=""></path>
+          </svg>
+
           <div class="eyebrow">// Quick Interactive Diagnostic</div>
           <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">Experiencing an Appliance Fault?</h3>
           <p style="color: var(--text-muted); font-size: 0.95rem;">Select your symptom below to prep technician response and dispatch priority:</p>
+
+          <div class="probe-readout">
+            <span class="probe-readout-label">⏚ PROBE READING:</span>
+            <span class="probe-readout-value" id="probe-value">STANDBY // AWAITING INPUT</span>
+            <div class="meter-jacks">
+              <div class="meter-jack black">
+                <div class="meter-jack-hole" id="terminal-black"></div>
+                <span class="meter-jack-label">COM</span>
+              </div>
+              <div class="meter-jack red">
+                <div class="meter-jack-hole" id="terminal-red"></div>
+                <span class="meter-jack-label">VΩmA</span>
+              </div>
+            </div>
+          </div>
           
           <div class="symptom-grid">
             <button class="symptom-btn" onclick="setSymptom('Refrigerator Not Cooling')">
-              <span>❄️ Refrigerator Cooling Loss</span>
+              <span class="probe-tip"></span><span>❄️ Refrigerator Cooling Loss</span>
             </button>
             <button class="symptom-btn" onclick="setSymptom('Dryer Not Heating')">
-              <span>🔥 Dryer Heating Failure</span>
+              <span class="probe-tip"></span><span>🔥 Dryer Heating Failure</span>
             </button>
             <button class="symptom-btn" onclick="setSymptom('Washer Leaking / Not Draining')">
-              <span>💧 Washer Drain / Leak</span>
+              <span class="probe-tip"></span><span>💧 Washer Drain / Leak</span>
             </button>
             <button class="symptom-btn" onclick="setSymptom('Dishwasher Standing Water')">
-              <span>🍽️ Dishwasher Standing Water</span>
+              <span class="probe-tip"></span><span>🍽️ Dishwasher Standing Water</span>
             </button>
             <button class="symptom-btn" onclick="setSymptom('Oven / Range Heating Issue')">
-              <span>🍳 Oven Igniter / Element Fault</span>
+              <span class="probe-tip"></span><span>🍳 Oven Igniter / Element Fault</span>
             </button>
           </div>
 
@@ -1610,8 +2032,18 @@
               <rect x="120" y="165" width="160" height="34" fill="#0a192f" stroke="#64ffda" stroke-width="1"/>
               <text x="126" y="179" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold">1701 San Pablo Rd S</text>
               <text x="126" y="191" fill="#64ffda" font-family="monospace" font-size="8">20-MILE SERVICE RADIUS</text>
+
+              <!-- BLUEPRINT MEASURING LINES (reveal on hover) -->
+              <path class="measure-line" d="M 295,120 L 213,74"/>
+              <text class="measure-label" x="228" y="92" fill="#ffb020" font-family="monospace" font-size="8">≈9 MI</text>
+
+              <path class="measure-line" d="M 295,120 L 320,206"/>
+              <text class="measure-label" x="296" y="168" fill="#ffb020" font-family="monospace" font-size="8">≈14 MI</text>
+
+              <path class="measure-line" d="M 295,120 L 312,116"/>
             </svg>
           </div>
+          <div class="map-hint">📐 Hover the map to measure distance from the shop</div>
         </div>
 
         <!-- RIGHT COLUMN: INTERACTIVE NEIGHBORHOOD REDIRECT CARDS -->
@@ -1771,6 +2203,15 @@
 
     <section class="final-cta">
       <div class="wrap">
+
+        <div class="warranty-stamp-wrap">
+          <div class="warranty-stamp" id="warranty-stamp">
+            <span class="stamp-line1">★ HEDLUND ★</span>
+            <span class="stamp-line2">GUARANTEED</span>
+            <span class="stamp-line3">HONEST REPAIRS</span>
+          </div>
+        </div>
+
         <div class="eyebrow">Need Service?</div>
 
         <h2>Schedule Your Service Visit Today</h2>
@@ -1796,12 +2237,66 @@
 
   <!-- INLINE DIAGNOSTIC HELPER SCRIPT -->
   <script>
+    const symptomReadings = {
+      'Refrigerator Not Cooling': '208-230V AC · COMPRESSOR CIRCUIT OPEN',
+      'Dryer Not Heating': '0.0Ω · HEATING ELEMENT OPEN',
+      'Washer Leaking / Not Draining': '120V AC · DRAIN PUMP OVER-DRAW',
+      'Dishwasher Standing Water': '120V AC · DRAIN SOLENOID NO CONTINUITY',
+      'Oven / Range Heating Issue': '48Ω · IGNITER OUT OF RANGE'
+    };
+
+    function wirePath(start, end) {
+      const sag = 46;
+      const midY = Math.max(start.y, end.y) + sag;
+      return `M ${start.x},${start.y} C ${start.x},${midY} ${end.x},${midY} ${end.x},${end.y}`;
+    }
+
+    function drawWires(targetBtn) {
+      const svg = document.getElementById('wire-svg');
+      const card = document.querySelector('.diagnostic-card');
+      const redTerm = document.getElementById('terminal-red');
+      const blackTerm = document.getElementById('terminal-black');
+      const tip = targetBtn.querySelector('.probe-tip');
+      if (!svg || !card || !redTerm || !blackTerm || !tip) return;
+
+      const cardRect = card.getBoundingClientRect();
+      const redRect = redTerm.getBoundingClientRect();
+      const blackRect = blackTerm.getBoundingClientRect();
+      const tipRect = tip.getBoundingClientRect();
+
+      const redStart = { x: redRect.left + redRect.width / 2 - cardRect.left, y: redRect.top + redRect.height / 2 - cardRect.top };
+      const blackStart = { x: blackRect.left + blackRect.width / 2 - cardRect.left, y: blackRect.top + blackRect.height / 2 - cardRect.top };
+      const end = { x: tipRect.left + tipRect.width / 2 - cardRect.left, y: tipRect.top + tipRect.height / 2 - cardRect.top };
+
+      document.getElementById('wire-red-path').setAttribute('d', wirePath(redStart, end));
+      document.getElementById('wire-black-path').setAttribute('d', wirePath(blackStart, { x: end.x - 6, y: end.y }));
+
+      svg.classList.add('wires-visible');
+      window.__activeSymptomBtn = targetBtn;
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.__activeSymptomBtn) drawWires(window.__activeSymptomBtn);
+    });
+
     function setSymptom(issue) {
       document.querySelectorAll('.symptom-btn').forEach(btn => btn.classList.remove('active'));
-      event.currentTarget.classList.add('active');
+      const btn = event.currentTarget;
+      btn.classList.add('active');
       
       const cta = document.getElementById('symptom-cta');
       cta.innerText = `DISPATCH FOR: ${issue.toUpperCase()} →`;
+
+      const probeValue = document.getElementById('probe-value');
+      if (probeValue) {
+        const reading = symptomReadings[issue] || `${issue.toUpperCase()} // FAULT DETECTED`;
+        probeValue.innerText = reading;
+        probeValue.classList.remove('flicker');
+        void probeValue.offsetWidth;
+        probeValue.classList.add('flicker');
+      }
+
+      drawWires(btn);
     }
 
     function toggleOven() {
@@ -1821,6 +2316,26 @@
         void spark.offsetWidth;
         spark.style.animation = '';
       }
+    }
+
+    function toggleWasher() {
+      document.getElementById('washer-wrapper').classList.toggle('washer-open');
+    }
+
+    // Warranty stamp: "thunk" into place once it scrolls into view
+    const stampEl = document.getElementById('warranty-stamp');
+    if (stampEl && 'IntersectionObserver' in window) {
+      const stampObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            stampEl.classList.add('stamped');
+            stampObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      stampObserver.observe(stampEl);
+    } else if (stampEl) {
+      stampEl.classList.add('stamped');
     }
   </script>
 
