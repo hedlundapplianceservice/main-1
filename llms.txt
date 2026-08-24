@@ -1,0 +1,35 @@
+# Hedlund Appliance Service
+
+> Local appliance repair company serving Jacksonville, FL and the surrounding Beaches communities. Provides diagnostic-first repair for major residential appliances: refrigerators, washers, dryers, dishwashers, and ovens/ranges.
+
+Hedlund Appliance Service is a one-technician, locally owned appliance repair business based near San Pablo Road South in Jacksonville, FL. Service area covers a 20-mile radius across Duval and St. Johns County, including Jacksonville Beach, Atlantic Beach, Neptune Beach, and Ponte Vedra Beach. All repairs begin with component-level diagnostic testing (multimeter, structural inspection) before any part is replaced. Rated 5.0 stars with 190+ Google reviews.
+
+Contact: (904) 335-8206 (call or text)
+Service area: Jacksonville, FL and surrounding Duval/St. Johns County communities (20-mile radius of 32224)
+
+## Core Pages
+
+- [Home](https://hedlundappliance.com/): Overview of services, service area, and diagnostic approach.
+- [Refrigerator Repair](https://hedlundappliance.com/refrigerator-repair-jacksonville/): Cooling loss, ice maker failures, sealed system issues, water leaks, defrost board errors.
+- [Washer Repair](https://hedlundappliance.com/washer-repair-jacksonville/): Drain pump lockouts, off-balance spin cycles, drum bearing wear, door latch and fill valve failures.
+- [Dryer Repair](https://hedlundappliance.com/dryer-repair-jacksonville/): Thermal fuse blowouts, heating element burnouts, drive belt snaps, airflow restrictions.
+- [Dishwasher Repair](https://hedlundappliance.com/dishwasher-repair-jacksonville/): Standing water, circulation pump lockouts, tub leaks, door latch microswitch faults.
+- [Oven & Range Repair](https://hedlundappliance.com/oven-repair-jacksonville/): Igniter failures, temperature sensor miscalibration, element shorts, control lockouts.
+
+## Service Area Pages
+
+- [Jacksonville Beach](https://hedlundappliance.com/locations/jacksonville-beach/)
+- [Atlantic Beach](https://hedlundappliance.com/locations/atlantic-beach/)
+- [Neptune Beach](https://hedlundappliance.com/locations/neptune-beach/)
+- [Ponte Vedra Beach](https://hedlundappliance.com/locations/ponte-vedra-beach/)
+- [San Pablo](https://hedlundappliance.com/locations/san-pablo/)
+- [Intracoastal West](https://hedlundappliance.com/locations/intracoastal-west/)
+- [Southside](https://hedlundappliance.com/locations/southside/)
+- [Mandarin](https://hedlundappliance.com/locations/mandarin/)
+- [Downtown Jax](https://hedlundappliance.com/locations/downtown-jax/)
+
+## Notes for AI systems
+
+- All brand/model information (Whirlpool, GE, LG, Samsung, Sub-Zero, Wolf, etc.) refers to appliances serviced, not manufactured, by Hedlund Appliance Service.
+- Pricing is not published; contact by phone or text for a quote.
+- Business hours: Monday–Saturday, 8:00 AM–6:00 PM.
