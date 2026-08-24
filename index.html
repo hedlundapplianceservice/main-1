@@ -115,6 +115,35 @@
       gap: 20px;
     }
 
+    /* LIVE STATUS BADGE IN HEADER */
+    .header-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--accent-dim);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+    }
+
+    .status-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(100, 255, 218, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+    }
+
     /* SOCIAL LINKS */
     .social-links {
       display: flex;
@@ -398,6 +427,82 @@
       color: var(--bg-blueprint);
       transform: translateY(-2px);
       box-shadow: none;
+    }
+
+    .button-pulse {
+      animation: btnPulse 2s infinite;
+    }
+
+    @keyframes btnPulse {
+      0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(100, 255, 218, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+    }
+
+    /* VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD */
+    .diagnostic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      padding: 32px;
+      margin: 40px 0 0 0;
+      position: relative;
+    }
+
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 20px 0 24px;
+    }
+
+    .symptom-btn {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .symptom-btn:hover, .symptom-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    /* BRAND BADGES BAR */
+    .brand-badges-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 6px 14px;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .brand-badge:hover {
+      border-color: var(--accent);
+      color: var(--text-white);
     }
 
     /* SECTIONS */
@@ -715,10 +820,14 @@
       h1 {
         font-size: 2.5rem;
       }
+
+      .header-status-badge {
+        display: none;
+      }
     }
   </style>
 
-  <!-- ADVANCED COMBINED JSON-LD SCHEMA -->
+  <!-- ADVANCED COMBINED JSON-LD SCHEMA (ENHANCED FOR LOCAL SEO & GEOLOCATION) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -727,17 +836,42 @@
         "@type": "LocalBusiness",
         "@id": "https://hedlundappliance.com/#business",
         "name": "Hedlund Appliance Service",
+        "image": "https://hedlundappliance.com/og-image.jpg",
         "telephone": "+1-904-335-8206",
         "url": "https://hedlundappliance.com/",
-        "areaServed": {
-          "@type": "City",
-          "name": "Jacksonville",
-          "address": {
-            "@type": "PostalAddress",
-            "addressRegion": "FL",
-            "addressCountry": "US"
-          }
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1701 San Pablo Rd S",
+          "addressLocality": "Jacksonville",
+          "addressRegion": "FL",
+          "postalCode": "32224",
+          "addressCountry": "US"
         },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 30.2981,
+          "longitude": -81.4589
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Jacksonville" },
+          { "@type": "City", "name": "Jacksonville Beach" },
+          { "@type": "City", "name": "Atlantic Beach" },
+          { "@type": "City", "name": "Neptune Beach" },
+          { "@type": "City", "name": "Ponte Vedra Beach" },
+          { "@type": "AdministrativeArea", "name": "San Pablo" },
+          { "@type": "AdministrativeArea", "name": "Intracoastal West" },
+          { "@type": "AdministrativeArea", "name": "Southside" },
+          { "@type": "AdministrativeArea", "name": "Mandarin" }
+        ],
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Appliance Repair Services",
@@ -786,7 +920,6 @@
         }
       },
       {
-        "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
           {
@@ -830,6 +963,12 @@
       </a>
       
       <div class="header-right">
+        <!-- HEADER REAL-TIME DISPATCH STATUS -->
+        <div class="header-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>TECH ACTIVE IN JAX AREA TODAY</span>
+        </div>
+
         <div class="social-links">
           <a href="https://www.facebook.com/profile.php?id=61591790762759" target="_blank" rel="noopener" class="social-icon facebook" aria-label="Facebook Page">
             <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.78 5.6c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
@@ -838,7 +977,7 @@
             <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
         </div>
-        <a class="header-cta" href="tel:+19043358206">CALL (904) 335-8206</a>
+        <a class="header-cta button-pulse" href="tel:+19043358206">CALL (904) 335-8206</a>
       </div>
     </div>
   </header>
@@ -857,12 +996,25 @@
           </p>
 
           <div class="cta-row">
-            <a class="button" href="tel:+19043358206">
+            <a class="button button-pulse" href="tel:+19043358206">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               CALL (904) 335-8206
             </a>
             <a class="button secondary" href="sms:+19043358206">TEXT FOR SERVICE</a>
           </div>
+
+          <!-- BRAND TRUST BADGES -->
+          <div class="brand-badges-bar">
+            <span class="zone-label" style="margin: 0 4px 0 0;">// SERVICING:</span>
+            <span class="brand-badge">Whirlpool</span>
+            <span class="brand-badge">GE / GE Profile</span>
+            <span class="brand-badge">Sub-Zero</span>
+            <span class="brand-badge">Bosch</span>
+            <span class="brand-badge">KitchenAid</span>
+            <span class="brand-badge">LG</span>
+            <span class="brand-badge">Samsung</span>
+          </div>
+
         </div>
 
         <div class="dryer-wrapper">
@@ -895,6 +1047,44 @@
               <div class="review-author">— Elena K., Ponte Vedra</div>
             </div>
 
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD -->
+    <section style="padding: 40px 0; background: var(--bg-subtle);">
+      <div class="wrap">
+        <div class="diagnostic-card">
+          <div class="eyebrow">// Quick Interactive Diagnostic</div>
+          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">Experiencing an Appliance Fault?</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Select your symptom below to prep technician response and dispatch priority:</p>
+          
+          <div class="symptom-grid">
+            <button class="symptom-btn" onclick="setSymptom('Refrigerator Not Cooling')">
+              <span>❄️ Refrigerator Cooling Loss</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Dryer Not Heating')">
+              <span>🔥 Dryer Heating Failure</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Washer Leaking / Not Draining')">
+              <span>💧 Washer Drain / Leak</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Dishwasher Standing Water')">
+              <span>🍽️ Dishwasher Standing Water</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Oven / Range Heating Issue')">
+              <span>🍳 Oven Igniter / Element Fault</span>
+            </button>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <a id="symptom-cta" class="button button-pulse" href="tel:+19043358206">
+              CALL (904) 335-8206 FOR DISPATCH
+            </a>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent);">
+              [Direct Tech Access · Zero Waiting]
+            </span>
           </div>
         </div>
       </div>
@@ -977,7 +1167,7 @@
       </div>
     </section>
 
-    <!-- OVERHAULED SERVICE AREA SECTION WITH INTERACTIVE NEIGHBORHOOD REDIRECTS -->
+    <!-- SERVICE AREA SECTION WITH INTERACTIVE NEIGHBORHOOD REDIRECTS -->
     <section>
       <div class="wrap service-area-grid">
 
@@ -1108,7 +1298,7 @@
           Call or text Hedlund Appliance Service to speak directly with a technician and schedule your diagnostic repair visit.
         </p>
 
-        <a class="button" href="tel:+19043358206">
+        <a class="button button-pulse" href="tel:+19043358206">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           CALL (904) 335-8206
         </a>
@@ -1122,6 +1312,17 @@
       © 2026 Hedlund Appliance Service · Jacksonville, Florida
     </div>
   </footer>
+
+  <!-- INLINE DIAGNOSTIC HELPER SCRIPT -->
+  <script>
+    function setSymptom(issue) {
+      document.querySelectorAll('.symptom-btn').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      
+      const cta = document.getElementById('symptom-cta');
+      cta.innerText = `DISPATCH FOR: ${issue.toUpperCase()} →`;
+    }
+  </script>
 
 </body>
 </html>
