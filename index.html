@@ -3,85 +3,1209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hedlund Appliance Repair | Jacksonville &amp; Beaches Local Experts</title>
-  <meta name="description" content="Local, trusted, expert appliance repair across Jacksonville, Jax Beach, Atlantic Beach, Neptune Beach, Ponte Vedra, Southside, and Mandarin.">
-  
+
+  <title>Appliance Repair Jacksonville, FL | Hedlund Appliance Service</title>
+  <meta name="description" content="Professional appliance repair in Jacksonville, FL. Hedlund Appliance Service provides precise technical diagnostics for refrigerators, washers, dryers, dishwashers, and ovens.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hedlundappliance.com/">
+
+  <!-- Local GEO SEO Meta Tags -->
+  <meta name="geo.region" content="US-FL">
+  <meta name="geo.placename" content="Jacksonville">
+  <meta name="geo.position" content="30.2981;-81.4589">
+  <meta name="ICBM" content="30.2981, -81.4589">
+
+  <!-- Open Graph / Social SEO -->
+  <meta property="og:title" content="Appliance Repair Jacksonville, FL | Hedlund Appliance Service">
+  <meta property="og:description" content="Local appliance repair for Jacksonville, Jacksonville Beach, Atlantic Beach, Neptune Beach, and surrounding areas. Fast, technical diagnostics for major home appliances.">
+  <meta property="og:url" content="https://hedlundappliance.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://hedlundappliance.com/og-image.jpg">
+
+  <!-- Twitter Card SEO -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Appliance Repair Jacksonville, FL | Hedlund Appliance Service">
+  <meta name="twitter:description" content="Precision technical diagnostics and repair for major household appliances in Jacksonville and the Beaches.">
+
   <style>
     :root {
-      --bg-dark: #0a0d14;
-      --card-bg: #121824;
-      --accent-blue: #3070ff;
-      --accent-hover: #4d83ff;
-      --text-main: #f0f4fc;
-      --text-muted: #8a99ad;
-      --border-color: #212c40;
+      /* ARCHITECTURAL BLUEPRINT PALETTE */
+      --bg-blueprint: #0a192f;
+      --bg-subtle: #112240;
+      --bg-card: #0e2443;
+      
+      --text-white: #ffffff;
+      --text-main: #e6f1ff;
+      --text-muted: #8892b0;
+      
+      --border-strong: #ffffff;
+      --border-medium: rgba(255, 255, 255, 0.4);
+      --border-light: rgba(255, 255, 255, 0.15);
+
+      /* LIGHT GREEN ACCENTS */
+      --accent: #64ffda;
+      --accent-dim: rgba(100, 255, 218, 0.15);
+      --accent-dark: #00b386;
+
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    
     body {
-      background-color: var(--bg-dark);
+      background-color: var(--bg-blueprint);
       color: var(--text-main);
+      font-family: var(--font-sans);
       line-height: 1.6;
-      padding: 2rem 1rem;
     }
 
-    .container {
-      max-width: 1200px;
+    a { color: inherit; }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
     }
 
+    /* BLUEPRINT DRAFTING GRID */
+    .paper-grid {
+      background-color: var(--bg-blueprint);
+      background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    /* HEADER */
     header {
+      background: var(--bg-blueprint);
+      border-bottom: 2px solid var(--border-medium);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 0;
+    }
+
+    .header-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border-color);
-      margin-bottom: 2.5rem;
+      justify-content: space-between;
+      gap: 20px;
     }
 
     .brand {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-main);
-      text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 10px;
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--text-white);
+      letter-spacing: -0.02em;
     }
 
-    .brand span {
-      color: var(--accent-blue);
+    .brand svg { width: 24px; height: 24px; stroke: var(--accent); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
     }
 
-    .location-section {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 2rem;
-      margin-bottom: 2.5rem;
+    /* LIVE STATUS BADGE IN HEADER */
+    .header-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--accent-dim);
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
     }
 
-    .section-header {
-      margin-bottom: 1.5rem;
+    .status-pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 8px var(--accent);
+      animation: pulseDot 1.8s infinite;
     }
 
-    .section-header h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
+    @keyframes pulseDot {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(100, 255, 218, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
     }
 
-    .section-header p {
+    /* SOCIAL LINKS */
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .social-icon {
+      transition: transform 0.2s ease, filter 0.2s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .social-icon:hover {
+      transform: translateY(-2px) scale(1.1);
+      filter: brightness(1.2);
+    }
+
+    .social-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .social-icon.facebook svg { fill: #1877F2; }
+    .social-icon.youtube svg { fill: #FF0000; }
+
+    .header-cta {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      text-decoration: none;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 6px 12px;
+      transition: all 0.2s ease;
+    }
+
+    .header-cta:hover {
+      background: var(--accent);
+      color: var(--bg-blueprint);
+    }
+
+    /* HERO & DRYER */
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 2px solid var(--border-medium);
+      position: relative;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 0 3px var(--accent-dim);
+    }
+
+    h1 {
+      margin: 0 0 24px;
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      font-weight: 900;
+      color: var(--text-white);
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 1.2rem;
       color: var(--text-muted);
+      margin-bottom: 36px;
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .dryer-wrapper {
+      position: relative;
+      width: 280px;
+      height: 310px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .dryer-top-panel {
+      width: 100%;
+      height: 34px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .dryer-knob {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 6px var(--accent);
+    }
+
+    .dryer-display {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    .dryer-door {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      border: 7px solid var(--border-strong);
+      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(10, 25, 47, 0.98) 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+    }
+
+    .dryer-drum-spinner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: spinDrum 5s linear infinite;
+    }
+
+    @keyframes spinDrum {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .drum-fin {
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: var(--border-light);
+      top: 50%;
+      transform-origin: center;
+    }
+
+    .drum-fin:nth-child(1) { transform: rotate(0deg); }
+    .drum-fin:nth-child(2) { transform: rotate(60deg); }
+    .drum-fin:nth-child(3) { transform: rotate(120deg); }
+
+    .tumbling-review {
+      position: absolute;
+      background: rgba(10, 25, 47, 0.95);
+      border: 1px solid var(--accent);
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+      width: 150px;
+      pointer-events: none;
+    }
+
+    .stars {
+      color: #ffd700;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
+
+    .review-desc {
+      font-size: 0.62rem;
+      color: var(--text-white);
+      line-height: 1.2;
+      margin: 2px 0;
+      font-weight: 500;
+    }
+
+    .review-author {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .review-1 { animation: tumbleOne 9s ease-in-out infinite; }
+    .review-2 { animation: tumbleTwo 9s ease-in-out infinite 3s; }
+    .review-3 { animation: tumbleThree 9s ease-in-out infinite 6s; }
+
+    @keyframes tumbleOne {
+      0% { transform: translate(-35px, 50px) rotate(-10deg) scale(0.6); opacity: 0; }
+      15% { opacity: 1; transform: translate(0px, 10px) rotate(5deg) scale(0.95); }
+      33% { opacity: 1; transform: translate(25px, -30px) rotate(180deg) scale(0.85); }
+      45% { opacity: 0; transform: translate(-20px, -60px) rotate(360deg) scale(0.5); }
+      100% { opacity: 0; }
+    }
+
+    @keyframes tumbleTwo {
+      0% { transform: translate(35px, 50px) rotate(15deg) scale(0.6); opacity: 0; }
+      15% { opacity: 1; transform: translate(-10px, 5px) rotate(-5deg) scale(0.95); }
+      33% { opacity: 1; transform: translate(-25px, -25px) rotate(-180deg) scale(0.85); }
+      45% { opacity: 0; transform: translate(20px, -55px) rotate(-360deg) scale(0.5); }
+      100% { opacity: 0; }
+    }
+
+    @keyframes tumbleThree {
+      0% { transform: translate(0px, 60px) rotate(0deg) scale(0.6); opacity: 0; }
+      15% { opacity: 1; transform: translate(15px, 0px) rotate(-10deg) scale(0.95); }
+      33% { opacity: 1; transform: translate(-15px, -35px) rotate(180deg) scale(0.85); }
+      45% { opacity: 0; transform: translate(0px, -65px) rotate(360deg) scale(0.5); }
+      100% { opacity: 0; }
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-decoration: none;
+      border-radius: 0px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--accent);
+      color: var(--bg-blueprint);
+      border: 2px solid var(--accent);
+    }
+
+    .button:hover {
+      background: #4cd6b3;
+      border-color: #4cd6b3;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text-white);
+      border: 2px solid var(--text-white);
+    }
+
+    .button.secondary:hover {
+      background: var(--text-white);
+      color: var(--bg-blueprint);
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
+    .button-pulse {
+      animation: btnPulse 2s infinite;
+    }
+
+    @keyframes btnPulse {
+      0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(100, 255, 218, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+    }
+
+    /* VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD */
+    .diagnostic-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      padding: 32px;
+      margin: 40px 0 0 0;
+      position: relative;
+    }
+
+    .symptom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 20px 0 24px;
+    }
+
+    .symptom-btn {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      color: var(--text-main);
+      padding: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .symptom-btn:hover, .symptom-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    /* MULTIMETER PROBE READOUT */
+    .probe-readout {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #050c19;
+      border: 1px solid var(--border-light);
+      border-left: 3px solid #ffb020;
+      padding: 10px 14px;
+      margin: 20px 0 22px;
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+    }
+
+    .probe-readout-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .probe-readout-value {
+      font-size: 0.85rem;
+      color: #ffb020;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .probe-readout-value.flicker {
+      animation: probeFlicker 0.4s steps(2, end) 2;
+    }
+
+    @keyframes probeFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.25; }
+    }
+
+    .probe-tip {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border-light);
+      display: inline-block;
+      margin-right: 6px;
+      transition: background 0.2s ease, box-shadow 0.2s ease;
+      vertical-align: middle;
+    }
+
+    .symptom-btn.active .probe-tip {
+      background: #ffb020;
+      box-shadow: 0 0 6px #ffb020;
+    }
+
+    .meter-jacks {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-left: auto;
+      padding-left: 10px;
+    }
+
+    .meter-jack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .meter-jack-hole {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #050c19;
+      border: 3px solid;
+      box-sizing: border-box;
+    }
+
+    .meter-jack.red .meter-jack-hole {
+      border-color: #ff3b30;
+      box-shadow: 0 0 5px rgba(255, 59, 48, 0.5);
+    }
+
+    .meter-jack.black .meter-jack-hole {
+      border-color: #d0d5dd;
+    }
+
+    .meter-jack-label {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* MULTIMETER TEST WIRES */
+    .wire-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 3;
+      overflow: visible;
+    }
+
+    .wire-path {
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .wire-path.red { stroke: #ff3b30; filter: drop-shadow(0 0 2px rgba(255, 59, 48, 0.6)); }
+    .wire-path.black { stroke: #d0d5dd; filter: drop-shadow(0 0 2px rgba(208, 213, 221, 0.4)); }
+
+    .wire-svg.wires-visible .wire-path {
+      opacity: 0.95;
+    }
+
+    /* INTERACTIVE OVEN REVIEWS ANIMATION */
+    .oven-section {
+      padding: 16px 0 40px;
+      background: var(--bg-subtle);
+    }
+
+    .oven-flex {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .oven-copy {
+      flex: 1 1 320px;
+      min-width: 280px;
+    }
+
+    .oven-wrapper {
+      position: relative;
+      width: 260px;
+      height: 260px;
+      flex: 0 0 auto;
+      margin: 0 auto;
+      perspective: 1200px;
+    }
+
+    .oven-body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      border-radius: 10px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+    }
+
+    .oven-control-panel {
+      width: 100%;
+      height: 30px;
+      background: var(--bg-subtle);
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .oven-knob-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .oven-knob {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 5px var(--accent);
+    }
+
+    .oven-display {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    .oven-cavity {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(5, 12, 25, 0.98) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .oven-cavity-content {
+      opacity: 0;
+      transition: opacity 0.3s ease 0.15s;
+    }
+
+    .oven-cavity-content .stars {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .oven-cavity-content .oven-review-line {
+      font-size: 0.8rem;
+      color: var(--text-white);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .oven-review-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--bg-blueprint);
+      background: var(--accent);
+      border: 2px solid var(--accent);
+      padding: 8px 14px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      transition: all 0.2s ease;
+    }
+
+    .oven-review-link:hover {
+      background: #4cd6b3;
+      border-color: #4cd6b3;
+    }
+
+    .oven-door {
+      position: absolute;
+      top: 30px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(160deg, #16324f 0%, #0e2443 60%, #0a192f 100%);
+      border-top: 3px solid var(--border-strong);
+      transform-origin: top center;
+      transform: rotateX(0deg);
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .oven-window {
+      width: 65%;
+      height: 55%;
+      border: 5px solid var(--border-medium);
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-align: center;
+      letter-spacing: 0.05em;
+      padding: 10px;
+    }
+
+    .oven-handle {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70%;
+      height: 8px;
+      background: var(--border-medium);
+      border-radius: 4px;
+    }
+
+    .oven-wrapper.oven-open .oven-door {
+      transform: rotateX(-115deg);
+    }
+
+    .oven-wrapper.oven-open .oven-cavity-content {
+      opacity: 1;
+      transition-delay: 0.35s;
+    }
+
+    .oven-hint {
+      margin-top: 14px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 850px) {
+      .oven-flex {
+        flex-direction: column;
+      }
+    }
+
+    /* BRAND BADGES BAR */
+    .brand-badges-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+      align-items: center;
+    }
+
+    .brand-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 6px 14px;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+    }
+
+    .brand-badge:hover {
+      border-color: var(--accent);
+      color: var(--text-white);
+    }
+
+    /* WASHER BRAND SHOWCASE (STACKED ABOVE DRYER) */
+    .washer-dryer-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .washer-wrapper {
+      position: relative;
+      width: 280px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+    }
+
+    .washer-top-panel {
+      width: 100%;
+      height: 34px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+    }
+
+    .washer-knob-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .washer-knob {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 6px #38bdf8;
+    }
+
+    .washer-display {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #38bdf8;
+      letter-spacing: 0.05em;
+      font-weight: bold;
+    }
+
+    .washer-frame {
+      position: relative;
+      width: 210px;
+      height: 210px;
+      perspective: 1000px;
+    }
+
+    .washer-cavity {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 7px solid var(--border-strong);
+      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(5, 12, 25, 0.98) 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+    }
+
+    .washer-cavity-inner {
+      width: 86%;
+      height: 86%;
+      overflow-y: auto;
+      padding: 8px;
+    }
+
+    .washer-brand-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .washer-brand-chip {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      padding: 3px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .washer-door {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 7px solid var(--border-strong);
+      background: linear-gradient(160deg, #16324f 0%, #0e2443 60%, #0a192f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform-origin: left center;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .washer-window {
+      width: 60%;
+      height: 60%;
+      border-radius: 50%;
+      border: 4px solid var(--border-medium);
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #38bdf8;
+      text-align: center;
+      letter-spacing: 0.04em;
+    }
+
+    .washer-handle {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 34px;
+      background: var(--border-medium);
+      border-radius: 4px;
+    }
+
+    .washer-wrapper.washer-open .washer-door {
+      transform: rotateY(-120deg);
+    }
+
+    @media (max-width: 850px) {
+      .washer-dryer-stack {
+        margin: 0 auto;
+      }
+    }
+
+    /* BLUEPRINT MEASURING LINES ON SERVICE MAP */
+    .measure-line {
+      fill: none;
+      stroke: #ffb020;
+      stroke-width: 1.5;
+      stroke-dasharray: 4 3;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .map-container:hover .measure-line {
+      opacity: 0.9;
+    }
+
+    .measure-label {
+      opacity: 0;
+      transition: opacity 0.4s ease 0.15s;
+    }
+
+    .map-container:hover .measure-label {
+      opacity: 1;
+    }
+
+    .map-hint {
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #ffb020;
+      letter-spacing: 0.03em;
+    }
+
+    /* WARRANTY STAMP */
+    .warranty-stamp-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .warranty-stamp {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 130px;
+      height: 130px;
+      border: 3px solid #e8443f;
+      border-radius: 50%;
+      color: #e8443f;
+      font-family: var(--font-mono);
+      font-weight: 800;
+      text-align: center;
+      position: relative;
+      transform: rotate(-10deg) scale(0);
+      opacity: 0;
+      transition: transform 0.4s cubic-bezier(0.36, 1.6, 0.6, 1), opacity 0.2s ease;
+    }
+
+    .warranty-stamp::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px solid #e8443f;
+      border-radius: 50%;
+    }
+
+    .warranty-stamp .stamp-line1 {
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .warranty-stamp .stamp-line2 {
+      font-size: 1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .warranty-stamp .stamp-line3 {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      margin-top: 4px;
+    }
+
+    .warranty-stamp.stamped {
+      transform: rotate(-10deg) scale(1);
+      opacity: 0.9;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border-medium);
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0 0 24px;
+      font-weight: 900;
+      color: var(--text-white);
+    }
+
+    .content {
+      max-width: 820px;
+    }
+
+    .content p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    /* SERVICE CARDS GRID */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      padding: 32px;
+      position: relative;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      border-color: var(--accent);
+    }
+
+    .service-card .spec-num {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    .service-card .spec-num::before { content: 'SYS_REF // '; }
+
+    .service-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-white);
+    }
+
+    .service-card p {
+      margin: 0 0 24px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .card-link {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .service-card:hover .card-link {
+      color: #ffffff;
+    }
+
+    /* SERVICE AREA & INTERACTIVE DASHBOARD */
+    .service-area-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .area-dashboard {
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      padding: 32px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--border-medium);
+      margin-bottom: 24px;
+    }
+
+    .dashboard-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-white);
+      letter-spacing: -0.01em;
+    }
+
+    .status-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--accent);
     }
 
     .zone-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 24px;
     }
 
     .zone-group:last-child {
@@ -89,239 +1213,1131 @@
     }
 
     .zone-label {
-      display: block;
-      font-family: monospace;
-      color: var(--accent-blue);
-      font-size: 0.875rem;
-      margin-bottom: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      display: block;
     }
 
     .zone-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 8px;
     }
 
     .pill {
-      background: rgba(48, 112, 255, 0.1);
-      border: 1px solid rgba(48, 112, 255, 0.25);
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 600;
       color: var(--text-main);
-      padding: 0.6rem 1.2rem;
-      border-radius: 8px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .pill.interactive-pill {
       text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: all 0.2s ease;
+      color: var(--text-white);
+      background: var(--bg-subtle);
+      border-color: var(--border-medium);
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: 4px;
     }
 
-    .pill:hover {
-      background: var(--accent-blue);
-      border-color: var(--accent-blue);
-      transform: translateY(-2px);
+    .pill.interactive-pill:hover {
+      background: var(--accent-dim);
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-1px);
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
+    .pill.zip-pill {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    .service-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .map-container {
+      margin-top: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-medium);
+      padding: 16px;
+      position: relative;
     }
 
-    .service-card h3 {
+    .map-container svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* FAQ */
+    .faq {
+      border-top: 2px solid var(--border-medium);
+    }
+
+    .faq-item {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-item h3 {
+      margin: 0 0 12px;
       font-size: 1.25rem;
-      margin-bottom: 0.5rem;
+      font-weight: 800;
+      color: var(--text-white);
     }
 
-    .service-card p {
+    .faq-item p {
+      margin: 0;
+      font-size: 1rem;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.25rem;
+      line-height: 1.6;
     }
 
-    .service-card a {
-      color: var(--accent-blue);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
+    /* BREAKER PANEL FAQ */
+    .breaker-panel {
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
+      border-radius: 8px;
+      padding: 28px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
     }
 
-    .service-card a:hover {
-      color: var(--accent-hover);
-      text-decoration: underline;
+    .breaker-panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      border-bottom: 1px dashed var(--border-medium);
     }
 
-    footer {
+    .breaker-panel-title {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-white);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .breaker-hint {
+      margin-bottom: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .breaker-row {
+      border: 1px solid var(--border-light);
+      background: var(--bg-subtle);
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .breaker-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .breaker-toggle {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .breaker-switch-housing {
+      position: relative;
+      flex: 0 0 auto;
+      width: 34px;
+      height: 56px;
+      background: #050c19;
+      border: 2px solid var(--border-medium);
+      border-radius: 4px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4px 0;
+      overflow: visible;
+    }
+
+    .breaker-switch-lever {
+      width: 18px;
+      height: 24px;
+      background: var(--text-muted);
+      border-radius: 3px;
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      transform-origin: top center;
+    }
+
+    .breaker-spark {
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .breaker-row.flipped .breaker-spark {
+      animation: sparkPop 0.5s ease;
+    }
+
+    @keyframes sparkPop {
+      0% { opacity: 0; transform: translate(-50%, 4px) scale(0.5); }
+      35% { opacity: 1; transform: translate(-50%, -6px) scale(1.3); }
+      70% { opacity: 1; transform: translate(-50%, -4px) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -10px) scale(0.8); }
+    }
+
+    .breaker-row.flipped .breaker-switch-lever {
+      transform: translateY(26px);
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .breaker-label-group {
+      flex: 1 1 auto;
+    }
+
+    .breaker-circuit-num {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .breaker-question {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-white);
+    }
+
+    .breaker-status {
+      flex: 0 0 auto;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border: 1px solid var(--border-light);
+      padding: 4px 10px;
+      border-radius: 3px;
+    }
+
+    .breaker-row.flipped .breaker-status {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .breaker-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 18px;
+      border-top: 1px solid transparent;
+    }
+
+    .breaker-row.flipped .breaker-answer {
+      max-height: 220px;
+      padding: 0 18px 18px 68px;
+      border-top: 1px dashed var(--border-light);
+    }
+
+    .breaker-answer p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 14px 0 0;
+    }
+
+    /* FINAL CTA */
+    .final-cta {
       text-align: center;
+      padding: 80px 0;
+      background: var(--bg-subtle);
+      border-top: 2px solid var(--border-medium);
+      border-bottom: 2px solid var(--border-medium);
+    }
+
+    .final-cta .eyebrow {
+      justify-content: center;
+    }
+
+    .final-cta h2 {
+      color: var(--text-white);
+    }
+
+    .final-cta p {
+      max-width: 650px;
+      margin: 0 auto 32px;
       color: var(--text-muted);
-      font-size: 0.875rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--border-color);
+      font-size: 1.15rem;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 36px 0;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-blueprint);
+    }
+
+    @media (max-width: 850px) {
+      .hero-layout,
+      .service-area-grid {
+        grid-template-columns: 1fr;
+      }
+      .dryer-wrapper {
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .header-inner {
+        display: block;
+      }
+
+      .header-right {
+        margin-top: 14px;
+        justify-content: space-between;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .area-dashboard {
+        margin-top: 28px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      .header-status-badge {
+        display: none;
+      }
     }
   </style>
 
-  <!-- Structured Data JSON-LD with standardized URLs -->
+  <!-- ADVANCED COMBINED JSON-LD SCHEMA (ENHANCED FOR LOCAL SEO & GEOLOCATION) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Hedlund Appliance Repair",
-    "image": "https://hedlundappliance.com/assets/logo.png",
-    "@id": "https://hedlundappliance.com/#organization",
-    "url": "https://hedlundappliance.com/",
-    "telephone": "+1-904-555-0199",
-    "priceRange": "$$",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Jacksonville",
-      "addressRegion": "FL",
-      "postalCode": "32250",
-      "addressCountry": "US"
-    },
-    "areaServed": [
+    "@graph": [
       {
-        "@type": "City",
-        "name": "Jacksonville Beach",
-        "sameAs": "https://hedlundappliance.com/locations/jacksonville-beach/"
+        "@type": "LocalBusiness",
+        "@id": "https://hedlundappliance.com/#business",
+        "name": "Hedlund Appliance Service",
+        "image": "https://hedlundappliance.com/og-image.jpg",
+        "telephone": "+1-904-335-8206",
+        "url": "https://hedlundappliance.com/",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1701 San Pablo Rd S",
+          "addressLocality": "Jacksonville",
+          "addressRegion": "FL",
+          "postalCode": "32224",
+          "addressCountry": "US"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 30.2981,
+          "longitude": -81.4589
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+          ],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Jacksonville" },
+          { "@type": "City", "name": "Jacksonville Beach" },
+          { "@type": "City", "name": "Atlantic Beach" },
+          { "@type": "City", "name": "Neptune Beach" },
+          { "@type": "City", "name": "Ponte Vedra Beach" },
+          { "@type": "AdministrativeArea", "name": "San Pablo" },
+          { "@type": "AdministrativeArea", "name": "Intracoastal West" },
+          { "@type": "AdministrativeArea", "name": "Southside" },
+          { "@type": "AdministrativeArea", "name": "Mandarin" }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Appliance Repair Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Refrigerator Repair",
+                "url": "https://hedlundappliance.com/refrigerator-repair-jacksonville/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Washer Repair",
+                "url": "https://hedlundappliance.com/washer-repair-jacksonville/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Dryer Repair",
+                "url": "https://hedlundappliance.com/dryer-repair-jacksonville/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Dishwasher Repair",
+                "url": "https://hedlundappliance.com/dishwasher-repair-jacksonville/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Oven Repair",
+                "url": "https://hedlundappliance.com/oven-repair-jacksonville/"
+              }
+            }
+          ]
+        }
       },
       {
-        "@type": "City",
-        "name": "Atlantic Beach",
-        "sameAs": "https://hedlundappliance.com/locations/atlantic-beach/"
-      },
-      {
-        "@type": "City",
-        "name": "Neptune Beach",
-        "sameAs": "https://hedlundappliance.com/locations/neptune-beach/"
-      },
-      {
-        "@type": "City",
-        "name": "Ponte Vedra Beach",
-        "sameAs": "https://hedlundappliance.com/locations/ponte-vedra-beach/"
-      },
-      {
-        "@type": "City",
-        "name": "San Pablo",
-        "sameAs": "https://hedlundappliance.com/locations/san-pablo/"
-      },
-      {
-        "@type": "City",
-        "name": "Intracoastal West",
-        "sameAs": "https://hedlundappliance.com/locations/intracoastal-west/"
-      },
-      {
-        "@type": "City",
-        "name": "Southside",
-        "sameAs": "https://hedlundappliance.com/locations/southside/"
-      },
-      {
-        "@type": "City",
-        "name": "Mandarin",
-        "sameAs": "https://hedlundappliance.com/locations/mandarin/"
-      },
-      {
-        "@type": "City",
-        "name": "Downtown Jax",
-        "sameAs": "https://hedlundappliance.com/locations/downtown-jax/"
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How quickly can you evaluate my appliance issue?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We offer fast response times across Jacksonville and the Beaches. Calling or texting (904) 335-8206 is the fastest route to lock in a diagnostic appointment."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you service major appliance brands?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We diagnose and repair all major brands including Whirlpool, GE, Maytag, LG, Samsung, KitchenAid, Frigidaire, Bosch, and Kenmore."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is it worth repairing an older appliance?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We provide a direct, honest evaluation of physical condition and part costs versus replacement value so you can make an informed decision without wasted expenditure."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
 </head>
-<body>
 
-  <div class="container">
-    <header>
+<body class="paper-grid">
+
+  <header>
+    <div class="wrap header-inner">
       <a class="brand" href="/">
-        Hedlund <span>Appliance Repair</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="8" cy="6" r="1"/></svg>
+        HEDLUND APPLIANCE SERVICE
       </a>
-    </header>
-
-    <main>
-      <!-- SERVICE LOCATIONS SECTION -->
-      <section class="location-section">
-        <div class="section-header">
-          <h2>Service Areas &amp; Local Hubs</h2>
-          <p>Select your location to view immediate local technician availability and local reviews.</p>
+      
+      <div class="header-right">
+        <!-- HEADER REAL-TIME DISPATCH STATUS -->
+        <div class="header-status-badge">
+          <span class="status-pulse-dot"></span>
+          <span>TECH ACTIVE IN JAX AREA TODAY</span>
         </div>
 
-        <!-- ZONE 1: BEACHES -->
-        <div class="zone-group">
-          <span class="zone-label">// Coastal &amp; Beaches Zone</span>
-          <div class="zone-pills">
-            <a href="/locations/jacksonville-beach/" class="pill interactive-pill">Jacksonville Beach &rarr;</a>
-            <a href="/locations/atlantic-beach/" class="pill interactive-pill">Atlantic Beach &rarr;</a>
-            <a href="/locations/neptune-beach/" class="pill interactive-pill">Neptune Beach &rarr;</a>
-            <a href="/locations/ponte-vedra-beach/" class="pill interactive-pill">Ponte Vedra Beach &rarr;</a>
+        <div class="social-links">
+          <a href="https://www.facebook.com/profile.php?id=61591790762759" target="_blank" rel="noopener" class="social-icon facebook" aria-label="Facebook Page">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.78 5.6c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
+          </a>
+          <a href="https://youtube.com/@hedlundapplianceservice?si=MUJ07LVOVk6l1VKO" target="_blank" rel="noopener" class="social-icon youtube" aria-label="YouTube Channel">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+        <a class="header-cta button-pulse" href="tel:+19043358206">CALL (904) 335-8206</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="wrap hero-layout">
+        <div>
+          <div class="eyebrow">Precision Technical Service // Jacksonville, FL</div>
+
+          <h1>Expert Appliance Repair in Jacksonville</h1>
+
+          <p>
+            Hedlund Appliance Service delivers systematic diagnostics and precision repairs for major residential appliances. Honest troubleshooting, accurate component testing, and reliable service throughout Jacksonville and the Beaches.
+          </p>
+
+          <div class="cta-row">
+            <a class="button button-pulse" href="tel:+19043358206">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              CALL (904) 335-8206
+            </a>
+            <a class="button secondary" href="sms:+19043358206">TEXT FOR SERVICE</a>
+          </div>
+
+        </div>
+
+        <div class="washer-dryer-stack">
+
+          <!-- WASHER BRAND SHOWCASE -->
+          <div class="washer-wrapper" id="washer-wrapper" onclick="toggleWasher()">
+            <div class="washer-top-panel">
+              <div class="washer-knob-row">
+                <div class="washer-knob"></div>
+                <div class="washer-knob"></div>
+              </div>
+              <div class="washer-display">BRANDS WE SERVICE</div>
+            </div>
+            <div class="washer-frame">
+              <div class="washer-cavity">
+                <div class="washer-cavity-inner">
+                  <div class="washer-brand-list">
+                    <span class="washer-brand-chip">Whirlpool</span>
+                    <span class="washer-brand-chip">GE Appliances</span>
+                    <span class="washer-brand-chip">Frigidaire</span>
+                    <span class="washer-brand-chip">LG</span>
+                    <span class="washer-brand-chip">Samsung</span>
+                    <span class="washer-brand-chip">Maytag</span>
+                    <span class="washer-brand-chip">Amana</span>
+                    <span class="washer-brand-chip">Hotpoint</span>
+                    <span class="washer-brand-chip">Kenmore</span>
+                    <span class="washer-brand-chip">Beko</span>
+                    <span class="washer-brand-chip">Bosch</span>
+                    <span class="washer-brand-chip">KitchenAid</span>
+                    <span class="washer-brand-chip">Café</span>
+                    <span class="washer-brand-chip">GE Profile</span>
+                    <span class="washer-brand-chip">LG Studio</span>
+                    <span class="washer-brand-chip">Fisher & Paykel</span>
+                    <span class="washer-brand-chip">Electrolux</span>
+                    <span class="washer-brand-chip">Thor Kitchen</span>
+                    <span class="washer-brand-chip">Thermador</span>
+                    <span class="washer-brand-chip">Miele</span>
+                    <span class="washer-brand-chip">Monogram</span>
+                    <span class="washer-brand-chip">Viking</span>
+                    <span class="washer-brand-chip">JennAir</span>
+                    <span class="washer-brand-chip">BlueStar</span>
+                    <span class="washer-brand-chip">Dacor</span>
+                    <span class="washer-brand-chip">Sub-Zero</span>
+                    <span class="washer-brand-chip">Speed Queen</span>
+                    <span class="washer-brand-chip">Asko</span>
+                  </div>
+                </div>
+              </div>
+              <div class="washer-door">
+                <div class="washer-window">TAP TO<br>VIEW<br>BRANDS</div>
+                <div class="washer-handle"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dryer-wrapper">
+          <div class="dryer-top-panel">
+            <div class="dryer-knob"></div>
+            <div class="dryer-display">RUNNING // 5.0★</div>
+          </div>
+          <div class="dryer-door">
+            <div class="dryer-drum-spinner">
+              <div class="drum-fin"></div>
+              <div class="drum-fin"></div>
+              <div class="drum-fin"></div>
+            </div>
+
+            <div class="tumbling-review review-1">
+              <div class="stars">★★★★★</div>
+              <div class="review-desc">"Fixed our dryer heater fast!"</div>
+              <div class="review-author">— Sarah M., Jax Beach</div>
+            </div>
+
+            <div class="tumbling-review review-2">
+              <div class="stars">★★★★★</div>
+              <div class="review-desc">"Honest, technical expert."</div>
+              <div class="review-author">— David R., San Pablo</div>
+            </div>
+
+            <div class="tumbling-review review-3">
+              <div class="stars">★★★★★</div>
+              <div class="review-desc">"Diagnosed on first visit!"</div>
+              <div class="review-author">— Elena K., Ponte Vedra</div>
+            </div>
+
           </div>
         </div>
 
-        <!-- ZONE 2: METRO & INLAND -->
-        <div class="zone-group">
-          <span class="zone-label">// East Jax &amp; Metro Hubs</span>
-          <div class="zone-pills">
-            <a href="/locations/san-pablo/" class="pill interactive-pill">San Pablo &rarr;</a>
-            <a href="/locations/intracoastal-west/" class="pill interactive-pill">Intracoastal West &rarr;</a>
-            <a href="/locations/southside/" class="pill interactive-pill">Southside &rarr;</a>
-            <a href="/locations/mandarin/" class="pill interactive-pill">Mandarin &rarr;</a>
-            <a href="/locations/downtown-jax/" class="pill interactive-pill">Downtown Jax &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD -->
+    <section style="padding: 40px 0 16px; background: var(--bg-subtle);">
+      <div class="wrap">
+        <div class="diagnostic-card">
+          <svg class="wire-svg" id="wire-svg">
+            <path class="wire-path red" id="wire-red-path" d=""></path>
+            <path class="wire-path black" id="wire-black-path" d=""></path>
+          </svg>
+
+          <div class="eyebrow">// Quick Interactive Diagnostic</div>
+          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">Experiencing an Appliance Fault?</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Select your symptom below to prep technician response and dispatch priority:</p>
+
+          <div class="probe-readout">
+            <span class="probe-readout-label">⏚ PROBE READING:</span>
+            <span class="probe-readout-value" id="probe-value">STANDBY // AWAITING INPUT</span>
+            <div class="meter-jacks">
+              <div class="meter-jack black">
+                <div class="meter-jack-hole" id="terminal-black"></div>
+                <span class="meter-jack-label">COM</span>
+              </div>
+              <div class="meter-jack red">
+                <div class="meter-jack-hole" id="terminal-red"></div>
+                <span class="meter-jack-label">VΩmA</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="symptom-grid">
+            <button class="symptom-btn" onclick="setSymptom('Refrigerator Not Cooling')">
+              <span class="probe-tip"></span><span>❄️ Refrigerator Cooling Loss</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Dryer Not Heating')">
+              <span class="probe-tip"></span><span>🔥 Dryer Heating Failure</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Washer Leaking / Not Draining')">
+              <span class="probe-tip"></span><span>💧 Washer Drain / Leak</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Dishwasher Standing Water')">
+              <span class="probe-tip"></span><span>🍽️ Dishwasher Standing Water</span>
+            </button>
+            <button class="symptom-btn" onclick="setSymptom('Oven / Range Heating Issue')">
+              <span class="probe-tip"></span><span>🍳 Oven Igniter / Element Fault</span>
+            </button>
+          </div>
+
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
+            <a id="symptom-cta" class="button button-pulse" href="tel:+19043358206">
+              CALL (904) 335-8206 FOR DISPATCH
+            </a>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent);">
+              [Direct Tech Access · Zero Waiting]
+            </span>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- SERVICES CATALOG SECTION -->
-      <section>
-        <div class="section-header">
-          <h2>Core Appliance Services</h2>
-          <p>Specialized repair for top-brand kitchen and laundry equipment.</p>
+    <!-- INTERACTIVE OVEN DOOR REVIEWS ANIMATION -->
+    <section class="oven-section">
+      <div class="wrap oven-flex">
+
+        <div class="oven-copy">
+          <div class="eyebrow">// Rated 5.0 On Google</div>
+          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">See What Jacksonville Homeowners Are Saying</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Open the oven door to read verified reviews from real customers across Jacksonville and the Beaches.</p>
         </div>
+
+        <div>
+          <div class="oven-wrapper" id="oven-wrapper" onclick="toggleOven()">
+            <div class="oven-body">
+              <div class="oven-control-panel">
+                <div class="oven-knob-row">
+                  <div class="oven-knob"></div>
+                  <div class="oven-knob"></div>
+                </div>
+                <div class="oven-display">5.0★ GOOGLE</div>
+              </div>
+
+              <div class="oven-cavity">
+                <div class="oven-cavity-content">
+                  <div class="stars">★★★★★</div>
+                  <div class="oven-review-line">Read our verified<br>Google reviews</div>
+                  <a class="oven-review-link" href="https://maps.app.goo.gl/j67vY96DJYPCxg2s9?g_st=ic" target="_blank" rel="noopener" onclick="event.stopPropagation();">
+                    VIEW REVIEWS →
+                  </a>
+                </div>
+              </div>
+
+              <div class="oven-door">
+                <div class="oven-window">TAP TO<br>OPEN</div>
+                <div class="oven-handle"></div>
+              </div>
+            </div>
+          </div>
+          <div class="oven-hint">// Click the oven door to open</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap content">
+        <div class="eyebrow">Service Catalog</div>
+
+        <h2>System Repair Capabilities</h2>
+
+        <p>
+          Select an appliance system below to view specific fault diagnostics, system capabilities, and localized service details.
+        </p>
 
         <div class="services-grid">
-          <div class="service-card">
+
+          <a class="service-card" href="/refrigerator-repair-jacksonville/">
             <div>
+              <div class="spec-num">01</div>
               <h3>Refrigerator Repair</h3>
-              <p>Compressor replacement, cooling diagnostics, and ice maker fixes.</p>
+              <p>Diagnostics for cooling loss, ice maker failures, sealed system flow issues, water leaks, defrost board errors, and noisy fan motors.</p>
             </div>
-            <a href="/refrigerator-repair-jacksonville/">View Refrigerator Services &rarr;</a>
-          </div>
+            <span class="card-link">VIEW SPECIFICATIONS →</span>
+          </a>
 
-          <div class="service-card">
+          <a class="service-card" href="/washer-repair-jacksonville/">
             <div>
-              <h3>Washer &amp; Dryer Repair</h3>
-              <p>Spin cycle repair, drum replacement, and heating element fixes.</p>
+              <div class="spec-num">02</div>
+              <h3>Washer Repair</h3>
+              <p>Targeted repairs for drain pump lockouts, off-balance spin cycles, drum bearing wear, door latch errors, and fill valve failures.</p>
             </div>
-            <a href="/washer-dryer-repair-jacksonville/">View Laundry Repair &rarr;</a>
-          </div>
+            <span class="card-link">VIEW SPECIFICATIONS →</span>
+          </a>
 
-          <div class="service-card">
+          <a class="service-card" href="/dryer-repair-jacksonville/">
             <div>
+              <div class="spec-num">03</div>
+              <h3>Dryer Repair</h3>
+              <p>Troubleshooting thermal fuse blowouts, heating element burnouts, drive belt snaps, roller squeaks, and airflow ventilation restrictions.</p>
+            </div>
+            <span class="card-link">VIEW SPECIFICATIONS →</span>
+          </a>
+
+          <a class="service-card" href="/dishwasher-repair-jacksonville/">
+            <div>
+              <div class="spec-num">04</div>
+              <h3>Dishwasher Repair</h3>
+              <p>Resolving standing water failures, circulation pump lockouts, tub leaks, wash pressure loss, and door latch microswitch faults.</p>
+            </div>
+            <span class="card-link">VIEW SPECIFICATIONS →</span>
+          </a>
+
+          <a class="service-card" href="/oven-repair-jacksonville/">
+            <div>
+              <div class="spec-num">05</div>
               <h3>Oven &amp; Range Repair</h3>
-              <p>Temperature calibration, igniter replacement, and control board diagnostics.</p>
+              <p>Fixing igniter failures, temperature sensor miscalibrations, bake/broil element shorts, touch control lockouts, and door hinge issues.</p>
             </div>
-            <a href="/oven-repair-jacksonville/" class="oven-review-link">View Oven Services &rarr;</a>
+            <span class="card-link">VIEW SPECIFICATIONS →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap content">
+        <div class="eyebrow">Diagnostic Standard</div>
+
+        <h2>Technical Analysis Before Part Replacement</h2>
+
+        <p>
+          Throwing parts at an appliance based on symptom guessing leads to unnecessary costs and repeat breakdowns. Every service call begins with component testing using digital multimeters and structural diagnostics.
+        </p>
+
+        <p>
+          Whether analyzing control signals on a modern inverter board or tracing hydraulic flow in a drainage system, Hedlund Appliance Service identifies the root cause accurately on the first visit.
+        </p>
+      </div>
+    </section>
+
+    <!-- SERVICE AREA SECTION WITH INTERACTIVE NEIGHBORHOOD REDIRECTS -->
+    <section>
+      <div class="wrap service-area-grid">
+
+        <!-- LEFT COLUMN: MAP & MAP INFO -->
+        <div>
+          <div class="eyebrow">Primary Coverage Zone</div>
+          <h2>Jacksonville Service Radius</h2>
+
+          <p>
+            Based near San Pablo Road South, Hedlund Appliance Service provides rapid, technical repair response across Duval and St. Johns County communities. Click a dispatch zone for local specifications.
+          </p>
+
+          <div class="map-container">
+            <svg viewBox="0 0 500 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 60 H500 M0 120 H500 M0 180 H500 M0 240 H500 M0 300 H500" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              <path d="M60 0 V360 M120 0 V360 M180 0 V360 M240 0 V360 M300 0 V360 M360 0 V360 M420 0 V360" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+              
+              <path d="M 10,20 L 320,20 L 330,40 L 332,90 L 335,130 L 340,180 L 348,230 L 358,300 L 365,350 L 10,350 Z" fill="#0e2443" stroke="#8892b0" stroke-width="2" opacity="0.7"/>
+              
+              <path d="M 120,350 L 140,280 L 160,200 L 170,130 Q 180,90 230,90 L 332,90" fill="none" stroke="#0a192f" stroke-width="8"/>
+              <text x="180" y="115" fill="#8892b0" font-family="monospace" font-size="8" opacity="0.6">ST. JOHNS RIVER</text>
+
+              <path d="M 50,220 H 345" stroke="#ffffff" stroke-width="1" stroke-dasharray="3 3" opacity="0.3"/>
+              <text x="60" y="212" fill="#8892b0" font-family="monospace" font-size="8">DUVAL COUNTY</text>
+              <text x="60" y="235" fill="#8892b0" font-family="monospace" font-size="8">ST. JOHNS COUNTY</text>
+
+              <text x="360" y="160" fill="#8892b0" font-family="monospace" font-size="10" letter-spacing="2">ATLANTIC OCEAN</text>
+              
+              <text x="210" y="70" fill="#e6f1ff" font-family="monospace" font-size="9" font-weight="bold">Downtown Jax</text>
+              <text x="310" y="115" fill="#64ffda" font-family="monospace" font-size="8">Jax Beach</text>
+              <text x="325" y="210" fill="#64ffda" font-family="monospace" font-size="8">Ponte Vedra</text>
+
+              <circle cx="295" cy="120" r="95" fill="rgba(100, 255, 218, 0.12)" stroke="#64ffda" stroke-width="2" stroke-dasharray="5 5"/>
+              
+              <circle cx="295" cy="120" r="5" fill="#64ffda"/>
+              <circle cx="295" cy="120" r="9" fill="none" stroke="#64ffda" stroke-width="1.5"/>
+
+              <line x1="295" y1="120" x2="220" y2="165" stroke="#64ffda" stroke-width="1.5"/>
+              <rect x="120" y="165" width="160" height="34" fill="#0a192f" stroke="#64ffda" stroke-width="1"/>
+              <text x="126" y="179" fill="#ffffff" font-family="monospace" font-size="9" font-weight="bold">1701 San Pablo Rd S</text>
+              <text x="126" y="191" fill="#64ffda" font-family="monospace" font-size="8">20-MILE SERVICE RADIUS</text>
+
+              <!-- BLUEPRINT MEASURING LINES (reveal on hover) -->
+              <path class="measure-line" d="M 295,120 L 213,74"/>
+              <text class="measure-label" x="228" y="92" fill="#ffb020" font-family="monospace" font-size="8">≈9 MI</text>
+
+              <path class="measure-line" d="M 295,120 L 320,206"/>
+              <text class="measure-label" x="296" y="168" fill="#ffb020" font-family="monospace" font-size="8">≈14 MI</text>
+
+              <path class="measure-line" d="M 295,120 L 312,116"/>
+            </svg>
+          </div>
+          <div class="map-hint">📐 Hover the map to measure distance from the shop</div>
+        </div>
+
+        <!-- RIGHT COLUMN: INTERACTIVE NEIGHBORHOOD REDIRECT CARDS -->
+        <div class="area-dashboard">
+          <div class="dashboard-header">
+            <div class="dashboard-title">Dispatch Zones</div>
+            <div class="status-badge">SELECT AREA</div>
+          </div>
+
+          <!-- ZONE 1: BEACHES -->
+          <div class="zone-group">
+            <span class="zone-label">// Coastal &amp; Beaches Zone</span>
+            <div class="zone-pills">
+              <a href="/locations/jacksonville-beach/" class="pill interactive-pill">Jacksonville Beach →</a>
+              <a href="/locations/atlantic-beach/" class="pill interactive-pill">Atlantic Beach →</a>
+              <a href="/locations/neptune-beach/" class="pill interactive-pill">Neptune Beach →</a>
+              <a href="/locations/ponte-vedra-beach/" class="pill interactive-pill">Ponte Vedra Beach →</a>
+            </div>
+          </div>
+
+          <!-- ZONE 2: METRO & INLAND -->
+          <div class="zone-group">
+            <span class="zone-label">// East Jax &amp; Metro Hubs</span>
+            <div class="zone-pills">
+              <a href="/locations/san-pablo/" class="pill interactive-pill">San Pablo →</a>
+              <a href="/locations/intracoastal-west/" class="pill interactive-pill">Intracoastal West →</a>
+              <a href="/locations/southside/" class="pill interactive-pill">Southside →</a>
+              <a href="/locations/mandarin/" class="pill interactive-pill">Mandarin →</a>
+              <a href="/locations/downtown-jax/" class="pill interactive-pill">Downtown Jax →</a>
+            </div>
+          </div>
+
+          <!-- ZONE 3: ZIP CODES -->
+          <div class="zone-group">
+            <span class="zone-label">// Primary ZIP Dispatch Codes</span>
+            <div class="zone-pills">
+              <span class="pill zip-pill">32224</span>
+              <span class="pill zip-pill">32225</span>
+              <span class="pill zip-pill">32250</span>
+              <span class="pill zip-pill">32233</span>
+              <span class="pill zip-pill">32266</span>
+              <span class="pill zip-pill">32082</span>
+              <span class="pill zip-pill">32223</span>
+              <span class="pill zip-pill">32222</span>
+              <span class="pill zip-pill">32226</span>
+              <span class="pill zip-pill">32256</span>
+            </div>
           </div>
         </div>
-      </section>
-    </main>
 
-    <footer>
-      <p>&copy; Hedlund Appliance Repair. All rights reserved.</p>
-    </footer>
-  </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap content faq">
+
+        <div class="eyebrow">Frequently Asked Questions</div>
+        <h2>Appliance Service FAQ</h2>
+
+        <div class="breaker-panel">
+          <div class="breaker-panel-header">
+            <div class="breaker-panel-title">// Main Service Panel</div>
+            <div class="status-badge">5 CIRCUITS</div>
+          </div>
+
+          <div class="breaker-hint">⚡ Flip a breaker to reveal the answer</div>
+
+          <div class="breaker-row" onclick="toggleBreaker(this)">
+            <div class="breaker-toggle">
+              <div class="breaker-switch-housing">
+                <div class="breaker-switch-lever"></div>
+                <span class="breaker-spark">⚡</span>
+              </div>
+              <div class="breaker-label-group">
+                <div class="breaker-circuit-num">CKT 01 // RESPONSE TIME</div>
+                <div class="breaker-question">How quickly can you evaluate my appliance issue?</div>
+              </div>
+              <div class="breaker-status">OFF</div>
+            </div>
+            <div class="breaker-answer">
+              <p>We offer fast response times across Jacksonville and the Beaches. Calling or texting (904) 335-8206 is the fastest route to lock in a diagnostic appointment.</p>
+            </div>
+          </div>
+
+          <div class="breaker-row" onclick="toggleBreaker(this)">
+            <div class="breaker-toggle">
+              <div class="breaker-switch-housing">
+                <div class="breaker-switch-lever"></div>
+                <span class="breaker-spark">⚡</span>
+              </div>
+              <div class="breaker-label-group">
+                <div class="breaker-circuit-num">CKT 02 // BRAND COVERAGE</div>
+                <div class="breaker-question">Do you service major appliance brands?</div>
+              </div>
+              <div class="breaker-status">OFF</div>
+            </div>
+            <div class="breaker-answer">
+              <p>Yes. We diagnose and repair all major brands including Whirlpool, GE, Maytag, LG, Samsung, KitchenAid, Frigidaire, Bosch, and Kenmore.</p>
+            </div>
+          </div>
+
+          <div class="breaker-row" onclick="toggleBreaker(this)">
+            <div class="breaker-toggle">
+              <div class="breaker-switch-housing">
+                <div class="breaker-switch-lever"></div>
+                <span class="breaker-spark">⚡</span>
+              </div>
+              <div class="breaker-label-group">
+                <div class="breaker-circuit-num">CKT 03 // REPAIR VS. REPLACE</div>
+                <div class="breaker-question">Is it worth repairing an older appliance?</div>
+              </div>
+              <div class="breaker-status">OFF</div>
+            </div>
+            <div class="breaker-answer">
+              <p>We provide a direct, honest evaluation of physical condition and part costs versus replacement value so you can make an informed decision without wasted expenditure.</p>
+            </div>
+          </div>
+
+          <div class="breaker-row" onclick="toggleBreaker(this)">
+            <div class="breaker-toggle">
+              <div class="breaker-switch-housing">
+                <div class="breaker-switch-lever"></div>
+                <span class="breaker-spark">⚡</span>
+              </div>
+              <div class="breaker-label-group">
+                <div class="breaker-circuit-num">CKT 04 // SERVICE AREA</div>
+                <div class="breaker-question">What areas do you cover?</div>
+              </div>
+              <div class="breaker-status">OFF</div>
+            </div>
+            <div class="breaker-answer">
+              <p>Jacksonville, Jacksonville Beach, Atlantic Beach, Neptune Beach, Ponte Vedra Beach, and surrounding Duval and St. Johns County communities within a 20-mile radius of San Pablo Road South.</p>
+            </div>
+          </div>
+
+          <div class="breaker-row" onclick="toggleBreaker(this)">
+            <div class="breaker-toggle">
+              <div class="breaker-switch-housing">
+                <div class="breaker-switch-lever"></div>
+                <span class="breaker-spark">⚡</span>
+              </div>
+              <div class="breaker-label-group">
+                <div class="breaker-circuit-num">CKT 05 // SCHEDULING</div>
+                <div class="breaker-question">How do I schedule a repair visit?</div>
+              </div>
+              <div class="breaker-status">OFF</div>
+            </div>
+            <div class="breaker-answer">
+              <p>Call or text (904) 335-8206 directly. You'll speak with a technician who can walk through the issue and get a visit on the schedule.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="wrap">
+
+        <div class="warranty-stamp-wrap">
+          <div class="warranty-stamp" id="warranty-stamp">
+            <span class="stamp-line1">★ HEDLUND ★</span>
+            <span class="stamp-line2">GUARANTEED</span>
+            <span class="stamp-line3">HONEST REPAIRS</span>
+          </div>
+        </div>
+
+        <div class="eyebrow">Need Service?</div>
+
+        <h2>Schedule Your Service Visit Today</h2>
+
+        <p>
+          Call or text Hedlund Appliance Service to speak directly with a technician and schedule your diagnostic repair visit.
+        </p>
+
+        <a class="button button-pulse" href="tel:+19043358206">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          CALL (904) 335-8206
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Hedlund Appliance Service · Jacksonville, Florida
+    </div>
+  </footer>
+
+  <!-- INLINE DIAGNOSTIC HELPER SCRIPT -->
+  <script>
+    const symptomReadings = {
+      'Refrigerator Not Cooling': '208-230V AC · COMPRESSOR CIRCUIT OPEN',
+      'Dryer Not Heating': '0.0Ω · HEATING ELEMENT OPEN',
+      'Washer Leaking / Not Draining': '120V AC · DRAIN PUMP OVER-DRAW',
+      'Dishwasher Standing Water': '120V AC · DRAIN SOLENOID NO CONTINUITY',
+      'Oven / Range Heating Issue': '48Ω · IGNITER OUT OF RANGE'
+    };
+
+    function wirePath(start, end) {
+      const sag = 46;
+      const midY = Math.max(start.y, end.y) + sag;
+      return `M ${start.x},${start.y} C ${start.x},${midY} ${end.x},${midY} ${end.x},${end.y}`;
+    }
+
+    function drawWires(targetBtn) {
+      const svg = document.getElementById('wire-svg');
+      const card = document.querySelector('.diagnostic-card');
+      const redTerm = document.getElementById('terminal-red');
+      const blackTerm = document.getElementById('terminal-black');
+      const tip = targetBtn.querySelector('.probe-tip');
+      if (!svg || !card || !redTerm || !blackTerm || !tip) return;
+
+      const cardRect = card.getBoundingClientRect();
+      const redRect = redTerm.getBoundingClientRect();
+      const blackRect = blackTerm.getBoundingClientRect();
+      const tipRect = tip.getBoundingClientRect();
+
+      const redStart = { x: redRect.left + redRect.width / 2 - cardRect.left, y: redRect.top + redRect.height / 2 - cardRect.top };
+      const blackStart = { x: blackRect.left + blackRect.width / 2 - cardRect.left, y: blackRect.top + blackRect.height / 2 - cardRect.top };
+      const end = { x: tipRect.left + tipRect.width / 2 - cardRect.left, y: tipRect.top + tipRect.height / 2 - cardRect.top };
+
+      document.getElementById('wire-red-path').setAttribute('d', wirePath(redStart, end));
+      document.getElementById('wire-black-path').setAttribute('d', wirePath(blackStart, { x: end.x - 6, y: end.y }));
+
+      svg.classList.add('wires-visible');
+      window.__activeSymptomBtn = targetBtn;
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.__activeSymptomBtn) drawWires(window.__activeSymptomBtn);
+    });
+
+    function setSymptom(issue) {
+      document.querySelectorAll('.symptom-btn').forEach(btn => btn.classList.remove('active'));
+      const btn = event.currentTarget;
+      btn.classList.add('active');
+      
+      const cta = document.getElementById('symptom-cta');
+      cta.innerText = `DISPATCH FOR: ${issue.toUpperCase()} →`;
+
+      const probeValue = document.getElementById('probe-value');
+      if (probeValue) {
+        const reading = symptomReadings[issue] || `${issue.toUpperCase()} // FAULT DETECTED`;
+        probeValue.innerText = reading;
+        probeValue.classList.remove('flicker');
+        void probeValue.offsetWidth;
+        probeValue.classList.add('flicker');
+      }
+
+      drawWires(btn);
+    }
+
+    function toggleOven() {
+      document.getElementById('oven-wrapper').classList.toggle('oven-open');
+    }
+
+    function toggleBreaker(row) {
+      const isFlipping = !row.classList.contains('flipped');
+      row.classList.toggle('flipped');
+
+      const statusEl = row.querySelector('.breaker-status');
+      statusEl.innerText = row.classList.contains('flipped') ? 'ON' : 'OFF';
+
+      if (isFlipping) {
+        const spark = row.querySelector('.breaker-spark');
+        spark.style.animation = 'none';
+        void spark.offsetWidth;
+        spark.style.animation = '';
+      }
+    }
+
+    function toggleWasher() {
+      document.getElementById('washer-wrapper').classList.toggle('washer-open');
+    }
+
+    // Warranty stamp: "thunk" into place once it scrolls into view
+    const stampEl = document.getElementById('warranty-stamp');
+    if (stampEl && 'IntersectionObserver' in window) {
+      const stampObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            stampEl.classList.add('stamped');
+            stampObserver.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      stampObserver.observe(stampEl);
+    } else if (stampEl) {
+      stampEl.classList.add('stamped');
+    }
+  </script>
 
 </body>
 </html>
