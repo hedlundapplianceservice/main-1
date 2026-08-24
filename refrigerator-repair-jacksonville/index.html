@@ -422,6 +422,10 @@
         font-size: 2.5rem;
       }
     }
+
+    .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 20px; }
+    .link-pill { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--text-main); background: var(--bg-subtle); border: 1px solid var(--border-light); padding: 10px 14px; text-decoration: none; display: block; transition: all 0.2s ease; }
+    .link-pill:hover { border-color: var(--accent); color: var(--accent); }
   </style>
 
   <script type="application/ld+json">
@@ -435,7 +439,15 @@
       "@id": "https://hedlundappliance.com/#business",
       "name": "Hedlund Appliance Service",
       "telephone": "+1-904-335-8206",
-      "url": "https://hedlundappliance.com/"
+      "url": "https://hedlundappliance.com/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1701 San Pablo Rd S",
+        "addressLocality": "Jacksonville",
+        "addressRegion": "FL",
+        "postalCode": "32224",
+        "addressCountry": "US"
+      }
     },
     "areaServed": {
       "@type": "City",
@@ -582,6 +594,39 @@
           </ul>
         </div>
 
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap content">
+        <div class="eyebrow">Service Areas</div>
+        <h2>Refrigerator Repair Near You</h2>
+        <p>Hedlund Appliance Service dispatches technicians for refrigerator repair throughout Jacksonville and the following communities:</p>
+        <div class="link-grid">
+            <a class="link-pill" href="/locations/jacksonville-beach/">Jacksonville Beach →</a>
+            <a class="link-pill" href="/locations/atlantic-beach/">Atlantic Beach →</a>
+            <a class="link-pill" href="/locations/neptune-beach/">Neptune Beach →</a>
+            <a class="link-pill" href="/locations/ponte-vedra-beach/">Ponte Vedra Beach →</a>
+            <a class="link-pill" href="/locations/san-pablo/">San Pablo →</a>
+            <a class="link-pill" href="/locations/intracoastal-west/">Intracoastal West →</a>
+            <a class="link-pill" href="/locations/southside/">Southside →</a>
+            <a class="link-pill" href="/locations/mandarin/">Mandarin →</a>
+            <a class="link-pill" href="/locations/downtown-jax/">Downtown Jax →</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap content">
+        <div class="eyebrow">Other Services</div>
+        <h2>Other Appliance Repairs We Handle</h2>
+        <div class="link-grid">
+            <a class="link-pill" href="/washer-repair-jacksonville/">Washer Repair →</a>
+            <a class="link-pill" href="/dryer-repair-jacksonville/">Dryer Repair →</a>
+            <a class="link-pill" href="/dishwasher-repair-jacksonville/">Dishwasher Repair →</a>
+            <a class="link-pill" href="/oven-repair-jacksonville/">Oven & Range Repair →</a>
+        </div>
       </div>
     </section>
 
