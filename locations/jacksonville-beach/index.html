@@ -46,8 +46,8 @@
     .button:hover { background: #4cd6b3; border-color: #4cd6b3; transform: translateY(-2px); }
     .button.secondary { background: transparent; color: var(--text-white); border: 2px solid var(--text-white); }
     .button.secondary:hover { background: var(--text-white); color: var(--bg-blueprint); }
-    section { padding: 64px 0; border-bottom: 1px solid var(--border-medium); }
-    h2 { font-size: clamp(1.8rem, 3vw, 2.8rem); line-height: 1.1; margin: 0 0 24px; font-weight: 900; color: var(--text-white); }
+    section { padding: 56px 0; border-bottom: 1px solid var(--border-medium); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1.1; margin: 0 0 20px; font-weight: 900; color: var(--text-white); }
     .content { max-width: 820px; }
     .content p { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
     .zip-badge-box { background: var(--bg-card); border: 1px solid var(--border-medium); padding: 24px; margin-top: 24px; display: inline-block; }
@@ -56,18 +56,57 @@
     .back-link { display: inline-block; margin-top: 24px; font-family: var(--font-mono); color: var(--accent); text-decoration: none; font-weight: 700; }
     .back-link:hover { text-decoration: underline; }
     footer { padding: 36px 0; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--text-muted); background: var(--bg-blueprint); }
-  </style>
+    .service-links-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 24px; }
+    .service-link-card { background: var(--bg-card); border: 1px solid var(--border-medium); padding: 20px; text-decoration: none; display: block; transition: border-color 0.2s, transform 0.2s; }
+    .service-link-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .service-link-card h3 { color: var(--text-white); font-size: 1.05rem; margin-bottom: 6px; }
+    .service-link-card p { color: var(--text-muted); font-size: 0.85rem; margin: 0; }
+    .nearby-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .nearby-pill { font-family: var(--font-mono); font-size: 0.85rem; font-weight: 700; color: var(--text-white); background: var(--bg-subtle); border: 1px solid var(--border-medium); padding: 8px 14px; text-decoration: none; transition: all 0.2s ease; }
+    .nearby-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .faq-item { padding: 20px 0; border-bottom: 1px solid var(--border-light); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-item h3 { color: var(--text-white); font-size: 1.05rem; margin-bottom: 8px; }
+    .faq-item p { color: var(--text-muted); font-size: 0.95rem; margin: 0; }
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Hedlund Appliance Service - Jacksonville Beach",
-    "telephone": "+1-904-335-8206",
-    "url": "https://hedlundappliance.com/locations/jacksonville-beach/",
-    "areaServed": {
-      "@type": "AdministrativeArea",
-      "name": "Jacksonville Beach, Jacksonville, FL 32250, 32240"
-    }
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Hedlund Appliance Service - Jacksonville Beach",
+        "telephone": "+1-904-335-8206",
+        "url": "https://hedlundappliance.com/locations/jacksonville-beach/",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "1701 San Pablo Rd S",
+          "addressLocality": "Jacksonville",
+          "addressRegion": "FL",
+          "postalCode": "32224",
+          "addressCountry": "US"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Jacksonville Beach, Jacksonville, FL 32250, 32240"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Does salt air really affect appliance lifespan near the beach?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Coastal humidity and salt exposure speed up corrosion on compressors, coils, and electrical connections. Homes within a few blocks of the ocean often need earlier component service than homes further inland." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you service condo units in Jacksonville Beach?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, we regularly work in beachside condos and multi-unit buildings throughout the 32250 and 32240 zip codes." }
+      }
+        ]
+      }
+    ]
   }
   </script>
 </head>
@@ -78,7 +117,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="8" cy="6" r="1"/></svg>
         HEDLUND APPLIANCE SERVICE
       </a>
-      <a class="header-cta" href="tel:+19043358206">CALL (904) 335-8206</a>
+      <nav aria-label="Primary">
+        <a class="header-cta" href="tel:+19043358206">CALL (904) 335-8206</a>
+      </nav>
     </div>
   </header>
   <main>
@@ -93,26 +134,86 @@
         </div>
       </div>
     </section>
-    <section>
-      <div class="wrap content">
-        <h2>Reliable Local Service in Jacksonville Beach</h2>
-        <p>When a major household appliance breaks down, finding a dependable technician who offers honest troubleshooting makes all the difference. Hedlund Appliance Service routinely services residential properties throughout the Jacksonville Beach community.</p>
-        <p>From refrigerators losing cooling capacity to washers failing to spin or dryers not heating, our diagnostic approach focuses on accurate component testing before any part replacement.</p>
-        <div class="zip-badge-box">
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">// Primary Service Zip Codes</span>
-          <div class="zip-list">
+
+    <article>
+      <section>
+        <div class="wrap content">
+          <h2>Reliable Local Service in Jacksonville Beach</h2>
+          <p>Jacksonville Beach homes range from oceanfront condos along First Street to family houses further inland near the Beaches Town Center. Salt air off the Atlantic accelerates corrosion on exterior components, coil fins, and electrical contacts faster than it would inland, which is why coastal appliances often show wear years ahead of schedule.</p>
+          <p>Hedlund Appliance Service handles routine service calls throughout Jacksonville Beach, from older beach cottages with original units to newer builds near the Intracoastal side of town. Every visit starts with the same standard: multimeter and component-level testing before any part gets replaced, so you're not paying for guesswork.</p>
+          <div class="zip-badge-box">
+            <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); font-weight: 700; text-transform: uppercase;">// Primary Service Zip Codes</span>
+            <div class="zip-list">
             <span class="pill">32250</span>
             <span class="pill">32240</span>
+            </div>
           </div>
         </div>
-        <br>
-        <a class="back-link" href="/">← Return to Main Service Hub</a>
-      </div>
-    </section>
+      </section>
+
+      <section aria-label="Services offered in Jacksonville Beach">
+        <div class="wrap content">
+          <div class="eyebrow">Service Catalog</div>
+          <h2>Common Appliance Repairs in Jacksonville Beach</h2>
+          <p>Every service call in Jacksonville Beach starts with the same standard: component-level testing before any part gets replaced.</p>
+          <div class="service-links-grid">
+          <a class="service-link-card" href="/refrigerator-repair-jacksonville/">
+            <h3>Refrigerator Repair</h3>
+            <p>Cooling loss, ice maker failures, water leaks, and defrost board errors.</p>
+          </a>
+          <a class="service-link-card" href="/washer-repair-jacksonville/">
+            <h3>Washer Repair</h3>
+            <p>Drain pump lockouts, off-balance spin cycles, and door latch failures.</p>
+          </a>
+          <a class="service-link-card" href="/dryer-repair-jacksonville/">
+            <h3>Dryer Repair</h3>
+            <p>Thermal fuse blowouts, heating element burnouts, and airflow restrictions.</p>
+          </a>
+          <a class="service-link-card" href="/dishwasher-repair-jacksonville/">
+            <h3>Dishwasher Repair</h3>
+            <p>Standing water, circulation pump lockouts, and door latch faults.</p>
+          </a>
+          <a class="service-link-card" href="/oven-repair-jacksonville/">
+            <h3>Oven & Range Repair</h3>
+            <p>Igniter failures, temperature miscalibration, and control lockouts.</p>
+          </a>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Frequently asked questions for Jacksonville Beach">
+        <div class="wrap content">
+          <div class="eyebrow">FAQ</div>
+          <h2>Jacksonville Beach Service Questions</h2>
+          <div class="faq-item">
+            <h3>Does salt air really affect appliance lifespan near the beach?</h3>
+            <p>Yes. Coastal humidity and salt exposure speed up corrosion on compressors, coils, and electrical connections. Homes within a few blocks of the ocean often need earlier component service than homes further inland.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Can you service condo units in Jacksonville Beach?</h3>
+            <p>Yes, we regularly work in beachside condos and multi-unit buildings throughout the 32250 and 32240 zip codes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section aria-label="Nearby service areas">
+        <div class="wrap content">
+          <div class="eyebrow">Nearby Coverage</div>
+          <h2>Areas Near Jacksonville Beach We Also Serve</h2>
+          <div class="nearby-pills">
+            <a class="nearby-pill" href="/locations/atlantic-beach/">Atlantic Beach →</a>
+            <a class="nearby-pill" href="/locations/ponte-vedra-beach/">Ponte Vedra Beach →</a>
+            <a class="nearby-pill" href="/locations/intracoastal-west/">Intracoastal West →</a>
+          </div>
+          <br>
+          <a class="back-link" href="/">← Return to Main Service Hub</a>
+        </div>
+      </section>
+    </article>
   </main>
   <footer>
     <div class="wrap">© 2026 Hedlund Appliance Service · Jacksonville, Florida</div>
   </footer>
 </body>
 </html>
-
