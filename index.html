@@ -918,6 +918,17 @@
       white-space: nowrap;
     }
 
+    /* Brand chips that link to a brand page */
+    a.washer-brand-chip {
+      text-decoration: none;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    a.washer-brand-chip:hover {
+      background: rgba(56, 189, 248, 0.3);
+      color: #ffffff;
+    }
+
     .washer-door {
       position: absolute;
       inset: 0;
@@ -1087,6 +1098,9 @@
     }
 
     .service-card .spec-num::before { content: 'SYS_REF // '; }
+
+    /* Brand directory cards reuse the service card style with a different reference label */
+    .service-card.brand-card .spec-num::before { content: 'BRAND_REF // '; }
 
     .service-card h3 {
       margin: 0 0 12px;
@@ -1420,6 +1434,10 @@
       margin: 14px 0 0;
     }
 
+    .breaker-answer p a {
+      color: var(--accent);
+    }
+
     /* FINAL CTA */
     .final-cta {
       text-align: center;
@@ -1452,6 +1470,39 @@
       font-weight: 700;
       color: var(--text-muted);
       background: var(--bg-blueprint);
+    }
+
+    /* Footer site directory (internal links on every page load) */
+    .footer-dir {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 28px;
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px dashed var(--border-medium);
+    }
+
+    .footer-dir h4 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .footer-dir a {
+      display: block;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 600;
+      margin-bottom: 8px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-dir a:hover {
+      color: var(--accent);
     }
 
     @media (max-width: 850px) {
@@ -1579,6 +1630,22 @@
                 "name": "Oven Repair",
                 "url": "https://hedlundappliance.com/oven-repair-jacksonville/"
               }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Samsung Appliance Repair",
+                "url": "https://hedlundappliance.com/samsung-appliance-repair-jacksonville/"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "LG Appliance Repair",
+                "url": "https://hedlundappliance.com/lg-appliance-repair-jacksonville/"
+              }
             }
           ]
         }
@@ -1687,8 +1754,8 @@
                     <span class="washer-brand-chip">Whirlpool</span>
                     <span class="washer-brand-chip">GE Appliances</span>
                     <span class="washer-brand-chip">Frigidaire</span>
-                    <span class="washer-brand-chip">LG</span>
-                    <span class="washer-brand-chip">Samsung</span>
+                    <a class="washer-brand-chip" href="/lg-appliance-repair-jacksonville/" onclick="event.stopPropagation()">LG</a>
+                    <a class="washer-brand-chip" href="/samsung-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Samsung</a>
                     <span class="washer-brand-chip">Maytag</span>
                     <span class="washer-brand-chip">Amana</span>
                     <span class="washer-brand-chip">Hotpoint</span>
@@ -1921,6 +1988,41 @@
       </div>
     </section>
 
+    <!-- BRAND DIRECTORY: links to each brand-specific page -->
+    <section id="brands">
+      <div class="wrap content">
+        <div class="eyebrow">Brand Directory</div>
+
+        <h2>Brand-Specific Repair Pages</h2>
+
+        <p>
+          We repair all major appliance brands. Select your brand for model-specific faults, washer error codes, and local service details.
+        </p>
+
+        <div class="services-grid">
+
+          <a class="service-card brand-card" href="/samsung-appliance-repair-jacksonville/">
+            <div>
+              <div class="spec-num">01</div>
+              <h3>Samsung Appliance Repair</h3>
+              <p>Refrigerators, washers, dryers, dishwashers and ranges. Includes a quick reference for Samsung washer codes UE, 5E / SE and 4C.</p>
+            </div>
+            <span class="card-link">VIEW SAMSUNG REPAIR →</span>
+          </a>
+
+          <a class="service-card brand-card" href="/lg-appliance-repair-jacksonville/">
+            <div>
+              <div class="spec-num">02</div>
+              <h3>LG Appliance Repair</h3>
+              <p>Refrigerators, washers, dryers, dishwashers and ranges. Includes a quick reference for LG washer codes OE, IE, UE and dE.</p>
+            </div>
+            <span class="card-link">VIEW LG REPAIR →</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="wrap content">
         <div class="eyebrow">Diagnostic Standard</div>
@@ -2040,7 +2142,7 @@
               <div class="breaker-status">OFF</div>
             </div>
             <div class="breaker-answer">
-              <p>Yes. We diagnose and repair all major brands including Whirlpool, GE, Maytag, LG, Samsung, KitchenAid, Frigidaire, Bosch, and Kenmore.</p>
+              <p>Yes. We diagnose and repair all major brands including Whirlpool, GE, Maytag, <a href="/lg-appliance-repair-jacksonville/" onclick="event.stopPropagation()">LG</a>, <a href="/samsung-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Samsung</a>, KitchenAid, Frigidaire, Bosch, and Kenmore.</p>
             </div>
           </div>
 
@@ -2130,6 +2232,33 @@
 
   <footer>
     <div class="wrap">
+
+      <!-- SITE DIRECTORY -->
+      <nav class="footer-dir" aria-label="Site directory">
+        <div>
+          <h4>// Services</h4>
+          <a href="/refrigerator-repair-jacksonville/">Refrigerator Repair</a>
+          <a href="/washer-repair-jacksonville/">Washer Repair</a>
+          <a href="/dryer-repair-jacksonville/">Dryer Repair</a>
+          <a href="/dishwasher-repair-jacksonville/">Dishwasher Repair</a>
+          <a href="/oven-repair-jacksonville/">Oven &amp; Range Repair</a>
+        </div>
+        <div>
+          <h4>// Brands</h4>
+          <a href="/samsung-appliance-repair-jacksonville/">Samsung Appliance Repair</a>
+          <a href="/lg-appliance-repair-jacksonville/">LG Appliance Repair</a>
+        </div>
+        <div>
+          <h4>// Service Areas</h4>
+          <a href="/locations/jacksonville-beach/">Jacksonville Beach</a>
+          <a href="/locations/atlantic-beach/">Atlantic Beach</a>
+          <a href="/locations/ponte-vedra-beach/">Ponte Vedra Beach</a>
+          <a href="/locations/intracoastal-west/">Intracoastal West</a>
+          <a href="/locations/mandarin/">Mandarin</a>
+          <a href="/locations/downtown-jax/">Downtown Jax</a>
+        </div>
+      </nav>
+
       © 2026 Hedlund Appliance Service · Jacksonville, Florida
     </div>
   </footer>
