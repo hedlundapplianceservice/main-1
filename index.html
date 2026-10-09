@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Appliance Repair Jacksonville, FL | Hedlund Appliance Service</title>
-  <meta name="description" content="Professional appliance repair in Jacksonville, FL. Hedlund Appliance Service provides precise technical diagnostics for refrigerators, washers, dryers, dishwashers, and ovens.">
+  <meta name="description" content="Professional appliance repair in Jacksonville, FL, open 24 hours Monday through Friday. Precise technical diagnostics for refrigerators, washers, dryers, dishwashers, and ovens.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://hedlundappliance.com/">
 
@@ -17,7 +17,7 @@
 
   <!-- Open Graph / Social SEO -->
   <meta property="og:title" content="Appliance Repair Jacksonville, FL | Hedlund Appliance Service">
-  <meta property="og:description" content="Local appliance repair for Jacksonville, Jacksonville Beach, Atlantic Beach, Neptune Beach, and surrounding areas. Fast, technical diagnostics for major home appliances.">
+  <meta property="og:description" content="Local appliance repair for Jacksonville, Jacksonville Beach, Atlantic Beach, Neptune Beach, and surrounding areas. Open 24 hours Monday through Friday.">
   <meta property="og:url" content="https://hedlundappliance.com/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
@@ -184,6 +184,64 @@
     .header-cta:hover {
       background: var(--accent);
       color: var(--bg-blueprint);
+    }
+
+
+    /* 24-HOUR HOURS BADGE + WRENCH CLOCK */
+    .header-hours {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      padding: 4px 14px 4px 6px;
+      border-radius: 40px;
+    }
+
+    .wrench-clock {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 auto;
+      display: block;
+    }
+
+    .wrench-minute, .wrench-hour {
+      transform-origin: 20px 20px;
+      animation: wrenchSpin 24s linear infinite;
+    }
+
+    .wrench-hour {
+      animation-duration: 288s;
+    }
+
+    @keyframes wrenchSpin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .hours-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-family: var(--font-mono);
+    }
+
+    .hours-main {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+    }
+
+    .hours-sub {
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .wrench-minute, .wrench-hour { animation: none; }
     }
 
     /* HERO & DRYER */
@@ -1522,6 +1580,8 @@
       .header-right {
         margin-top: 14px;
         justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
       }
 
       .services-grid {
@@ -1568,14 +1628,20 @@
           "latitude": 30.2981,
           "longitude": -81.4589
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-          ],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "00:00",
+            "closes": "23:59"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
         "areaServed": [
           { "@type": "City", "name": "Jacksonville" },
           { "@type": "City", "name": "Jacksonville Beach" },
@@ -1726,6 +1792,32 @@
       </a>
       
       <div class="header-right">
+        <!-- 24-HOUR HOURS BADGE WITH WRENCH-HAND CLOCK -->
+        <div class="header-hours" aria-label="Open 24 hours, Monday through Friday">
+          <svg class="wrench-clock" viewBox="0 0 40 40" role="img" aria-hidden="true">
+            <circle cx="20" cy="20" r="18.5" fill="#112240" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.5"/>
+            <line x1="20.00" y1="5.80" x2="20.00" y2="3.20" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round"/><line x1="27.80" y1="6.49" x2="28.40" y2="5.45" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="33.51" y1="12.20" x2="34.55" y2="11.60" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="34.20" y1="20.00" x2="36.80" y2="20.00" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round"/><line x1="33.51" y1="27.80" x2="34.55" y2="28.40" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="27.80" y1="33.51" x2="28.40" y2="34.55" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="20.00" y1="34.20" x2="20.00" y2="36.80" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round"/><line x1="12.20" y1="33.51" x2="11.60" y2="34.55" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="6.49" y1="27.80" x2="5.45" y2="28.40" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="5.80" y1="20.00" x2="3.20" y2="20.00" stroke="#ffffff" stroke-opacity="0.9" stroke-width="1.5" stroke-linecap="round"/><line x1="6.49" y1="12.20" x2="5.45" y2="11.60" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/><line x1="12.20" y1="6.49" x2="11.60" y2="5.45" stroke="#ffffff" stroke-opacity="0.5" stroke-width="0.9" stroke-linecap="round"/>
+            <!-- hour wrench (short, white) -->
+            <g class="wrench-hour">
+              <rect x="18.8" y="13" width="2.4" height="8" rx="1.2" fill="#ffffff"/>
+              <circle cx="20" cy="11.4" r="3.3" fill="#ffffff"/>
+              <rect x="18.7" y="7.8" width="2.6" height="3.6" fill="#112240"/>
+            </g>
+            <!-- minute wrench (long, mint) -->
+            <g class="wrench-minute">
+              <rect x="19" y="9.5" width="2" height="12" rx="1" fill="#64ffda"/>
+              <circle cx="20" cy="7.6" r="3.9" fill="#64ffda"/>
+              <rect x="18.7" y="3.2" width="2.6" height="4.4" fill="#112240"/>
+              <circle cx="20" cy="23.2" r="1.7" fill="#64ffda"/>
+            </g>
+            <circle cx="20" cy="20" r="2" fill="#0a192f" stroke="#64ffda" stroke-width="1"/>
+          </svg>
+          <div class="hours-text">
+            <span class="hours-main">OPEN 24 HOURS</span>
+            <span class="hours-sub">MON – FRI</span>
+          </div>
+        </div>
+
         <!-- HEADER REAL-TIME DISPATCH STATUS -->
         <div class="header-status-badge">
           <span class="status-pulse-dot"></span>
@@ -2331,7 +2423,7 @@
         </div>
       </nav>
 
-      © 2026 Hedlund Appliance Service · Jacksonville, Florida
+      © 2026 Hedlund Appliance Service · Jacksonville, Florida · Open 24 Hours Mon–Fri
     </div>
   </footer>
 
