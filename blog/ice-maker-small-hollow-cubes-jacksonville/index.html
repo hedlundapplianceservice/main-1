@@ -90,56 +90,36 @@
       gap: 20px;
     }
 
-    /* LIVE STATUS BADGE IN HEADER */
-    .header-status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bg-subtle);
-      border: 1px solid var(--accent-dim);
-      padding: 5px 12px;
-      border-radius: 20px;
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--accent);
-    }
-
-    .status-pulse-dot {
-      width: 8px;
-      height: 8px;
-      background-color: var(--accent);
-      border-radius: 50%;
-      box-shadow: 0 0 8px var(--accent);
-      animation: pulseDot 1.8s infinite;
-    }
-
-    @keyframes pulseDot {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(100, 255, 218, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
-    }
-
     /* SOCIAL LINKS */
     .social-links {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 10px;
     }
 
     .social-icon {
-      transition: transform 0.2s ease, filter 0.2s ease;
-      display: flex;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
+      text-decoration: none;
     }
 
     .social-icon:hover {
-      transform: translateY(-2px) scale(1.1);
-      filter: brightness(1.2);
+      transform: translateY(-2px);
+      border-color: var(--accent);
+      background: var(--accent-dim);
     }
 
     .social-icon svg {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
+      display: block;
     }
 
     .social-icon.facebook svg { fill: #1877F2; }
@@ -614,10 +594,6 @@
         </div>
 
         <!-- HEADER REAL-TIME DISPATCH STATUS -->
-        <div class="header-status-badge">
-          <span class="status-pulse-dot"></span>
-          <span>TECH ACTIVE IN JAX AREA TODAY</span>
-        </div>
 
         <div class="social-links">
           <a href="https://www.facebook.com/profile.php?id=61591790762759" target="_blank" rel="noopener" class="social-icon facebook" aria-label="Facebook Page">
