@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hedlundappliance.com/sitemap.xml
+Llms: https://hedlundappliance.com/llms.txt
+Content-Signals: https://hedlundappliance.com/content-signals.json
