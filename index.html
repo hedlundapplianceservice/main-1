@@ -19,8 +19,6 @@
   <link rel="canonical" href="https://hedlundappliance.com/">
   <meta name="author" content="Mason Hedlund">
   <meta name="content-signals" content="local-business, service-area, original-field-expertise, author-attributed, ai-summarizable">
-  <meta name="date" content="2026-10-09">
-  <meta name="last-modified" content="2026-10-09">
   <link rel="author" href="/mason-hedlund/">
   <link rel="alternate" type="text/markdown" href="/llms.txt" title="Markdown site summary for AI agents">
   <link rel="content-signals" type="application/json" href="/content-signals.json">
@@ -358,9 +356,9 @@
       z-index: 2;
     }
 
-    .dryer-wrapper.map-expanded {
-      width: min(86vw, 680px);
-      height: min(78vh, 640px);
+    .dryer-wrapper.process-expanded {
+      width: min(86vw, 620px);
+      height: min(78vh, 540px);
       padding: 22px;
       z-index: 20;
       box-shadow: 0 28px 80px rgba(0, 0, 0, 0.72), 0 0 42px rgba(100, 255, 218, 0.2);
@@ -411,13 +409,13 @@
       transition: width 0.35s ease, height 0.35s ease, border-radius 0.35s ease;
     }
 
-    .dryer-wrapper.map-expanded .dryer-door {
+    .dryer-wrapper.process-expanded .dryer-door {
       width: 100%;
       height: calc(100% - 54px);
       border-radius: 18px;
     }
 
-    .service-map-scene {
+    .service-process-scene {
       position: absolute;
       width: 100%;
       height: 100%;
@@ -425,133 +423,115 @@
       background:
         linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px),
         linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
-        radial-gradient(circle at 54% 47%, rgba(100, 255, 218, 0.16), transparent 34%),
+        radial-gradient(circle at 50% 8%, rgba(100, 255, 218, 0.16), transparent 34%),
         #0a192f;
       background-size: 18px 18px, 18px 18px, 100% 100%, 100% 100%;
       overflow: hidden;
+      padding: 18px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
     }
 
-    .cartoon-service-map {
-      position: absolute;
-      inset: 7px;
-      width: calc(100% - 14px);
-      height: calc(100% - 14px);
-      filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.24));
-      transform-origin: 52% 48%;
-      animation: cartoonMapZoom 12s ease-in-out infinite;
-    }
-
-    .map-label {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 154px;
-      text-align: center;
-      z-index: 5;
-      font-family: var(--font-mono);
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
-      pointer-events: none;
-    }
-
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 154px;
-      text-align: center;
+    .service-call-chip {
+      position: relative;
       z-index: 2;
-      font-family: var(--font-mono);
-      font-weight: 900;
-      letter-spacing: 0.06em;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
-      pointer-events: none;
+      width: min(100%, 190px);
+      padding: 10px 12px;
+      border: 1px solid rgba(100, 255, 218, 0.72);
+      border-radius: 8px;
+      background: rgba(5, 12, 25, 0.86);
+      text-align: center;
+      box-shadow: 0 0 18px rgba(100, 255, 218, 0.24);
     }
 
-    .map-label.state {
-      top: 28px;
+    .service-call-chip strong {
+      display: block;
+      font-size: 1.35rem;
       color: var(--text-white);
-      font-size: 0.76rem;
-      animation: stateLabelFade 10s ease-in-out infinite;
+      line-height: 1;
     }
 
-    .map-label.radius {
-      bottom: 34px;
+    .service-call-chip span {
+      display: block;
+      font-family: var(--font-mono);
       color: var(--accent);
-      font-size: 0.72rem;
-      animation: radiusLabelFade 10s ease-in-out infinite;
+      font-size: 0.58rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      margin-top: 5px;
     }
 
-    .map-radius-chip {
-      position: absolute;
-      right: 22px;
-      top: 52px;
-      z-index: 3;
-      padding: 5px 7px;
-      background: rgba(5, 12, 25, 0.9);
+    .process-steps {
+      position: relative;
+      z-index: 2;
+      width: min(100%, 210px);
+      display: grid;
+      gap: 7px;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 8px;
+      align-items: center;
+      padding: 7px 8px;
+      border: 1px solid rgba(100, 255, 218, 0.24);
+      border-radius: 7px;
+      background: rgba(10, 25, 47, 0.74);
+      box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.34);
+      animation: processStepGlow 8s ease-in-out infinite;
+    }
+
+    .process-step:nth-child(2) { animation-delay: 1.5s; }
+    .process-step:nth-child(3) { animation-delay: 3s; }
+    .process-step:nth-child(4) { animation-delay: 4.5s; }
+
+    .process-num {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
       border: 1px solid var(--accent);
       color: var(--text-white);
       font-family: var(--font-mono);
-      font-size: 0.6rem;
+      font-size: 0.68rem;
       font-weight: 900;
-      letter-spacing: 0.05em;
-      box-shadow: 0 0 14px rgba(100, 255, 218, 0.25);
-      animation: radiusChipPop 10s ease-in-out infinite;
+      background: rgba(100, 255, 218, 0.16);
     }
 
-    .map-radius-overlay {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 112px;
-      height: 112px;
-      border: 2px solid var(--accent);
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      background: rgba(100, 255, 218, 0.08);
-      box-shadow: 0 0 20px rgba(100, 255, 218, 0.36), inset 0 0 20px rgba(100, 255, 218, 0.14);
-      pointer-events: none;
-      animation: mapRadiusPulse 2.6s ease-in-out infinite;
+    .process-copy {
+      min-width: 0;
     }
 
-    .map-center-pin {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: 12px;
-      height: 12px;
-      border-radius: 50% 50% 50% 0;
-      background: var(--accent);
-      transform: translate(-50%, -80%) rotate(-45deg);
-      z-index: 3;
-      box-shadow: 0 0 12px rgba(100, 255, 218, 0.7);
-      pointer-events: none;
+    .process-copy strong {
+      display: block;
+      color: var(--text-white);
+      font-size: 0.76rem;
+      line-height: 1.1;
     }
 
-    .map-center-pin::after {
-      content: '';
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #0a192f;
-      left: 4px;
-      top: 4px;
+    .process-copy span {
+      display: block;
+      color: var(--text-muted);
+      font-size: 0.56rem;
+      line-height: 1.25;
+      margin-top: 2px;
     }
 
-    .map-vignette {
+    .process-vignette {
       position: absolute;
       inset: 0;
-      z-index: 4;
+      z-index: 1;
       pointer-events: none;
       box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.88);
       background: radial-gradient(circle, transparent 48%, rgba(5, 12, 25, 0.42) 100%);
     }
 
-
-
-    .map-expand-btn {
+    .process-expand-btn {
       position: absolute;
       right: 9px;
       bottom: 9px;
@@ -568,57 +548,14 @@
       box-shadow: 0 0 12px rgba(100, 255, 218, 0.22);
     }
 
-    .map-expand-btn:hover {
+    .process-expand-btn:hover {
       background: var(--accent);
       color: var(--bg-blueprint);
     }
 
-    .map-area-text {
-      font-family: var(--font-mono);
-      font-weight: 900;
-      fill: #ffffff;
-      paint-order: stroke;
-      stroke: rgba(5, 12, 25, 0.85);
-      stroke-width: 3px;
-      stroke-linejoin: round;
-    }
-
-    .map-road-line {
-      fill: none;
-      stroke: rgba(255, 255, 255, 0.78);
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .map-road-line.major {
-      stroke: #64ffda;
-      stroke-width: 3.1;
-    }
-
-    @keyframes cartoonMapZoom {
-      0%, 18% { transform: scale(0.72); }
-      58%, 100% { transform: scale(1.35); }
-    }
-
-    @keyframes mapRadiusPulse {
-      0%, 100% { opacity: 0.72; transform: translate(-50%, -50%) scale(0.92); }
-      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
-    }
-
-    @keyframes stateLabelFade {
-      0%, 35% { opacity: 1; transform: translateX(-50%) scale(1); }
-      55%, 100% { opacity: 0; transform: translateX(-50%) scale(0.92); }
-    }
-
-    @keyframes radiusLabelFade {
-      0%, 38% { opacity: 0; transform: translateX(-50%) scale(0.94); }
-      58%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
-    }
-
-    @keyframes radiusChipPop {
-      0%, 42% { opacity: 0; transform: scale(0.86); }
-      58%, 100% { opacity: 1; transform: scale(1); }
+    @keyframes processStepGlow {
+      0%, 100% { border-color: rgba(100, 255, 218, 0.22); transform: translateX(0); }
+      12%, 24% { border-color: rgba(100, 255, 218, 0.85); transform: translateX(3px); }
     }
 
     .cta-row {
@@ -885,8 +822,8 @@
       position: relative;
       width: 100%;
       height: 100%;
-      background: linear-gradient(160deg, #112846 0%, #0a192f 62%, #061121 100%);
-      border: 2px solid rgba(56, 189, 248, 0.5);
+      background: var(--bg-card);
+      border: 2px solid var(--border-medium);
       border-radius: 10px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
       overflow: hidden;
@@ -1085,8 +1022,8 @@
     .washer-wrapper {
       position: relative;
       width: 280px;
-      background: var(--bg-card);
-      border: 2px solid var(--border-medium);
+      background: linear-gradient(160deg, #112846 0%, #0a192f 62%, #061121 100%);
+      border: 2px solid rgba(56, 189, 248, 0.5);
       border-radius: 12px;
       padding: 18px;
       display: flex;
@@ -1142,13 +1079,13 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      border: 7px solid var(--border-strong);
+      border: 7px solid rgba(56, 189, 248, 0.38);
       background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(5, 12, 25, 0.98) 100%);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 0 0 18px rgba(56, 189, 248, 0.18);
     }
 
     .washer-cavity-inner {
@@ -1214,7 +1151,7 @@
       position: absolute;
       inset: 0;
       border-radius: 50%;
-      border: 7px solid var(--border-strong);
+      border: 7px solid rgba(56, 189, 248, 0.46);
       background: linear-gradient(160deg, #16324f 0%, #0e2443 60%, #0a192f 100%);
       display: flex;
       align-items: center;
@@ -1234,10 +1171,13 @@
       align-items: center;
       justify-content: center;
       font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: #38bdf8;
+      font-size: 0.76rem;
+      color: #ffffff;
       text-align: center;
       letter-spacing: 0.04em;
+      line-height: 1.35;
+      font-weight: 900;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.8), 0 2px 8px rgba(0, 0, 0, 0.95);
     }
 
     .washer-handle {
@@ -1826,11 +1766,36 @@
   
 
     /* AUTHOR, FRESHNESS, AND AGENT SEO SIGNALS */
-    .article-meta, .page-meta { font-family: var(--font-mono); color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.03em; margin-top: 14px; }
-    .article-meta a, .author-box a, .page-meta a { color: var(--accent); font-weight: 800; }
-    .author-box { margin: 36px 0; padding: 22px; background: var(--bg-subtle); border: 1px solid var(--border-light); border-left: 3px solid var(--accent); }
-    .author-box strong { color: var(--text-white); display: block; margin-bottom: 8px; }
-    .author-box p { margin: 0; }
+    .article-meta, .page-meta {
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      letter-spacing: 0.03em;
+      margin-top: 14px;
+    }
+
+    .article-meta a, .author-box a, .page-meta a {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .author-box {
+      margin: 36px 0;
+      padding: 22px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-light);
+      border-left: 3px solid var(--accent);
+    }
+
+    .author-box strong {
+      color: var(--text-white);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .author-box p {
+      margin: 0;
+    }
 
   </style>
 
@@ -2127,41 +2092,37 @@
             </div>
           </div>
 
-          <div class="dryer-wrapper" id="service-map-dryer">
+          <div class="dryer-wrapper" id="service-process-dryer">
           <div class="dryer-top-panel">
             <div class="dryer-knob"></div>
-            <div class="dryer-display">SERVICE MAP // 15 MI</div>
+            <div class="dryer-display">SERVICE CALL // $135</div>
           </div>
           <div class="dryer-door">
-            <div class="service-map-scene" aria-label="Cartoon service area map centered near 1701 San Pablo Road South">
-              <svg class="cartoon-service-map" viewBox="0 0 260 220" role="img" aria-label="Hedlund Appliance Service radius map from 1701 San Pablo Road South">
-                <rect x="0" y="0" width="260" height="220" rx="22" fill="#0a192f"/>
-                <path d="M164 -5 C154 25 158 48 148 70 C139 89 149 111 140 133 C132 154 143 177 134 225 H-5 V-5 Z" fill="#12345a"/>
-                <path d="M164 -5 C154 25 158 48 148 70 C139 89 149 111 140 133 C132 154 143 177 134 225" fill="none" stroke="#9be7ff" stroke-width="4" stroke-linecap="round"/>
-                <path d="M151 -5 H265 V225 H139 C146 184 135 157 144 134 C153 110 143 90 151 68 C159 43 155 22 164 -5 Z" fill="#08718b"/>
-                <path class="map-road-line major" d="M48 15 C75 45 95 75 115 105 C130 128 145 156 159 197"/>
-                <path class="map-road-line" d="M69 203 C83 160 98 122 113 88 C126 58 142 35 164 12"/>
-                <path class="map-road-line major" d="M28 101 C63 96 96 98 126 93 C144 90 160 93 184 100"/>
-                <path class="map-road-line" d="M36 51 C70 62 102 62 137 56"/>
-                <path class="map-road-line" d="M42 148 C80 135 116 137 154 126"/>
-                <circle cx="132" cy="104" r="58" fill="rgba(100, 255, 218, 0.12)" stroke="#64ffda" stroke-width="3" stroke-dasharray="7 5"/>
-                <circle cx="132" cy="104" r="5" fill="#ffffff"/>
-                <path d="M132 84 C121 84 113 92 113 103 C113 119 132 139 132 139 C132 139 151 119 151 103 C151 92 143 84 132 84 Z" fill="#64ffda"/>
-                <circle cx="132" cy="103" r="6" fill="#0a192f"/>
-                <text class="map-area-text" x="71" y="36" font-size="11">JACKSONVILLE</text>
-                <text class="map-area-text" x="136" y="86" font-size="9">1701 SAN PABLO RD S</text>
-                <text class="map-area-text" x="117" y="172" font-size="10">JAX BEACH</text>
-                <text class="map-area-text" x="45" y="124" font-size="9">INTRACOASTAL</text>
-                <text class="map-area-text" x="169" y="150" font-size="9">PONTE VEDRA</text>
-                <text x="193" y="42" fill="#9be7ff" font-family="monospace" font-size="9" font-weight="900" transform="rotate(90 193 42)">ATLANTIC OCEAN</text>
-              </svg>
-              <div class="map-radius-overlay" aria-hidden="true"></div>
-              <div class="map-center-pin" aria-hidden="true"></div>
-              <div class="map-vignette" aria-hidden="true"></div>
-              <div class="map-label state">SERVICE MAP</div>
-              <div class="map-label radius">JAX BEACH RADIUS</div>
-              <div class="map-radius-chip">15 MI</div>
-              <button class="map-expand-btn" type="button" onclick="toggleServiceMap(event)" aria-expanded="false" aria-controls="service-map-dryer">EXPAND</button>
+            <div class="service-process-scene" aria-label="Hedlund Appliance Service repair process">
+              <div class="service-call-chip">
+                <strong>$135</strong>
+                <span>IN-TOWN SERVICE CALL</span>
+              </div>
+              <div class="process-steps">
+                <div class="process-step">
+                  <div class="process-num">1</div>
+                  <div class="process-copy"><strong>Scheduling</strong><span>Call or text to pick the best visit window.</span></div>
+                </div>
+                <div class="process-step">
+                  <div class="process-num">2</div>
+                  <div class="process-copy"><strong>Diagnostic Visit</strong><span>Diagnosis included with the service call.</span></div>
+                </div>
+                <div class="process-step">
+                  <div class="process-num">3</div>
+                  <div class="process-copy"><strong>Part Install</strong><span>Approve the repair and Mason installs the needed part.</span></div>
+                </div>
+                <div class="process-step">
+                  <div class="process-num">4</div>
+                  <div class="process-copy"><strong>Fixed!</strong><span>Your appliance is tested before the job wraps.</span></div>
+                </div>
+              </div>
+              <div class="process-vignette" aria-hidden="true"></div>
+              <button class="process-expand-btn" type="button" onclick="toggleServiceProcess(event)" aria-expanded="false" aria-controls="service-process-dryer">EXPAND</button>
             </div>
 
           </div>
@@ -2828,12 +2789,12 @@
       }
     }
 
-    function toggleServiceMap(event) {
+    function toggleServiceProcess(event) {
       event.stopPropagation();
-      const dryer = document.getElementById('service-map-dryer');
+      const dryer = document.getElementById('service-process-dryer');
       const button = event.currentTarget;
       if (!dryer || !button) return;
-      const expanded = dryer.classList.toggle('map-expanded');
+      const expanded = dryer.classList.toggle('process-expanded');
       button.setAttribute('aria-expanded', String(expanded));
       button.textContent = expanded ? 'CLOSE' : 'EXPAND';
     }
