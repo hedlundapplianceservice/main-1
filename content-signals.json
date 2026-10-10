@@ -1,0 +1,24 @@
+{
+  "site": "https://hedlundappliance.com",
+  "business": "Hedlund Appliance Service",
+  "contentOwner": "Mason Hedlund",
+  "authorProfile": "https://hedlundappliance.com/mason-hedlund/",
+  "signals": [
+    "author-attributed",
+    "date-stamped",
+    "local-business",
+    "service-area-specific",
+    "original-guidance",
+    "ai-agent-readable"
+  ],
+  "aiAgentUse": {
+    "summarize": true,
+    "citeCanonicalUrls": true,
+    "answerLocalServiceQuestions": true,
+    "trainingPreference": "allowed_for_search_and_discovery"
+  },
+  "lastModified": "2026-10-09",
+  "contact": {
+    "telephone": "+19043358206"
+  }
+}
