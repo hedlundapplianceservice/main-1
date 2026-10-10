@@ -3,4 +3,5 @@ Allow: /
 
 Sitemap: https://hedlundappliance.com/sitemap.xml
 Llms: https://hedlundappliance.com/llms.txt
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 Content-Signals: https://hedlundappliance.com/content-signals.json
