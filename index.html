@@ -17,6 +17,11 @@
   <meta name="description" content="Local appliance repair near Jacksonville Beach and within about 15 miles of the Beaches area. Hedlund Appliance Service repairs refrigerators, washers, dryers, dishwashers, ovens, and ranges.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://hedlundappliance.com/">
+  <meta name="author" content="Mason Hedlund">
+  <meta name="content-signals" content="local-business, service-area, original-field-expertise, author-attributed, ai-summarizable">
+  <link rel="author" href="/mason-hedlund/">
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="Markdown site summary for AI agents">
+  <link rel="content-signals" type="application/json" href="/content-signals.json">
 
   <!-- Local GEO SEO Meta Tags -->
   <meta name="geo.region" content="US-FL">
@@ -1657,6 +1662,15 @@
         display: none;
       }
     }
+  
+
+    /* AUTHOR, FRESHNESS, AND AGENT SEO SIGNALS */
+    .article-meta, .page-meta { font-family: var(--font-mono); color: var(--text-muted); font-size: 0.82rem; letter-spacing: 0.03em; margin-top: 14px; }
+    .article-meta a, .author-box a, .page-meta a { color: var(--accent); font-weight: 800; }
+    .author-box { margin: 36px 0; padding: 22px; background: var(--bg-subtle); border: 1px solid var(--border-light); border-left: 3px solid var(--accent); }
+    .author-box strong { color: var(--text-white); display: block; margin-bottom: 8px; }
+    .author-box p { margin: 0; }
+
   </style>
 
   <!-- ADVANCED COMBINED JSON-LD SCHEMA (ENHANCED FOR LOCAL SEO & GEOLOCATION) -->
@@ -1927,7 +1941,7 @@
         <div class="washer-dryer-stack">
 
           <!-- WASHER BRAND SHOWCASE -->
-          <div class="washer-wrapper" id="washer-wrapper" onclick="toggleWasher()">
+          <div class="washer-wrapper" id="washer-wrapper" onclick="toggleWasher()" role="button" tabindex="0" aria-label="Open brand list">
             <div class="washer-top-panel">
               <div class="washer-knob-row">
                 <div class="washer-knob"></div>
@@ -2043,19 +2057,19 @@
           </div>
           
           <div class="symptom-grid">
-            <button class="symptom-btn" onclick="setSymptom('Refrigerator Not Cooling')">
+            <button type="button" class="symptom-btn" aria-label="Select refrigerator cooling loss symptom" onclick="setSymptom('Refrigerator Not Cooling')">
               <span class="probe-tip"></span><span>❄️ Refrigerator Cooling Loss</span>
             </button>
-            <button class="symptom-btn" onclick="setSymptom('Dryer Not Heating')">
+            <button type="button" class="symptom-btn" aria-label="Select dryer heating failure symptom" onclick="setSymptom('Dryer Not Heating')">
               <span class="probe-tip"></span><span>🔥 Dryer Heating Failure</span>
             </button>
-            <button class="symptom-btn" onclick="setSymptom('Washer Leaking / Not Draining')">
+            <button type="button" class="symptom-btn" aria-label="Select washer leak or drain symptom" onclick="setSymptom('Washer Leaking / Not Draining')">
               <span class="probe-tip"></span><span>💧 Washer Drain / Leak</span>
             </button>
-            <button class="symptom-btn" onclick="setSymptom('Dishwasher Standing Water')">
+            <button type="button" class="symptom-btn" aria-label="Select dishwasher standing water symptom" onclick="setSymptom('Dishwasher Standing Water')">
               <span class="probe-tip"></span><span>🍽️ Dishwasher Standing Water</span>
             </button>
-            <button class="symptom-btn" onclick="setSymptom('Oven / Range Heating Issue')">
+            <button type="button" class="symptom-btn" aria-label="Select oven or range heating issue symptom" onclick="setSymptom('Oven / Range Heating Issue')">
               <span class="probe-tip"></span><span>🍳 Oven Igniter / Element Fault</span>
             </button>
           </div>
@@ -2083,7 +2097,7 @@
         </div>
 
         <div>
-          <div class="oven-wrapper" id="oven-wrapper" onclick="toggleOven()">
+          <div class="oven-wrapper" id="oven-wrapper" onclick="toggleOven()" role="button" tabindex="0" aria-label="Open Google reviews preview">
             <div class="oven-body">
               <div class="oven-control-panel">
                 <div class="oven-knob-row">
@@ -2352,7 +2366,7 @@
 
           <div class="breaker-hint">⚡ Flip a breaker to reveal the answer</div>
 
-          <div class="breaker-row" onclick="toggleBreaker(this)">
+          <div class="breaker-row" onclick="toggleBreaker(this)" role="button" tabindex="0" aria-label="Open response time FAQ">
             <div class="breaker-toggle">
               <div class="breaker-switch-housing">
                 <div class="breaker-switch-lever"></div>
@@ -2369,7 +2383,7 @@
             </div>
           </div>
 
-          <div class="breaker-row" onclick="toggleBreaker(this)">
+          <div class="breaker-row" onclick="toggleBreaker(this)" role="button" tabindex="0" aria-label="Open brand coverage FAQ">
             <div class="breaker-toggle">
               <div class="breaker-switch-housing">
                 <div class="breaker-switch-lever"></div>
@@ -2386,7 +2400,7 @@
             </div>
           </div>
 
-          <div class="breaker-row" onclick="toggleBreaker(this)">
+          <div class="breaker-row" onclick="toggleBreaker(this)" role="button" tabindex="0" aria-label="Open repair versus replace FAQ">
             <div class="breaker-toggle">
               <div class="breaker-switch-housing">
                 <div class="breaker-switch-lever"></div>
@@ -2403,7 +2417,7 @@
             </div>
           </div>
 
-          <div class="breaker-row" onclick="toggleBreaker(this)">
+          <div class="breaker-row" onclick="toggleBreaker(this)" role="button" tabindex="0" aria-label="Open service area FAQ">
             <div class="breaker-toggle">
               <div class="breaker-switch-housing">
                 <div class="breaker-switch-lever"></div>
@@ -2420,7 +2434,7 @@
             </div>
           </div>
 
-          <div class="breaker-row" onclick="toggleBreaker(this)">
+          <div class="breaker-row" onclick="toggleBreaker(this)" role="button" tabindex="0" aria-label="Open scheduling FAQ">
             <div class="breaker-toggle">
               <div class="breaker-switch-housing">
                 <div class="breaker-switch-lever"></div>
@@ -2597,6 +2611,15 @@
     function toggleWasher() {
       document.getElementById('washer-wrapper').classList.toggle('washer-open');
     }
+
+    document.querySelectorAll('[role="button"][tabindex="0"]').forEach(el => {
+      el.addEventListener('keydown', event => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          el.click();
+        }
+      });
+    });
 
     // Warranty stamp: "thunk" into place once it scrolls into view
     const stampEl = document.getElementById('warranty-stamp');
