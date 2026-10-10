@@ -346,21 +346,21 @@
       position: relative;
       width: 280px;
       height: 310px;
-      background: var(--bg-card);
-      border: 2px solid var(--border-medium);
+      background: linear-gradient(160deg, #112846 0%, #0a192f 62%, #061121 100%);
+      border: 2px solid rgba(100, 255, 218, 0.45);
       border-radius: 12px;
       padding: 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.62), 0 0 28px rgba(100, 255, 218, 0.08);
     }
 
     .dryer-top-panel {
       width: 100%;
       height: 34px;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
+      background: #050c19;
+      border: 1px solid rgba(100, 255, 218, 0.5);
       border-radius: 4px;
       margin-bottom: 14px;
       display: flex;
@@ -379,10 +379,11 @@
 
     .dryer-display {
       font-family: var(--font-mono);
-      font-size: 0.7rem;
+      font-size: 0.78rem;
       color: var(--accent);
       letter-spacing: 0.05em;
       font-weight: bold;
+      text-shadow: 0 0 8px rgba(100, 255, 218, 0.45);
     }
 
     .dryer-door {
@@ -390,99 +391,153 @@
       width: 210px;
       height: 210px;
       border-radius: 50%;
-      border: 7px solid var(--border-strong);
-      background: radial-gradient(circle, rgba(16, 37, 66, 0.95) 0%, rgba(10, 25, 47, 0.98) 100%);
+      border: 7px solid rgba(100, 255, 218, 0.34);
+      background: radial-gradient(circle, rgba(17, 42, 74, 0.98) 0%, rgba(5, 12, 25, 0.99) 100%);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 0 18px rgba(100, 255, 218, 0.18);
     }
 
-    .dryer-drum-spinner {
+    .service-map-scene {
       position: absolute;
       width: 100%;
       height: 100%;
-      animation: spinDrum 5s linear infinite;
+      inset: 0;
+      background: #0a192f;
+      overflow: hidden;
     }
 
-    @keyframes spinDrum {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .drum-fin {
+    .google-service-map {
       position: absolute;
-      width: 100%;
-      height: 4px;
-      background: var(--border-light);
-      top: 50%;
-      transform-origin: center;
+      inset: -42px;
+      width: calc(100% + 84px);
+      height: calc(100% + 84px);
+      border: 0;
+      filter: saturate(1.05) contrast(1.08) brightness(0.86);
+      transform-origin: 56% 48%;
+      animation: googleMapFocus 12s ease-in-out infinite;
     }
 
-    .drum-fin:nth-child(1) { transform: rotate(0deg); }
-    .drum-fin:nth-child(2) { transform: rotate(60deg); }
-    .drum-fin:nth-child(3) { transform: rotate(120deg); }
-
-    .tumbling-review {
+    .map-label {
       position: absolute;
-      background: rgba(10, 25, 47, 0.95);
-      border: 1px solid var(--accent);
-      padding: 8px 10px;
-      border-radius: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 154px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-      width: 150px;
+      z-index: 2;
+      font-family: var(--font-mono);
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95);
       pointer-events: none;
     }
 
-    .stars {
-      color: #ffd700;
-      font-size: 0.7rem;
-      letter-spacing: 1px;
-    }
-
-    .review-desc {
-      font-size: 0.62rem;
+    .map-label.state {
+      top: 28px;
       color: var(--text-white);
-      line-height: 1.2;
-      margin: 2px 0;
-      font-weight: 500;
+      font-size: 0.76rem;
+      animation: stateLabelFade 10s ease-in-out infinite;
     }
 
-    .review-author {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
+    .map-label.radius {
+      bottom: 34px;
       color: var(--accent);
-      font-weight: 700;
+      font-size: 0.72rem;
+      animation: radiusLabelFade 10s ease-in-out infinite;
     }
 
-    .review-1 { animation: tumbleOne 9s ease-in-out infinite; }
-    .review-2 { animation: tumbleTwo 9s ease-in-out infinite 3s; }
-    .review-3 { animation: tumbleThree 9s ease-in-out infinite 6s; }
-
-    @keyframes tumbleOne {
-      0% { transform: translate(-35px, 50px) rotate(-10deg) scale(0.6); opacity: 0; }
-      15% { opacity: 1; transform: translate(0px, 10px) rotate(5deg) scale(0.95); }
-      33% { opacity: 1; transform: translate(25px, -30px) rotate(180deg) scale(0.85); }
-      45% { opacity: 0; transform: translate(-20px, -60px) rotate(360deg) scale(0.5); }
-      100% { opacity: 0; }
+    .map-radius-chip {
+      position: absolute;
+      right: 22px;
+      top: 52px;
+      z-index: 3;
+      padding: 5px 7px;
+      background: rgba(5, 12, 25, 0.9);
+      border: 1px solid var(--accent);
+      color: var(--text-white);
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      box-shadow: 0 0 14px rgba(100, 255, 218, 0.25);
+      animation: radiusChipPop 10s ease-in-out infinite;
     }
 
-    @keyframes tumbleTwo {
-      0% { transform: translate(35px, 50px) rotate(15deg) scale(0.6); opacity: 0; }
-      15% { opacity: 1; transform: translate(-10px, 5px) rotate(-5deg) scale(0.95); }
-      33% { opacity: 1; transform: translate(-25px, -25px) rotate(-180deg) scale(0.85); }
-      45% { opacity: 0; transform: translate(20px, -55px) rotate(-360deg) scale(0.5); }
-      100% { opacity: 0; }
+    .map-radius-overlay {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 112px;
+      height: 112px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      background: rgba(100, 255, 218, 0.08);
+      box-shadow: 0 0 20px rgba(100, 255, 218, 0.36), inset 0 0 20px rgba(100, 255, 218, 0.14);
+      pointer-events: none;
+      animation: mapRadiusPulse 2.6s ease-in-out infinite;
     }
 
-    @keyframes tumbleThree {
-      0% { transform: translate(0px, 60px) rotate(0deg) scale(0.6); opacity: 0; }
-      15% { opacity: 1; transform: translate(15px, 0px) rotate(-10deg) scale(0.95); }
-      33% { opacity: 1; transform: translate(-15px, -35px) rotate(180deg) scale(0.85); }
-      45% { opacity: 0; transform: translate(0px, -65px) rotate(360deg) scale(0.5); }
-      100% { opacity: 0; }
+    .map-center-pin {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50% 50% 50% 0;
+      background: var(--accent);
+      transform: translate(-50%, -80%) rotate(-45deg);
+      z-index: 3;
+      box-shadow: 0 0 12px rgba(100, 255, 218, 0.7);
+      pointer-events: none;
+    }
+
+    .map-center-pin::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #0a192f;
+      left: 4px;
+      top: 4px;
+    }
+
+    .map-vignette {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      pointer-events: none;
+      box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.88);
+      background: radial-gradient(circle, transparent 48%, rgba(5, 12, 25, 0.42) 100%);
+    }
+
+    @keyframes googleMapFocus {
+      0%, 18% { transform: scale(0.9); }
+      58%, 100% { transform: scale(1.24); }
+    }
+
+    @keyframes mapRadiusPulse {
+      0%, 100% { opacity: 0.72; transform: translate(-50%, -50%) scale(0.92); }
+      50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+    }
+
+    @keyframes stateLabelFade {
+      0%, 35% { opacity: 1; transform: translateX(-50%) scale(1); }
+      55%, 100% { opacity: 0; transform: translateX(-50%) scale(0.92); }
+    }
+
+    @keyframes radiusLabelFade {
+      0%, 38% { opacity: 0; transform: translateX(-50%) scale(0.94); }
+      58%, 100% { opacity: 1; transform: translateX(-50%) scale(1); }
+    }
+
+    @keyframes radiusChipPop {
+      0%, 42% { opacity: 0; transform: scale(0.86); }
+      58%, 100% { opacity: 1; transform: scale(1); }
     }
 
     .cta-row {
@@ -749,8 +804,8 @@
       position: relative;
       width: 100%;
       height: 100%;
-      background: var(--bg-card);
-      border: 2px solid var(--border-medium);
+      background: linear-gradient(160deg, #112846 0%, #0a192f 62%, #061121 100%);
+      border: 2px solid rgba(56, 189, 248, 0.5);
       border-radius: 10px;
       box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
       overflow: hidden;
@@ -956,15 +1011,15 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 14px 38px rgba(0, 0, 0, 0.62), 0 0 28px rgba(56, 189, 248, 0.1);
       cursor: pointer;
     }
 
     .washer-top-panel {
       width: 100%;
       height: 34px;
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
+      background: #050c19;
+      border: 1px solid rgba(56, 189, 248, 0.52);
       border-radius: 4px;
       margin-bottom: 14px;
       display: flex;
@@ -988,10 +1043,11 @@
 
     .washer-display {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.76rem;
       color: #38bdf8;
       letter-spacing: 0.05em;
       font-weight: bold;
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.55);
     }
 
     .washer-frame {
@@ -1021,34 +1077,56 @@
       padding: 8px;
     }
 
-    .washer-brand-list {
+    .washer-brand-rotator {
+      min-height: 100%;
       display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      gap: 8px;
+      text-align: center;
     }
 
-    .washer-brand-chip {
+    .brand-kicker,
+    .brand-sub {
       font-family: var(--font-mono);
-      font-size: 0.6rem;
-      font-weight: 700;
-      color: #38bdf8;
-      background: rgba(56, 189, 248, 0.12);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      padding: 3px 7px;
-      border-radius: 3px;
-      white-space: nowrap;
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
-    /* Brand chips that link to a brand page */
-    a.washer-brand-chip {
-      text-decoration: none;
-      transition: background 0.2s ease, color 0.2s ease;
-    }
-
-    a.washer-brand-chip:hover {
-      background: rgba(56, 189, 248, 0.3);
+    .washer-brand-current {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      max-width: 152px;
+      padding: 8px 12px;
       color: #ffffff;
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid rgba(56, 189, 248, 0.62);
+      border-radius: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.96rem;
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: 0.02em;
+      text-align: center;
+      text-decoration: none;
+      text-shadow: 0 0 10px rgba(56, 189, 248, 0.55);
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.18);
+      transition: opacity 0.18s ease, transform 0.18s ease, background 0.2s ease;
+    }
+
+    .washer-brand-current:hover {
+      background: rgba(56, 189, 248, 0.28);
+    }
+
+    .washer-brand-current.brand-changing {
+      opacity: 0;
+      transform: translateY(6px) scale(0.96);
     }
 
     .washer-door {
@@ -1954,35 +2032,10 @@
             <div class="washer-frame">
               <div class="washer-cavity">
                 <div class="washer-cavity-inner">
-                  <div class="washer-brand-list">
-                    <a class="washer-brand-chip" href="/whirlpool-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Whirlpool</a>
-                    <a class="washer-brand-chip" href="/ge-appliance-repair-jacksonville/" onclick="event.stopPropagation()">GE Appliances</a>
-                    <span class="washer-brand-chip">Frigidaire</span>
-                    <a class="washer-brand-chip" href="/lg-appliance-repair-jacksonville/" onclick="event.stopPropagation()">LG</a>
-                    <a class="washer-brand-chip" href="/samsung-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Samsung</a>
-                    <a class="washer-brand-chip" href="/maytag-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Maytag</a>
-                    <span class="washer-brand-chip">Amana</span>
-                    <span class="washer-brand-chip">Hotpoint</span>
-                    <span class="washer-brand-chip">Kenmore</span>
-                    <span class="washer-brand-chip">Beko</span>
-                    <a class="washer-brand-chip" href="/bosch-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Bosch</a>
-                    <span class="washer-brand-chip">KitchenAid</span>
-                    <span class="washer-brand-chip">Café</span>
-                    <span class="washer-brand-chip">GE Profile</span>
-                    <span class="washer-brand-chip">LG Studio</span>
-                    <span class="washer-brand-chip">Fisher & Paykel</span>
-                    <span class="washer-brand-chip">Electrolux</span>
-                    <span class="washer-brand-chip">Thor Kitchen</span>
-                    <span class="washer-brand-chip">Thermador</span>
-                    <span class="washer-brand-chip">Miele</span>
-                    <span class="washer-brand-chip">Monogram</span>
-                    <span class="washer-brand-chip">Viking</span>
-                    <span class="washer-brand-chip">JennAir</span>
-                    <span class="washer-brand-chip">BlueStar</span>
-                    <span class="washer-brand-chip">Dacor</span>
-                    <span class="washer-brand-chip">Sub-Zero</span>
-                    <span class="washer-brand-chip">Speed Queen</span>
-                    <span class="washer-brand-chip">Asko</span>
+                  <div class="washer-brand-rotator" aria-live="polite">
+                    <span class="brand-kicker">Servicing</span>
+                    <a class="washer-brand-current" id="washer-brand-current" href="/whirlpool-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Whirlpool</a>
+                    <span class="brand-sub">Major Appliance Brands</span>
                   </div>
                 </div>
               </div>
@@ -1996,31 +2049,23 @@
           <div class="dryer-wrapper">
           <div class="dryer-top-panel">
             <div class="dryer-knob"></div>
-            <div class="dryer-display">RUNNING // 5.0★</div>
+            <div class="dryer-display">SERVICE MAP // 15 MI</div>
           </div>
           <div class="dryer-door">
-            <div class="dryer-drum-spinner">
-              <div class="drum-fin"></div>
-              <div class="drum-fin"></div>
-              <div class="drum-fin"></div>
-            </div>
-
-            <div class="tumbling-review review-1">
-              <div class="stars">★★★★★</div>
-              <div class="review-desc">"Fixed our dryer heater fast!"</div>
-              <div class="review-author">— Sarah M., Jax Beach</div>
-            </div>
-
-            <div class="tumbling-review review-2">
-              <div class="stars">★★★★★</div>
-              <div class="review-desc">"Honest, technical expert."</div>
-              <div class="review-author">— David R., San Pablo</div>
-            </div>
-
-            <div class="tumbling-review review-3">
-              <div class="stars">★★★★★</div>
-              <div class="review-desc">"Diagnosed on first visit!"</div>
-              <div class="review-author">— Elena K., Ponte Vedra</div>
+            <div class="service-map-scene" aria-label="Animated Florida service area map">
+              <iframe
+                class="google-service-map"
+                title="Google map of Hedlund Appliance Service area near Jacksonville Beach"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src="https://www.google.com/maps?q=Jacksonville%20Beach%2C%20FL&z=11&output=embed">
+              </iframe>
+              <div class="map-radius-overlay" aria-hidden="true"></div>
+              <div class="map-center-pin" aria-hidden="true"></div>
+              <div class="map-vignette" aria-hidden="true"></div>
+              <div class="map-label state">GOOGLE MAPS</div>
+              <div class="map-label radius">JAX BEACH RADIUS</div>
+              <div class="map-radius-chip">15 MI</div>
             </div>
 
           </div>
@@ -2610,8 +2655,81 @@
       }
     }
 
+    const washerBrands = [
+      { name: 'Whirlpool', href: '/whirlpool-appliance-repair-jacksonville/' },
+      { name: 'GE Appliances', href: '/ge-appliance-repair-jacksonville/' },
+      { name: 'Frigidaire' },
+      { name: 'LG', href: '/lg-appliance-repair-jacksonville/' },
+      { name: 'Samsung', href: '/samsung-appliance-repair-jacksonville/' },
+      { name: 'Maytag', href: '/maytag-appliance-repair-jacksonville/' },
+      { name: 'Amana' },
+      { name: 'Hotpoint' },
+      { name: 'Kenmore' },
+      { name: 'Beko' },
+      { name: 'Bosch', href: '/bosch-appliance-repair-jacksonville/' },
+      { name: 'KitchenAid' },
+      { name: 'Café' },
+      { name: 'GE Profile' },
+      { name: 'LG Studio' },
+      { name: 'Fisher & Paykel' },
+      { name: 'Electrolux' },
+      { name: 'Thor Kitchen' },
+      { name: 'Thermador' },
+      { name: 'Miele' },
+      { name: 'Monogram' },
+      { name: 'Viking' },
+      { name: 'JennAir' },
+      { name: 'BlueStar' },
+      { name: 'Dacor' },
+      { name: 'Sub-Zero' },
+      { name: 'Speed Queen' },
+      { name: 'Asko' }
+    ];
+    let washerBrandIndex = 0;
+    let washerBrandTimer = null;
+
+    function renderWasherBrand() {
+      const brandEl = document.getElementById('washer-brand-current');
+      if (!brandEl) return;
+
+      const brand = washerBrands[washerBrandIndex % washerBrands.length];
+      brandEl.classList.add('brand-changing');
+
+      window.setTimeout(() => {
+        brandEl.textContent = brand.name;
+        if (brand.href) {
+          brandEl.href = brand.href;
+          brandEl.removeAttribute('aria-disabled');
+        } else {
+          brandEl.removeAttribute('href');
+          brandEl.setAttribute('aria-disabled', 'true');
+        }
+        brandEl.classList.remove('brand-changing');
+      }, 180);
+    }
+
+    function startWasherBrandRotation() {
+      renderWasherBrand();
+      if (washerBrandTimer) return;
+      washerBrandTimer = window.setInterval(() => {
+        washerBrandIndex += 1;
+        renderWasherBrand();
+      }, 2000);
+    }
+
+    function stopWasherBrandRotation() {
+      window.clearInterval(washerBrandTimer);
+      washerBrandTimer = null;
+    }
+
     function toggleWasher() {
-      document.getElementById('washer-wrapper').classList.toggle('washer-open');
+      const washer = document.getElementById('washer-wrapper');
+      washer.classList.toggle('washer-open');
+      if (washer.classList.contains('washer-open')) {
+        startWasherBrandRotation();
+      } else {
+        stopWasherBrandRotation();
+      }
     }
 
     document.querySelectorAll('[role="button"][tabindex="0"]').forEach(el => {
