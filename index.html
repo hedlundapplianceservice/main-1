@@ -407,6 +407,7 @@
       justify-content: center;
       box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 0 18px rgba(100, 255, 218, 0.18);
       transition: width 0.35s ease, height 0.35s ease, border-radius 0.35s ease;
+      cursor: pointer;
     }
 
     .dryer-wrapper.process-expanded .dryer-door {
@@ -529,37 +530,6 @@
       pointer-events: none;
       box-shadow: inset 0 0 28px rgba(0, 0, 0, 0.88);
       background: radial-gradient(circle, transparent 48%, rgba(5, 12, 25, 0.42) 100%);
-    }
-
-    .process-expand-btn {
-      position: absolute;
-      right: -16px;
-      bottom: -16px;
-      z-index: 30;
-      border: 2px solid var(--accent);
-      border-radius: 999px;
-      background: rgba(5, 12, 25, 0.9);
-      color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      font-weight: 900;
-      letter-spacing: 0.05em;
-      padding: 10px 13px;
-      cursor: pointer;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.42), 0 0 14px rgba(100, 255, 218, 0.28);
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .process-expand-btn:hover {
-      background: var(--accent);
-      color: var(--bg-blueprint);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.48), 0 0 20px rgba(100, 255, 218, 0.38);
-    }
-
-    .dryer-wrapper.process-expanded .process-expand-btn {
-      right: 16px;
-      bottom: 16px;
     }
 
     @keyframes processStepGlow {
@@ -2106,7 +2076,7 @@
             <div class="dryer-knob"></div>
             <div class="dryer-display">SERVICE CALL // $135</div>
           </div>
-          <div class="dryer-door">
+          <div class="dryer-door" role="button" tabindex="0" onclick="toggleServiceProcess(event)" aria-expanded="false" aria-controls="service-process-dryer" aria-label="Open service process dryer">
             <div class="service-process-scene" aria-label="Hedlund Appliance Service repair process">
               <div class="service-call-chip">
                 <strong>$135</strong>
@@ -2134,7 +2104,6 @@
             </div>
 
           </div>
-          <button class="process-expand-btn" type="button" onclick="toggleServiceProcess(event)" aria-expanded="false" aria-controls="service-process-dryer">EXPAND</button>
         </div>
 
         </div>
@@ -2801,11 +2770,11 @@
     function toggleServiceProcess(event) {
       event.stopPropagation();
       const dryer = document.getElementById('service-process-dryer');
-      const button = event.currentTarget;
-      if (!dryer || !button) return;
+      const trigger = event.currentTarget;
+      if (!dryer || !trigger) return;
       const expanded = dryer.classList.toggle('process-expanded');
-      button.setAttribute('aria-expanded', String(expanded));
-      button.textContent = expanded ? 'CLOSE' : 'EXPAND';
+      trigger.setAttribute('aria-expanded', String(expanded));
+      trigger.setAttribute('aria-label', expanded ? 'Close service process dryer' : 'Open service process dryer');
     }
 
     document.querySelectorAll('[role="button"][tabindex="0"]').forEach(el => {
