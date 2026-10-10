@@ -1,86 +1,159 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://hedlundappliance.com/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>1.0</priority>
   </url>
-
-  <!-- Brand pages -->
   <url>
     <loc>https://hedlundappliance.com/samsung-appliance-repair-jacksonville/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/lg-appliance-repair-jacksonville/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/whirlpool-appliance-repair-jacksonville/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/ge-appliance-repair-jacksonville/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/maytag-appliance-repair-jacksonville/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/bosch-appliance-repair-jacksonville/</loc>
     <lastmod>2026-10-08</lastmod>
-    <priority>0.9</priority>
   </url>
-
-  <!-- Blog -->
   <url>
     <loc>https://hedlundappliance.com/blog/</loc>
     <lastmod>2026-10-09</lastmod>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/blog/refrigerator-not-cooling-causes-jacksonville/</loc>
     <lastmod>2026-10-09</lastmod>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/blog/samsung-ice-maker-not-working-jacksonville/</loc>
     <lastmod>2026-10-09</lastmod>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/blog/washer-wont-drain-jacksonville/</loc>
     <lastmod>2026-10-09</lastmod>
-    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://hedlundappliance.com/blog/dryer-not-heating-causes-jacksonville/</loc>
     <lastmod>2026-10-09</lastmod>
-    <priority>0.7</priority>
   </url>
-
-  <!--
-  Uncomment each URL below ONLY after the page is published and loads.
-  Listing pages that return a 404 creates errors in Google Search Console.
-
-  <url><loc>https://hedlundappliance.com/refrigerator-repair-jacksonville/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/washer-repair-jacksonville/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/dryer-repair-jacksonville/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/dishwasher-repair-jacksonville/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/oven-repair-jacksonville/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/locations/jacksonville-beach/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/locations/atlantic-beach/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/locations/ponte-vedra-beach/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/locations/intracoastal-west/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/locations/mandarin/</loc><lastmod>2026-10-08</lastmod></url>
-  <url><loc>https://hedlundappliance.com/locations/downtown-jax/</loc><lastmod>2026-10-08</lastmod></url>
-  -->
-
+  <url>
+    <loc>https://hedlundappliance.com/blog/refrigerator-leaking-water-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/refrigerator-freezing-food-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/freezer-frost-buildup-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/refrigerator-running-constantly-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/ice-maker-small-hollow-cubes-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/washer-not-spinning-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/washer-shaking-banging-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/washing-machine-leaking-water-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/washer-wont-start-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/dryer-takes-too-long-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/dryer-wont-start-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/dryer-squeaking-grinding-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/dishwasher-not-draining-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/dishwasher-not-cleaning-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/electric-oven-not-heating-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/blog/gas-stove-burner-clicking-not-lighting-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/refrigerator-repair-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/washer-repair-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/dryer-repair-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/dishwasher-repair-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/oven-repair-jacksonville/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/jacksonville-beach/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/atlantic-beach/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/ponte-vedra-beach/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/intracoastal-west/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/mandarin/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
+  <url>
+    <loc>https://hedlundappliance.com/locations/downtown-jax/</loc>
+    <lastmod>2026-10-09</lastmod>
+  </url>
 </urlset>
