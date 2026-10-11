@@ -2104,6 +2104,123 @@
       34%, 100% { opacity: 0; transform: translateY(-10px); }
     }
 
+    .review-machine {
+      margin-top: 24px;
+      border: 1px solid rgba(100, 255, 218, 0.26);
+      background: linear-gradient(135deg, rgba(7, 21, 41, 0.92), rgba(14, 36, 67, 0.74));
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.24);
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .review-machine::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+        linear-gradient(rgba(100, 255, 218, 0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      opacity: 0.42;
+    }
+
+    .review-machine > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .review-machine-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .review-machine h4 {
+      color: var(--text-white);
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+    }
+
+    .review-machine p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .review-source-select {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .review-source-select button,
+    .copy-review-output {
+      border: 1px solid rgba(100, 255, 218, 0.36);
+      background: rgba(100, 255, 218, 0.09);
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      padding: 9px 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    .review-source-select button.active,
+    .review-source-select button:hover,
+    .copy-review-output:hover {
+      background: var(--accent);
+      color: var(--bg-blueprint);
+    }
+
+    .review-output-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .review-output-card {
+      border: 1px solid var(--border-light);
+      background: rgba(4, 14, 29, 0.68);
+      padding: 16px;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .review-output-card strong {
+      color: var(--text-white);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .review-output-card textarea {
+      flex: 1;
+      width: 100%;
+      min-height: 118px;
+      resize: vertical;
+      border: 1px solid rgba(100, 255, 218, 0.18);
+      background: rgba(2, 10, 22, 0.72);
+      color: var(--text-main);
+      font: 0.88rem/1.55 var(--font-body);
+      padding: 12px;
+    }
+
+    .review-output-meta {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .radar-screen::before,
       .radar-pin,
@@ -2692,7 +2809,7 @@
             <article class="review-card">
               <div class="review-stars">★★★★★</div>
               <p>"We highly recommend his company for any appliance service needs."</p>
-              <span>daina Pakalnis · Google review</span>
+              <span>Daina Pakalnis · Google review</span>
             </article>
             <article class="review-card">
               <div class="review-stars">★★★★★</div>
@@ -2706,6 +2823,36 @@
             </article>
           </div>
           <p class="trust-footnote">Public Google profile shows a 4.9-star reputation with 210 reviews.</p>
+
+          <div class="review-machine" aria-label="Review repurposing machine">
+            <div class="review-machine-head">
+              <div>
+                <div class="eyebrow">// Review Repurposing Machine</div>
+                <h4>Turn one 5-star review into local SEO content</h4>
+                <p>Choose a real customer review and generate ready-to-post captions for Google Business, Facebook, and Instagram.</p>
+              </div>
+              <div class="review-source-select" id="review-source-select" aria-label="Choose review source"></div>
+            </div>
+
+            <div class="review-output-grid">
+              <article class="review-output-card">
+                <strong>Google Business Post</strong>
+                <textarea id="review-output-google" readonly></textarea>
+                <button class="copy-review-output" type="button" data-copy-target="review-output-google">Copy Post</button>
+              </article>
+              <article class="review-output-card">
+                <strong>Facebook / Nextdoor</strong>
+                <textarea id="review-output-facebook" readonly></textarea>
+                <button class="copy-review-output" type="button" data-copy-target="review-output-facebook">Copy Caption</button>
+              </article>
+              <article class="review-output-card">
+                <strong>Instagram Caption</strong>
+                <textarea id="review-output-instagram" readonly></textarea>
+                <button class="copy-review-output" type="button" data-copy-target="review-output-instagram">Copy Caption</button>
+              </article>
+            </div>
+            <div class="review-output-meta" id="review-output-meta"></div>
+          </div>
         </div>
       </div>
     </section>
@@ -3376,6 +3523,85 @@
         }
       });
     });
+
+    const reviewRepurposingData = [
+      {
+        name: 'Daina Pakalnis',
+        quote: 'We highly recommend his company for any appliance service needs.',
+        source: 'Google review',
+        angle: 'trusted appliance service'
+      },
+      {
+        name: 'Lynn Boes',
+        quote: 'Very satisfied with the work and the price, exactly what he quoted us.',
+        source: 'Google review',
+        angle: 'clear pricing and honest quotes'
+      },
+      {
+        name: 'Cindy Grabler',
+        quote: 'He knew the problem on the refrigerator and quickly ordered the part.',
+        source: 'Google review',
+        angle: 'refrigerator diagnosis and parts'
+      }
+    ];
+
+    function buildReviewOutputs(review) {
+      return {
+        google: `Another 5-star customer note for Hedlund Appliance Service: "${review.quote}" - ${review.name}. If your refrigerator, washer, dryer, dishwasher, oven, or range is acting up around Jacksonville Beach, Atlantic Beach, Neptune Beach, Ponte Vedra, San Pablo, or the Southside, call Mason directly at (904) 335-8206.`,
+        facebook: `Local appliance repair note from a recent 5-star Google review: "${review.quote}" - ${review.name}. I handle honest diagnosis, repair-vs-replace guidance, and clear pricing for Jacksonville-area homeowners. - Mason, Hedlund Appliance Service`,
+        instagram: `5-star customer love: "${review.quote}" - ${review.name}\\n\\nServing Jacksonville Beach, Atlantic Beach, Neptune Beach, Ponte Vedra, San Pablo, and nearby Jacksonville neighborhoods.\\n\\n#JacksonvilleApplianceRepair #JacksonvilleBeach #AtlanticBeachFL #NeptuneBeach #PonteVedra #ApplianceRepair`
+      };
+    }
+
+    function renderReviewMachine(index = 0) {
+      const select = document.getElementById('review-source-select');
+      const google = document.getElementById('review-output-google');
+      const facebook = document.getElementById('review-output-facebook');
+      const instagram = document.getElementById('review-output-instagram');
+      const meta = document.getElementById('review-output-meta');
+      if (!select || !google || !facebook || !instagram || !meta) return;
+
+      if (!select.dataset.ready) {
+        reviewRepurposingData.forEach((review, reviewIndex) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = review.name.split(' ')[0];
+          button.addEventListener('click', () => renderReviewMachine(reviewIndex));
+          select.appendChild(button);
+        });
+        select.dataset.ready = 'true';
+      }
+
+      const review = reviewRepurposingData[index] || reviewRepurposingData[0];
+      const outputs = buildReviewOutputs(review);
+      google.value = outputs.google;
+      facebook.value = outputs.facebook;
+      instagram.value = outputs.instagram;
+      meta.textContent = `Source: ${review.name} · ${review.source} · Angle: ${review.angle}`;
+
+      select.querySelectorAll('button').forEach((button, buttonIndex) => {
+        button.classList.toggle('active', buttonIndex === index);
+      });
+    }
+
+    document.querySelectorAll('.copy-review-output').forEach(button => {
+      button.addEventListener('click', async () => {
+        const target = document.getElementById(button.dataset.copyTarget);
+        if (!target) return;
+        target.select();
+        try {
+          await navigator.clipboard.writeText(target.value);
+          button.textContent = 'Copied';
+          window.setTimeout(() => {
+            button.textContent = button.dataset.copyTarget === 'review-output-google' ? 'Copy Post' : 'Copy Caption';
+          }, 1400);
+        } catch (error) {
+          document.execCommand('copy');
+        }
+      });
+    });
+
+    renderReviewMachine();
 
     // Warranty stamp: "thunk" into place once it scrolls into view
     const stampEl = document.getElementById('warranty-stamp');
