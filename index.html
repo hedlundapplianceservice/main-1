@@ -2035,7 +2035,7 @@
     }
 
     .guarantee-panel,
-    .review-card {
+    .map-panel {
       border: 1px solid var(--border-light);
       background: rgba(14, 36, 67, 0.72);
       padding: 26px;
@@ -2047,7 +2047,7 @@
     }
 
     .guarantee-panel h3,
-    .review-card h3 {
+    .map-panel h3 {
       color: var(--text-white);
       margin-bottom: 12px;
     }
@@ -2071,168 +2071,18 @@
       font-weight: 900;
     }
 
-    .review-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .review-rotator {
-      position: relative;
-      display: block;
-      min-height: 235px;
-    }
-
-    .review-rotator .review-card {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: reviewRotate 15s infinite;
-    }
-
-    .review-rotator .review-card:nth-child(2) {
-      animation-delay: 5s;
-    }
-
-    .review-rotator .review-card:nth-child(3) {
-      animation-delay: 10s;
-    }
-
-    @keyframes reviewRotate {
-      0%, 28% { opacity: 1; transform: translateY(0); }
-      34%, 100% { opacity: 0; transform: translateY(-10px); }
-    }
-
-    .review-machine {
-      margin-top: 24px;
-      border: 1px solid rgba(100, 255, 218, 0.26);
-      background: linear-gradient(135deg, rgba(7, 21, 41, 0.92), rgba(14, 36, 67, 0.74));
-      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.24);
-      padding: 22px;
+    .map-panel {
       position: relative;
       overflow: hidden;
-    }
-
-    .review-machine::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px),
-        linear-gradient(rgba(100, 255, 218, 0.04) 1px, transparent 1px);
-      background-size: 28px 28px;
-      pointer-events: none;
-      opacity: 0.42;
-    }
-
-    .review-machine > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    .review-machine-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 18px;
-      flex-wrap: wrap;
-    }
-
-    .review-machine h4 {
-      color: var(--text-white);
-      font-size: 1.18rem;
-      margin-bottom: 6px;
-    }
-
-    .review-machine p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    .review-source-select {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .review-source-select button,
-    .copy-review-output {
-      border: 1px solid rgba(100, 255, 218, 0.36);
-      background: rgba(100, 255, 218, 0.09);
-      color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      padding: 9px 12px;
-      cursor: pointer;
-      text-transform: uppercase;
-    }
-
-    .review-source-select button.active,
-    .review-source-select button:hover,
-    .copy-review-output:hover {
-      background: var(--accent);
-      color: var(--bg-blueprint);
-    }
-
-    .review-output-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-    }
-
-    .review-output-card {
-      border: 1px solid var(--border-light);
-      background: rgba(4, 14, 29, 0.68);
-      padding: 16px;
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .review-output-card strong {
-      color: var(--text-white);
-      font-family: var(--font-mono);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .review-output-card textarea {
-      flex: 1;
-      width: 100%;
-      min-height: 118px;
-      resize: vertical;
-      border: 1px solid rgba(100, 255, 218, 0.18);
-      background: rgba(2, 10, 22, 0.72);
-      color: var(--text-main);
-      font: 0.88rem/1.55 var(--font-body);
-      padding: 12px;
-    }
-
-    .review-output-meta {
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      text-transform: uppercase;
+      box-shadow: 0 20px 42px rgba(0, 0, 0, 0.26);
     }
 
     @media (prefers-reduced-motion: reduce) {
       .radar-screen::before,
       .radar-pin,
-      .review-rotator .review-card,
       .warranty-stamp.stamped,
       .warranty-stamp.stamped::after {
         animation: none !important;
-      }
-
-      .review-rotator .review-card:first-child {
-        opacity: 1;
-        transform: none;
       }
 
       .warranty-stamp.stamped {
@@ -2241,31 +2091,49 @@
       }
     }
 
-    .review-stars {
-      color: var(--accent);
-      font-family: var(--font-mono);
-      font-size: 0.82rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 12px;
+    .map-frame {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(100, 255, 218, 0.32);
+      background: var(--bg-blueprint);
+      min-height: 310px;
+      margin-top: 18px;
     }
 
-    .review-card p {
-      color: var(--text-main);
-      font-size: 0.95rem;
-      margin-bottom: 14px;
+    .map-frame iframe {
+      display: block;
+      width: 100%;
+      height: 310px;
+      border: 0;
+      filter: saturate(0.9) contrast(1.05);
     }
 
-    .review-card span {
-      color: var(--text-muted);
+    .map-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(100, 255, 218, 0.18), transparent 34%),
+        linear-gradient(0deg, rgba(10, 25, 47, 0.18), transparent 42%);
+      mix-blend-mode: screen;
+    }
+
+    .map-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 14px;
       font-family: var(--font-mono);
       font-size: 0.76rem;
       text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
     }
 
-    .trust-footnote {
-      color: var(--text-muted);
-      font-size: 0.86rem;
-      margin-top: 16px;
+    .map-caption strong {
+      color: var(--accent);
     }
 
     /* FOOTER */
@@ -2802,56 +2670,20 @@
           </div>
         </div>
 
-        <div>
-          <div class="eyebrow">// Customer Reviews</div>
-          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 16px;">Real Google Review Snippets</h3>
-          <div class="review-grid review-rotator" aria-live="polite">
-            <article class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p>"We highly recommend his company for any appliance service needs."</p>
-              <span>Daina Pakalnis · Google review</span>
-            </article>
-            <article class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p>"Very satisfied with the work and the price, exactly what he quoted us."</p>
-              <span>Lynn Boes · Google review</span>
-            </article>
-            <article class="review-card">
-              <div class="review-stars">★★★★★</div>
-              <p>"He knew the problem on the refrigerator and quickly ordered the part."</p>
-              <span>Cindy Grabler · Google review</span>
-            </article>
+        <div class="map-panel">
+          <div class="eyebrow">// Local Service Map</div>
+          <h3 style="font-size: 1.5rem;">Jacksonville Beaches Appliance Repair Coverage</h3>
+          <p style="color: var(--text-muted);">Based near San Pablo Road South, Hedlund Appliance Service focuses on a tight local radius for faster scheduling across Jacksonville Beach, Atlantic Beach, Intracoastal West, Ponte Vedra, Southside, and nearby neighborhoods.</p>
+          <div class="map-frame">
+            <iframe
+              title="Hedlund Appliance Service local map near San Pablo Road South in Jacksonville"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=1701%20San%20Pablo%20Rd%20S%2C%20Jacksonville%2C%20FL&output=embed"></iframe>
           </div>
-          <p class="trust-footnote">Public Google profile shows a 4.9-star reputation with 210 reviews.</p>
-
-          <div class="review-machine" aria-label="Review repurposing machine">
-            <div class="review-machine-head">
-              <div>
-                <div class="eyebrow">// Review Repurposing Machine</div>
-                <h4>Turn one 5-star review into local SEO content</h4>
-                <p>Choose a real customer review and generate ready-to-post captions for Google Business, Facebook, and Instagram.</p>
-              </div>
-              <div class="review-source-select" id="review-source-select" aria-label="Choose review source"></div>
-            </div>
-
-            <div class="review-output-grid">
-              <article class="review-output-card">
-                <strong>Google Business Post</strong>
-                <textarea id="review-output-google" readonly></textarea>
-                <button class="copy-review-output" type="button" data-copy-target="review-output-google">Copy Post</button>
-              </article>
-              <article class="review-output-card">
-                <strong>Facebook / Nextdoor</strong>
-                <textarea id="review-output-facebook" readonly></textarea>
-                <button class="copy-review-output" type="button" data-copy-target="review-output-facebook">Copy Caption</button>
-              </article>
-              <article class="review-output-card">
-                <strong>Instagram Caption</strong>
-                <textarea id="review-output-instagram" readonly></textarea>
-                <button class="copy-review-output" type="button" data-copy-target="review-output-instagram">Copy Caption</button>
-              </article>
-            </div>
-            <div class="review-output-meta" id="review-output-meta"></div>
+          <div class="map-caption">
+            <span><strong>BASE:</strong> San Pablo Rd S</span>
+            <span><strong>RADIUS:</strong> Beaches + nearby Jacksonville</span>
           </div>
         </div>
       </div>
@@ -3523,85 +3355,6 @@
         }
       });
     });
-
-    const reviewRepurposingData = [
-      {
-        name: 'Daina Pakalnis',
-        quote: 'We highly recommend his company for any appliance service needs.',
-        source: 'Google review',
-        angle: 'trusted appliance service'
-      },
-      {
-        name: 'Lynn Boes',
-        quote: 'Very satisfied with the work and the price, exactly what he quoted us.',
-        source: 'Google review',
-        angle: 'clear pricing and honest quotes'
-      },
-      {
-        name: 'Cindy Grabler',
-        quote: 'He knew the problem on the refrigerator and quickly ordered the part.',
-        source: 'Google review',
-        angle: 'refrigerator diagnosis and parts'
-      }
-    ];
-
-    function buildReviewOutputs(review) {
-      return {
-        google: `Another 5-star customer note for Hedlund Appliance Service: "${review.quote}" - ${review.name}. If your refrigerator, washer, dryer, dishwasher, oven, or range is acting up around Jacksonville Beach, Atlantic Beach, Neptune Beach, Ponte Vedra, San Pablo, or the Southside, call Mason directly at (904) 335-8206.`,
-        facebook: `Local appliance repair note from a recent 5-star Google review: "${review.quote}" - ${review.name}. I handle honest diagnosis, repair-vs-replace guidance, and clear pricing for Jacksonville-area homeowners. - Mason, Hedlund Appliance Service`,
-        instagram: `5-star customer love: "${review.quote}" - ${review.name}\\n\\nServing Jacksonville Beach, Atlantic Beach, Neptune Beach, Ponte Vedra, San Pablo, and nearby Jacksonville neighborhoods.\\n\\n#JacksonvilleApplianceRepair #JacksonvilleBeach #AtlanticBeachFL #NeptuneBeach #PonteVedra #ApplianceRepair`
-      };
-    }
-
-    function renderReviewMachine(index = 0) {
-      const select = document.getElementById('review-source-select');
-      const google = document.getElementById('review-output-google');
-      const facebook = document.getElementById('review-output-facebook');
-      const instagram = document.getElementById('review-output-instagram');
-      const meta = document.getElementById('review-output-meta');
-      if (!select || !google || !facebook || !instagram || !meta) return;
-
-      if (!select.dataset.ready) {
-        reviewRepurposingData.forEach((review, reviewIndex) => {
-          const button = document.createElement('button');
-          button.type = 'button';
-          button.textContent = review.name.split(' ')[0];
-          button.addEventListener('click', () => renderReviewMachine(reviewIndex));
-          select.appendChild(button);
-        });
-        select.dataset.ready = 'true';
-      }
-
-      const review = reviewRepurposingData[index] || reviewRepurposingData[0];
-      const outputs = buildReviewOutputs(review);
-      google.value = outputs.google;
-      facebook.value = outputs.facebook;
-      instagram.value = outputs.instagram;
-      meta.textContent = `Source: ${review.name} · ${review.source} · Angle: ${review.angle}`;
-
-      select.querySelectorAll('button').forEach((button, buttonIndex) => {
-        button.classList.toggle('active', buttonIndex === index);
-      });
-    }
-
-    document.querySelectorAll('.copy-review-output').forEach(button => {
-      button.addEventListener('click', async () => {
-        const target = document.getElementById(button.dataset.copyTarget);
-        if (!target) return;
-        target.select();
-        try {
-          await navigator.clipboard.writeText(target.value);
-          button.textContent = 'Copied';
-          window.setTimeout(() => {
-            button.textContent = button.dataset.copyTarget === 'review-output-google' ? 'Copy Post' : 'Copy Caption';
-          }, 1400);
-        } catch (error) {
-          document.execCommand('copy');
-        }
-      });
-    });
-
-    renderReviewMachine();
 
     // Warranty stamp: "thunk" into place once it scrolls into view
     const stampEl = document.getElementById('warranty-stamp');
