@@ -1113,6 +1113,11 @@
     }
 
     @media (max-width: 850px) {
+      .trust-grid,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
       .oven-flex {
         flex-direction: column;
       }
@@ -1818,6 +1823,90 @@
       font-size: 1.15rem;
     }
 
+    .trust-block {
+      background: var(--bg-subtle);
+      border-top: 2px solid var(--border-light);
+      border-bottom: 2px solid var(--border-light);
+      padding: 72px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .guarantee-panel,
+    .review-card {
+      border: 1px solid var(--border-light);
+      background: rgba(14, 36, 67, 0.72);
+      padding: 26px;
+    }
+
+    .guarantee-panel {
+      border-color: rgba(100, 255, 218, 0.35);
+      box-shadow: 0 0 32px rgba(100, 255, 218, 0.08);
+    }
+
+    .guarantee-panel h3,
+    .review-card h3 {
+      color: var(--text-white);
+      margin-bottom: 12px;
+    }
+
+    .guarantee-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .guarantee-list div {
+      display: flex;
+      gap: 10px;
+      color: var(--text-main);
+      font-size: 0.95rem;
+    }
+
+    .guarantee-list i {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 900;
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .review-stars {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .review-card p {
+      color: var(--text-main);
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+    }
+
+    .review-card span {
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+    }
+
+    .trust-footnote {
+      color: var(--text-muted);
+      font-size: 0.86rem;
+      margin-top: 16px;
+    }
+
     /* FOOTER */
     footer {
       padding: 36px 0;
@@ -2329,46 +2418,42 @@
       </div>
     </section>
 
-    <!-- INTERACTIVE OVEN DOOR REVIEWS ANIMATION -->
-    <section class="oven-section">
-      <div class="wrap oven-flex">
-
-        <div class="oven-copy">
-          <div class="eyebrow">// Rated 5.0 On Google</div>
-          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">See What Jacksonville Homeowners Are Saying</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Open the oven door to read verified reviews from real customers across Jacksonville and the Beaches.</p>
+    <section class="trust-block">
+      <div class="wrap trust-grid">
+        <div class="guarantee-panel">
+          <div class="eyebrow">// Warranty & Guarantee</div>
+          <h3>Guaranteed Honest Repairs</h3>
+          <p style="color: var(--text-muted);">Every visit starts with diagnosis before parts. Mason explains the issue, the repair path, and whether repair makes sense before work moves forward.</p>
+          <div class="guarantee-list">
+            <div><i>✓</i><span>Clear diagnostic testing before replacement parts are recommended.</span></div>
+            <div><i>✓</i><span>Repair-vs-replace guidance when an appliance is not worth sinking money into.</span></div>
+            <div><i>✓</i><span>Approval before paid repair work begins.</span></div>
+            <div><i>✓</i><span>Parts and workmanship warranty details explained on qualifying completed repairs.</span></div>
+          </div>
         </div>
 
         <div>
-          <div class="oven-wrapper" id="oven-wrapper" onclick="toggleOven()" role="button" tabindex="0" aria-label="Open Google reviews preview">
-            <div class="oven-body">
-              <div class="oven-control-panel">
-                <div class="oven-knob-row">
-                  <div class="oven-knob"></div>
-                  <div class="oven-knob"></div>
-                </div>
-                <div class="oven-display">5.0★ GOOGLE</div>
-              </div>
-
-              <div class="oven-cavity">
-                <div class="oven-cavity-content">
-                  <div class="stars">★★★★★</div>
-                  <div class="oven-review-line">Read our verified<br>Google reviews</div>
-                  <a class="oven-review-link" href="https://maps.app.goo.gl/j67vY96DJYPCxg2s9?g_st=ic" target="_blank" rel="noopener" onclick="event.stopPropagation();">
-                    VIEW REVIEWS →
-                  </a>
-                </div>
-              </div>
-
-              <div class="oven-door">
-                <div class="oven-window">TAP TO<br>OPEN</div>
-                <div class="oven-handle"></div>
-              </div>
-            </div>
+          <div class="eyebrow">// Customer Reviews</div>
+          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 16px;">Review Themes Jacksonville Customers Mention</h3>
+          <div class="review-grid">
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>Customers consistently mention Mason's honest diagnosis, clear communication, and willingness to explain what failed before recommending the repair.</p>
+              <span>Verified Google review theme</span>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>Reviews highlight fast local scheduling, direct technician access, and a no-runaround experience compared with larger appliance repair companies.</p>
+              <span>Verified Google review theme</span>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>Homeowners call out professional service on refrigerators, washers, dryers, dishwashers, ovens, and ranges across Jacksonville and the Beaches.</p>
+              <span>Verified Google review theme</span>
+            </article>
           </div>
-          <div class="oven-hint">// Click the oven door to open</div>
+          <p class="trust-footnote">Public profile shows a 4.9-star reputation with 190+ homeowner reviews.</p>
         </div>
-
       </div>
     </section>
 
@@ -2380,10 +2465,10 @@
         <h2>Appliance Repair Near You in Jacksonville Beach, Atlantic Beach &amp; Ponte Vedra</h2>
         <p>Hedlund Appliance Service is a local, one-man appliance repair company serving homes within about 15 miles of Jacksonville Beach. If you searched for appliance repair near me, you are probably looking for someone close, responsive, and honest. Mason services refrigerators, washers, dryers, dishwashers, ovens, and ranges across the Beaches, Intracoastal West, Southside, and nearby Jacksonville neighborhoods.</p>
         <div class="local-seo-grid">
-          <div class="local-seo-panel"><h3>Focused 15-Mile Local Service Radius</h3><p>Instead of trying to cover the whole city, Hedlund Appliance Service stays focused on the neighborhoods where fast scheduling, clear communication, and dependable follow-through matter most.</p><div class="area-chip-grid" aria-label="Common local service areas"><span class="area-chip">Jacksonville Beach</span><span class="area-chip">Atlantic Beach</span><span class="area-chip">Neptune Beach</span><span class="area-chip">Ponte Vedra Beach</span><span class="area-chip">Intracoastal West</span><span class="area-chip">San Pablo</span><span class="area-chip">Southside</span><span class="area-chip">32224</span><span class="area-chip">32225</span><span class="area-chip">32250</span><span class="area-chip">32082</span></div></div>
+          <div class="local-seo-panel"><h3>Focused 15-Mile Local Service Radius</h3><p>Instead of trying to cover the whole city, Hedlund Appliance Service stays focused on the neighborhoods where fast scheduling, clear communication, and dependable follow-through matter most.</p><div class="area-chip-grid" aria-label="Common local service areas"><span class="area-chip">Jacksonville Beach</span><span class="area-chip">Atlantic Beach</span><span class="area-chip">Neptune Beach</span><span class="area-chip">Ponte Vedra Beach</span><span class="area-chip">Intracoastal West</span><span class="area-chip">San Pablo</span><span class="area-chip">Southside</span><span class="area-chip">32224</span><a class="area-chip" href="/locations/jacksonville-32225/">32225</a><span class="area-chip">32250</span><span class="area-chip">32082</span></div></div>
           <div class="local-seo-panel"><h3>Why Local Beats Big Repair Companies</h3><div class="local-trust-list"><div class="local-trust-item"><i>✓</i><span>Speak directly with the technician, not a corporate call center.</span></div><div class="local-trust-item"><i>✓</i><span>Local 904 number, local scheduling, and a real Jacksonville Beaches reputation.</span></div><div class="local-trust-item"><i>✓</i><span>4.9-star reputation with 190+ homeowner reviews.</span></div><div class="local-trust-item"><i>✓</i><span>$135 in-town service call, with diagnosis included and same-visit labor included when repairable without parts.</span></div><div class="local-trust-item"><i>✓</i><span>No lead-seller runaround. You are hiring the appliance repair technician who shows up.</span></div></div></div>
         </div>
-        <div style="margin-top: 42px;"><div class="eyebrow">Near Me By Appliance</div><h2>Appliance Repair Near Me by Service</h2><p>Use these local repair pages when you need help with a specific appliance problem inside Hedlund Appliance Service's Jacksonville Beaches service radius.</p><div class="near-me-service-grid"><a class="near-me-card" href="/refrigerator-repair-jacksonville/"><strong>Refrigerator Repair Near Me</strong><span>Cooling issues, leaks, ice maker problems, noisy compressors, and fresh food sections running warm.</span><b>View Refrigerator Repair</b></a><a class="near-me-card" href="/washer-repair-jacksonville/"><strong>Washer Repair Near Me</strong><span>Washers that will not drain, spin, fill, unlock, or finish a cycle correctly.</span><b>View Washer Repair</b></a><a class="near-me-card" href="/dryer-repair-jacksonville/"><strong>Dryer Repair Near Me</strong><span>No heat, long dry times, squealing, tumbling problems, and airflow-related dryer issues.</span><b>View Dryer Repair</b></a><a class="near-me-card" href="/dishwasher-repair-jacksonville/"><strong>Dishwasher Repair Near Me</strong><span>Drain errors, leaks, poor cleaning, no-fill problems, and cycle failures.</span><b>View Dishwasher Repair</b></a><a class="near-me-card" href="/oven-repair-jacksonville/"><strong>Oven &amp; Range Repair Near Me</strong><span>Ovens that will not heat, burners that fail, temperature issues, and control problems.</span><b>View Oven Repair</b></a></div></div>
+        <div style="margin-top: 42px;"><div class="eyebrow">Near Me By Appliance</div><h2>Appliance Repair Near Me by Service</h2><p>Use these local repair pages when you need help with a specific appliance problem inside Hedlund Appliance Service's Jacksonville Beaches service radius.</p><div class="near-me-service-grid"><a class="near-me-card" href="/refrigerator-repair-jacksonville/"><strong>Refrigerator Repair Near Me</strong><span>Cooling issues, leaks, ice maker problems, noisy compressors, and fresh food sections running warm.</span><b>View Refrigerator Repair</b></a><a class="near-me-card" href="/washer-repair-jacksonville/"><strong>Washer Repair Near Me</strong><span>Washers that will not drain, spin, fill, unlock, or finish a cycle correctly.</span><b>View Washer Repair</b></a><a class="near-me-card" href="/dryer-repair-jacksonville/"><strong>Dryer Repair Near Me</strong><span>No heat, long dry times, squealing, tumbling problems, and airflow-related dryer issues.</span><b>View Dryer Repair</b></a><a class="near-me-card" href="/dishwasher-repair-jacksonville/"><strong>Dishwasher Repair Near Me</strong><span>Drain errors, leaks, poor cleaning, no-fill problems, and cycle failures.</span><b>View Dishwasher Repair</b></a><a class="near-me-card" href="/oven-repair-jacksonville/"><strong>Oven &amp; Range Repair Near Me</strong><span>Ovens that will not heat, burners that fail, temperature issues, and control problems.</span><b>View Oven Repair</b></a><a class="near-me-card" href="/commercial-appliance-maintenance-jacksonville/"><strong>Commercial Maintenance</strong><span>Preventive maintenance for premium appliances, office breakrooms, managed properties, and light commercial spaces.</span><b>View Commercial Maintenance</b></a></div></div>
       </div>
     </section>
 
@@ -2784,6 +2869,7 @@
           <a href="/dryer-repair-jacksonville/">Dryer Repair</a>
           <a href="/dishwasher-repair-jacksonville/">Dishwasher Repair</a>
           <a href="/oven-repair-jacksonville/">Oven &amp; Range Repair</a>
+          <a href="/commercial-appliance-maintenance-jacksonville/">Commercial Maintenance</a>
         </div>
         <div>
           <h4>// Brands</h4>
@@ -2800,6 +2886,7 @@
           <a href="/locations/atlantic-beach/">Atlantic Beach</a>
           <a href="/locations/ponte-vedra-beach/">Ponte Vedra Beach</a>
           <a href="/locations/intracoastal-west/">Intracoastal West</a>
+          <a href="/locations/jacksonville-32225/">Jacksonville 32225</a>
           <a href="/locations/mandarin/">Mandarin</a>
           <a href="/locations/downtown-jax/">Downtown Jax</a>
         </div>
