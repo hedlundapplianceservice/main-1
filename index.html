@@ -543,6 +543,23 @@
       gap: 16px;
     }
 
+    .hero-title-line {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .hero-title-line h1 {
+      flex: 1 1 440px;
+      min-width: 0;
+    }
+
+    .request-service-trigger {
+      margin-top: 6px;
+      white-space: nowrap;
+    }
+
     .button {
       display: inline-flex;
       align-items: center;
@@ -582,6 +599,18 @@
       box-shadow: none;
     }
 
+    .button.ghost-accent {
+      background: rgba(100, 255, 218, 0.12);
+      color: var(--accent);
+      border-color: rgba(100, 255, 218, 0.65);
+    }
+
+    .button.ghost-accent:hover {
+      background: var(--accent);
+      color: var(--bg-blueprint);
+      border-color: var(--accent);
+    }
+
     .button-pulse {
       animation: btnPulse 2s infinite;
     }
@@ -590,6 +619,133 @@
       0% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0.6); }
       70% { box-shadow: 0 0 0 12px rgba(100, 255, 218, 0); }
       100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
+    }
+
+    .service-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(5, 12, 25, 0.82);
+      backdrop-filter: blur(8px);
+    }
+
+    .service-modal.is-open {
+      display: flex;
+    }
+
+    .service-modal-card {
+      width: min(620px, 100%);
+      max-height: calc(100vh - 48px);
+      overflow: auto;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        var(--bg-card);
+      background-size: 22px 22px;
+      border: 2px solid rgba(100, 255, 218, 0.52);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), 0 0 34px rgba(100, 255, 218, 0.14);
+      padding: 28px;
+      position: relative;
+    }
+
+    .service-modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--border-light);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-white);
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .service-modal-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .service-modal h2 {
+      color: var(--text-white);
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      line-height: 1.1;
+      margin: 0 42px 12px 0;
+    }
+
+    .service-modal-intro {
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .request-service-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .form-field.full {
+      grid-column: 1 / -1;
+    }
+
+    .form-field label {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      border: 1px solid var(--border-light);
+      background: rgba(5, 12, 25, 0.84);
+      color: var(--text-white);
+      font: inherit;
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-field textarea {
+      min-height: 132px;
+      resize: vertical;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.12);
+    }
+
+    .form-note {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero-title-line { display: block; }
+      .request-service-trigger { margin: 0 0 22px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .service-modal-card { padding: 24px 20px; }
     }
 
 
@@ -2027,7 +2183,12 @@
         <div>
           <div class="eyebrow">Precision Technical Service // Jacksonville, FL</div>
 
-          <h1>Expert Appliance Repair in Jacksonville</h1>
+          <div class="hero-title-line">
+            <h1>Expert Appliance Repair in Jacksonville</h1>
+            <button class="button ghost-accent request-service-trigger" type="button" onclick="openServiceRequest()">
+              REQUEST SERVICE
+            </button>
+          </div>
 
           <p>
             Hedlund Appliance Service delivers systematic diagnostics and precision repairs for major residential appliances. Honest troubleshooting, accurate component testing, and reliable service throughout Jacksonville and the Beaches.
@@ -2566,6 +2727,51 @@
 
   </main>
 
+  <div class="service-modal" id="service-request-modal" aria-hidden="true">
+    <div class="service-modal-card" role="dialog" aria-modal="true" aria-labelledby="service-request-title">
+      <button class="service-modal-close" type="button" onclick="closeServiceRequest()" aria-label="Close request service form">×</button>
+      <div class="eyebrow">Request Service</div>
+      <h2 id="service-request-title">Tell Mason What Is Going On</h2>
+      <p class="service-modal-intro">
+        Send your appliance issue, contact info, and a few details so Hedlund Appliance Service can follow up fast.
+      </p>
+
+      <form class="request-service-form" action="https://formsubmit.co/mrhedlund01@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Hedlund Appliance Service Request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none">
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="service-name">Name</label>
+            <input id="service-name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="form-field">
+            <label for="service-phone">Phone Number</label>
+            <input id="service-phone" name="phone" type="tel" autocomplete="tel" required>
+          </div>
+
+          <div class="form-field full">
+            <label for="service-email">Email</label>
+            <input id="service-email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="form-field full">
+            <label for="service-issue">Appliance Issue</label>
+            <textarea id="service-issue" name="issue" placeholder="Example: Whirlpool dryer runs but has no heat, or Samsung refrigerator is warm in fresh food section." required></textarea>
+          </div>
+        </div>
+
+        <button class="button button-pulse" type="submit">SEND REQUEST</button>
+        <p class="form-note">
+          Prefer direct contact? Call or text <a href="tel:+19043358206">(904) 335-8206</a>.
+        </p>
+      </form>
+    </div>
+  </div>
+
   <footer>
     <div class="wrap">
 
@@ -2609,6 +2815,33 @@
 
   <!-- INLINE DIAGNOSTIC HELPER SCRIPT -->
   <script>
+    function openServiceRequest() {
+      const modal = document.getElementById('service-request-modal');
+      if (!modal) return;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const firstField = document.getElementById('service-name');
+      if (firstField) firstField.focus();
+    }
+
+    function closeServiceRequest() {
+      const modal = document.getElementById('service-request-modal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('click', event => {
+      const modal = document.getElementById('service-request-modal');
+      if (modal && event.target === modal) closeServiceRequest();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeServiceRequest();
+    });
+
     const symptomReadings = {
       'Refrigerator Not Cooling': '208-230V AC · COMPRESSOR CIRCUIT OPEN',
       'Dryer Not Heating': '0.0Ω · HEATING ELEMENT OPEN',
