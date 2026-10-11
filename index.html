@@ -1362,9 +1362,9 @@
       font-weight: 800;
       text-align: center;
       position: relative;
-      transform: rotate(-10deg) scale(0);
+      transform: translateY(-28px) rotate(-16deg) scale(1.35);
       opacity: 0;
-      transition: transform 0.4s cubic-bezier(0.36, 1.6, 0.6, 1), opacity 0.2s ease;
+      filter: drop-shadow(0 0 0 rgba(232, 68, 63, 0));
     }
 
     .warranty-stamp::before {
@@ -1373,6 +1373,17 @@
       inset: 6px;
       border: 1px solid #e8443f;
       border-radius: 50%;
+    }
+
+    .warranty-stamp::after {
+      content: '';
+      position: absolute;
+      inset: -18px;
+      border-radius: 50%;
+      border: 1px solid rgba(232, 68, 63, 0.35);
+      opacity: 0;
+      transform: scale(0.72);
+      pointer-events: none;
     }
 
     .warranty-stamp .stamp-line1 {
@@ -1393,8 +1404,37 @@
     }
 
     .warranty-stamp.stamped {
-      transform: rotate(-10deg) scale(1);
-      opacity: 0.9;
+      animation: premiumStampDown 0.78s cubic-bezier(0.2, 1.28, 0.32, 1) forwards;
+    }
+
+    .warranty-stamp.stamped::after {
+      animation: stampInkRing 0.82s ease-out 0.18s forwards;
+    }
+
+    @keyframes premiumStampDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-28px) rotate(-16deg) scale(1.35);
+        filter: drop-shadow(0 0 0 rgba(232, 68, 63, 0));
+      }
+      48% {
+        opacity: 1;
+        transform: translateY(4px) rotate(-10deg) scale(0.92);
+        filter: drop-shadow(0 0 18px rgba(232, 68, 63, 0.32));
+      }
+      68% {
+        transform: translateY(-2px) rotate(-10deg) scale(1.04);
+      }
+      100% {
+        opacity: 0.94;
+        transform: translateY(0) rotate(-10deg) scale(1);
+        filter: drop-shadow(0 0 10px rgba(232, 68, 63, 0.18));
+      }
+    }
+
+    @keyframes stampInkRing {
+      0% { opacity: 0.7; transform: scale(0.72); }
+      100% { opacity: 0; transform: scale(1.35); }
     }
 
     /* SECTIONS */
@@ -1509,6 +1549,158 @@
       padding-bottom: 16px;
       border-bottom: 1px dashed var(--border-medium);
       margin-bottom: 24px;
+    }
+
+    .service-radar {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.72fr) 1fr;
+      gap: 26px;
+      align-items: center;
+      margin-bottom: 28px;
+      padding: 22px;
+      background:
+        radial-gradient(circle at 28% 50%, rgba(100, 255, 218, 0.12), transparent 38%),
+        linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-radar::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(100, 255, 218, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(100, 255, 218, 0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .radar-screen {
+      width: min(260px, 100%);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 1px solid rgba(100, 255, 218, 0.45);
+      background:
+        radial-gradient(circle, transparent 0 18%, rgba(100, 255, 218, 0.08) 18.5% 19%, transparent 19.5% 38%, rgba(100, 255, 218, 0.08) 38.5% 39%, transparent 39.5% 58%, rgba(100, 255, 218, 0.08) 58.5% 59%, transparent 59.5%),
+        linear-gradient(rgba(100, 255, 218, 0.15), transparent 1px),
+        linear-gradient(90deg, rgba(100, 255, 218, 0.15), transparent 1px),
+        #071426;
+      position: relative;
+      box-shadow: inset 0 0 34px rgba(100, 255, 218, 0.08), 0 0 32px rgba(100, 255, 218, 0.08);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .radar-screen::before {
+      content: '';
+      position: absolute;
+      inset: 50% 50% 0 50%;
+      width: 50%;
+      height: 50%;
+      transform-origin: 0 0;
+      background: conic-gradient(from 0deg, rgba(100, 255, 218, 0.72), rgba(100, 255, 218, 0.18), transparent 62deg);
+      animation: radarSweep 4.8s linear infinite;
+      mix-blend-mode: screen;
+      z-index: 1;
+    }
+
+    .radar-screen::after {
+      content: '';
+      position: absolute;
+      inset: 50%;
+      width: 8px;
+      height: 8px;
+      margin: -4px 0 0 -4px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+      z-index: 2;
+    }
+
+    .radar-pin {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+      z-index: 3;
+      animation: radarPinPulse 2.8s ease-in-out infinite;
+    }
+
+    .radar-pin::after {
+      content: attr(data-label);
+      position: absolute;
+      left: 12px;
+      top: -6px;
+      color: var(--text-main);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 800;
+      white-space: nowrap;
+      text-shadow: 0 2px 10px #000;
+    }
+
+    .radar-pin.pin-1 { left: 58%; top: 32%; animation-delay: 0.1s; }
+    .radar-pin.pin-2 { left: 71%; top: 48%; animation-delay: 0.7s; }
+    .radar-pin.pin-3 { left: 45%; top: 63%; animation-delay: 1.2s; }
+    .radar-pin.pin-4 { left: 33%; top: 42%; animation-delay: 1.7s; }
+
+    .radar-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .radar-copy h3 {
+      color: var(--text-white);
+      font-size: 1.35rem;
+      margin-bottom: 8px;
+    }
+
+    .radar-copy p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      max-width: 650px;
+    }
+
+    .radar-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .radar-stat {
+      border: 1px solid var(--border-light);
+      background: rgba(10, 25, 47, 0.72);
+      padding: 12px;
+      font-family: var(--font-mono);
+    }
+
+    .radar-stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 0.95rem;
+      margin-bottom: 3px;
+    }
+
+    .radar-stat span {
+      color: var(--text-muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    @keyframes radarSweep {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes radarPinPulse {
+      0%, 100% { transform: scale(1); opacity: 0.65; }
+      50% { transform: scale(1.5); opacity: 1; }
     }
 
     .dashboard-title {
@@ -1907,6 +2099,26 @@
       34%, 100% { opacity: 0; transform: translateY(-10px); }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .radar-screen::before,
+      .radar-pin,
+      .review-rotator .review-card,
+      .warranty-stamp.stamped,
+      .warranty-stamp.stamped::after {
+        animation: none !important;
+      }
+
+      .review-rotator .review-card:first-child {
+        opacity: 1;
+        transform: none;
+      }
+
+      .warranty-stamp.stamped {
+        opacity: 0.94;
+        transform: translateY(0) rotate(-10deg) scale(1);
+      }
+    }
+
     .review-stars {
       color: var(--accent);
       font-family: var(--font-mono);
@@ -2004,6 +2216,15 @@
 
       .area-dashboard {
         margin-top: 28px;
+      }
+
+      .service-radar,
+      .radar-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .radar-screen {
+        margin: 0 auto;
       }
 
       h1 {
@@ -2664,6 +2885,24 @@
           <div class="dashboard-header">
             <div class="dashboard-title">Dispatch Zones</div>
             <div class="status-badge">SELECT AREA</div>
+          </div>
+
+          <div class="service-radar" aria-label="Animated service radius radar for Jacksonville appliance repair coverage">
+            <div class="radar-screen" aria-hidden="true">
+              <span class="radar-pin pin-1" data-label="32224"></span>
+              <span class="radar-pin pin-2" data-label="32225"></span>
+              <span class="radar-pin pin-3" data-label="32082"></span>
+              <span class="radar-pin pin-4" data-label="32250"></span>
+            </div>
+            <div class="radar-copy">
+              <h3>Live Local Service Signal</h3>
+              <p>Hedlund Appliance Service stays focused on a tight Jacksonville Beaches radius so scheduling, communication, and follow-through stay personal.</p>
+              <div class="radar-stats" aria-label="Service radius highlights">
+                <div class="radar-stat"><strong>15 mi</strong><span>Focused radius</span></div>
+                <div class="radar-stat"><strong>904</strong><span>Local number</span></div>
+                <div class="radar-stat"><strong>210</strong><span>Google reviews</span></div>
+              </div>
+            </div>
           </div>
 
           <!-- ZONE 1: BEACHES -->
