@@ -392,6 +392,61 @@
       font-size: 1.15rem;
     }
 
+    .trust-block {
+      background: var(--bg-subtle);
+      border-top: 2px solid var(--border-light);
+      border-bottom: 2px solid var(--border-light);
+      padding: 64px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .trust-card {
+      border: 1px solid var(--border-light);
+      background: rgba(14, 36, 67, 0.72);
+      padding: 26px;
+    }
+
+    .trust-card h3 {
+      color: var(--text-white);
+      margin-bottom: 12px;
+    }
+
+    .trust-card p {
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+
+    .review-stars {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .trust-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .trust-list div {
+      display: flex;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .trust-list i {
+      color: var(--accent);
+      font-style: normal;
+      font-weight: 900;
+    }
+
     /* FOOTER */
     footer {
       padding: 36px 0;
@@ -414,6 +469,10 @@
       }
 
       .issue-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
         grid-template-columns: 1fr;
       }
 
@@ -672,6 +731,28 @@
           <p>That depends on the appliance's age, condition, diagnosis and repair cost. An honest diagnosis helps determine whether repair is economically reasonable.</p>
         </div>
 
+      </div>
+    </section>
+
+    <section class="trust-block">
+      <div class="wrap trust-grid">
+        <article class="trust-card">
+          <div class="eyebrow">Warranty & Guarantee</div>
+          <h3>Guaranteed Honest Refrigerator Diagnosis</h3>
+          <p>Mason checks airflow, temperature behavior, fan operation, defrost function, water paths, and electrical signals before recommending refrigerator parts.</p>
+          <div class="trust-list">
+            <div><i>✓</i><span>Clear repair-vs-replace guidance before you approve the repair.</span></div>
+            <div><i>✓</i><span>Warranty details explained on qualifying completed repairs.</span></div>
+            <div><i>✓</i><span>No mystery part swapping when testing can identify the failure.</span></div>
+          </div>
+        </article>
+        <article class="trust-card">
+          <div class="eyebrow">Customer Reviews</div>
+          <h3>What Jacksonville Customers Mention</h3>
+          <div class="review-stars">★★★★★</div>
+          <p>Reviews consistently point to honest diagnosis, direct communication with Mason, fast local scheduling, and professional appliance repair across Jacksonville and the Beaches.</p>
+          <p style="font-family: var(--font-mono); font-size: 0.82rem; text-transform: uppercase;">4.9-star reputation with 190+ homeowner reviews</p>
+        </article>
       </div>
     </section>
 
