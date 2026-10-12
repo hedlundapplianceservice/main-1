@@ -11,7 +11,7 @@
   <meta name="author" content="Mason Hedlund">
   <meta name="content-signals" content="local-business, service-area, original-field-expertise, author-attributed, ai-summarizable">
   <meta name="date" content="2026-10-09">
-  <meta name="last-modified" content="2026-10-09">
+  <meta name="last-modified" content="2026-10-12">
   <link rel="author" href="/mason-hedlund/">
   <link rel="alternate" type="text/markdown" href="/llms.txt" title="Markdown site summary for AI agents">
   <link rel="content-signals" type="application/json" href="/content-signals.json">
@@ -110,6 +110,12 @@
       .area-box { margin-top: 28px; }
       h1 { font-size: 2.5rem; }
     }
+    .guide-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
+    .guide-card { display: block; min-height: 145px; padding: 20px; background: var(--bg-card); border: 1px solid var(--border-light); color: var(--text-main); text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease; }
+    .guide-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .guide-card strong { display: block; color: var(--text-white); font-size: 1.05rem; line-height: 1.25; margin-bottom: 9px; }
+    .guide-card span { display: block; color: var(--text-muted); font-size: 0.92rem; line-height: 1.45; }
+    .guide-card b { display: block; color: var(--accent); font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; margin-top: 14px; }
   
 
     /* AUTHOR, FRESHNESS, AND AGENT SEO SIGNALS */
@@ -276,6 +282,22 @@
         <div class="faq-item">
           <h3>Why does my dishwasher keep blinking and won't start?</h3>
           <p>Blinking lights or error beeps usually point to a door latch microswitch failure (preventing the unit from confirming it is locked) or an active leak sensor detecting water in the drain pan.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap content">
+        <div class="eyebrow">Related Dishwasher Guides</div>
+        <h2>Helpful Dishwasher Repair Guides by Mason Hedlund</h2>
+        <p>These Jacksonville dishwasher repair guides support searches for draining, leaking, cleaning, drying, and odor problems.</p>
+        <div class="guide-grid">
+          <a class="guide-card" href="/blog/dishwasher-not-draining-jacksonville/"><strong>Dishwasher Not Draining?</strong><span>Why the sink connection, disposal, filter, and drain pump all matter.</span><b>Read Guide</b></a>
+          <a class="guide-card" href="/blog/dishwasher-leaking-jacksonville/"><strong>Dishwasher Leaking?</strong><span>Why the door seal is not always the cause of water on the floor.</span><b>Read Guide</b></a>
+          <a class="guide-card" href="/blog/dishwasher-not-cleaning-jacksonville/"><strong>Dishwasher Not Cleaning?</strong><span>How loading, spray coverage, and circulation issues show up on dishes.</span><b>Read Guide</b></a>
+          <a class="guide-card" href="/blog/dishwasher-not-drying-jacksonville/"><strong>Dishwasher Not Drying?</strong><span>Why wet plastic does not tell the whole story after a cycle.</span><b>Read Guide</b></a>
+          <a class="guide-card" href="/blog/dishwasher-smells-bad-jacksonville/"><strong>Dishwasher Smells Bad?</strong><span>Filters, food soil, and drain installation can all create odor.</span><b>Read Guide</b></a>
+          <a class="guide-card" href="/blog/dishwasher-spray-arm-not-spinning-jacksonville/"><strong>Spray Arm Not Spinning?</strong><span>Simple blockages and circulation clues to check before replacing parts.</span><b>Read Guide</b></a>
         </div>
       </div>
     </section>
