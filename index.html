@@ -2114,6 +2114,31 @@
       margin: 0;
     }
 
+
+    /* Three-step booking modal, with existing brand styling */
+    .booking-progress{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:0 0 22px;font-family:var(--font-mono);font-size:.69rem;text-align:center}
+    .booking-progress span{padding:10px 3px;color:var(--text-muted);border-bottom:3px solid var(--border-light)}
+    .booking-progress span.is-current{color:var(--accent);border-color:var(--accent)}
+    .booking-progress span.is-complete{color:var(--text-main);border-color:rgba(100,255,218,.5)}
+    .booking-step{border:0;min-width:0;padding:0;margin:0;display:grid;gap:15px}
+    .booking-step[hidden]{display:none!important}
+    .booking-step legend{font-weight:800;color:var(--text-white);font-size:1.07rem;margin-bottom:15px}
+    .appliance-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .appliance-options label{cursor:pointer;position:relative;display:block}
+    .appliance-options input{position:absolute;opacity:0;width:1px;height:1px}
+    .appliance-options span{display:block;padding:14px 10px;background:#071629;border:1px solid var(--border-medium);font-size:.85rem;font-weight:700;text-align:center;transition:border-color .15s,background .15s}
+    .appliance-options input:checked+span{border-color:var(--accent);background:rgba(100,255,218,.14);color:var(--accent)}
+    .appliance-options input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
+    .booking-fee-card{background:#081d34;border:1px solid var(--accent);padding:20px}
+    .booking-fee-label{font-family:var(--font-mono);font-size:.77rem;color:var(--accent);font-weight:800}
+    .booking-fee-card>strong{display:block;font-size:2.7rem;line-height:1.25;color:white}
+    .booking-fee-card p{color:var(--text-main);font-size:.87rem;line-height:1.6;margin-top:12px}
+    .booking-fee-card p strong{color:white}
+    .booking-agreement{display:flex;align-items:flex-start;gap:12px;line-height:1.5;font-size:.9rem;color:var(--text-white);cursor:pointer}
+    .booking-agreement input{width:20px;height:20px;flex-shrink:0;accent-color:#64ffda;margin-top:2px}
+    .booking-navigation{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+    .booking-navigation button[hidden]{display:none}
+    @media(max-width:480px){.appliance-options{grid-template-columns:1fr 1fr}.appliance-options span{font-size:.74rem;padding:12px 5px}.booking-fee-card{padding:15px}.booking-navigation .button{flex:1;justify-content:center}}
   </style>
 
   <!-- ADVANCED COMBINED JSON-LD SCHEMA (ENHANCED FOR LOCAL SEO & GEOLOCATION) -->
@@ -2378,7 +2403,7 @@
               CALL OR TEXT FOR SERVICE
             </button>
             <button class="button ghost-accent request-service-trigger" type="button" onclick="openServiceRequest()">
-              REQUEST SERVICE
+              BOOK NOW
             </button>
           </div>
 
@@ -2866,44 +2891,47 @@
   <div class="service-modal" id="service-request-modal" aria-hidden="true">
     <div class="service-modal-card" role="dialog" aria-modal="true" aria-labelledby="service-request-title">
       <button class="service-modal-close" type="button" onclick="closeServiceRequest()" aria-label="Close request service form">×</button>
-      <div class="eyebrow">Request Service</div>
-      <h2 id="service-request-title">Tell Mason What Is Going On</h2>
-      <p class="service-modal-intro">
-        Send your appliance issue, contact info, and a few details so Hedlund Appliance Service can follow up fast.
-      </p>
-
-      <form class="request-service-form" action="https://formsubmit.co/mrhedlund01@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Hedlund Appliance Service Request">
+      <div class="eyebrow">Book Now // 3 Easy Steps</div>
+      <h2 id="service-request-title">Request Your Appliance Service</h2>
+      <p class="service-modal-intro">Tell us what needs attention, leave your number, and confirm the service-call terms. Mason will contact you to arrange the visit.</p>
+      <div class="booking-progress" aria-label="Booking progress"><span class="is-current" data-book-progress="1">01 Appliance</span><span data-book-progress="2">02 Phone</span><span data-book-progress="3">03 Confirm</span></div>
+      <form class="request-service-form" id="booking-form" action="https://formsubmit.co/mrhedlund01@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New $135 Service Booking Request">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" style="display:none">
-
-        <div class="form-grid">
-          <div class="form-field">
-            <label for="service-name">Name</label>
-            <input id="service-name" name="name" type="text" autocomplete="name" required>
+        <input type="hidden" name="request_type" value="Service visit request - scheduling pending">
+        <input type="hidden" name="diagnostic_fee" value="$135">
+        <input type="hidden" name="parts_repair_approval" value="Separate total repair quote required before additional work">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <fieldset class="booking-step" data-book-step="1">
+          <legend>Step 1 — Which appliance needs service?</legend>
+          <div class="appliance-options">
+            <label><input type="radio" name="appliance" value="Refrigerator / Freezer" required><span>Refrigerator / Freezer</span></label>
+            <label><input type="radio" name="appliance" value="Washer" required><span>Washer</span></label>
+            <label><input type="radio" name="appliance" value="Dryer" required><span>Dryer</span></label>
+            <label><input type="radio" name="appliance" value="Dishwasher" required><span>Dishwasher</span></label>
+            <label><input type="radio" name="appliance" value="Oven / Range" required><span>Oven / Range</span></label>
+            <label><input type="radio" name="appliance" value="Ice Maker" required><span>Ice Maker</span></label>
+            <label><input type="radio" name="appliance" value="Other Appliance" required><span>Other Appliance</span></label>
           </div>
-
-          <div class="form-field">
-            <label for="service-phone">Phone Number</label>
-            <input id="service-phone" name="phone" type="tel" autocomplete="tel" required>
+        </fieldset>
+        <fieldset class="booking-step" data-book-step="2" hidden disabled>
+          <legend>Step 2 — Where can we reach you?</legend>
+          <div class="form-field"><label for="service-phone">Phone Number</label><input id="service-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(904) 555-0123" pattern="[+0-9().\\- ]{10,20}" minlength="10" required></div>
+          <p class="form-note">We’ll use your number to contact you about scheduling your requested visit. This form does not reserve a time automatically.</p>
+        </fieldset>
+        <fieldset class="booking-step" data-book-step="3" hidden disabled>
+          <legend>Step 3 — Review and accept the service-call terms</legend>
+          <div class="booking-fee-card">
+            <span class="booking-fee-label">SERVICE CALL &amp; DIAGNOSIS</span>
+            <strong>$135</strong>
+            <p>The $135 fee covers the trip to your location, diagnosis of the appliance issue, and labor for any repair that can be completed on site without ordering or installing parts.</p>
+            <p><strong>When parts are needed:</strong> We will present the total repair cost for your approval. You may accept or reject that additional repair before the work proceeds. The $135 service-call fee still applies.</p>
           </div>
-
-          <div class="form-field full">
-            <label for="service-email">Email</label>
-            <input id="service-email" name="email" type="email" autocomplete="email" required>
-          </div>
-
-          <div class="form-field full">
-            <label for="service-issue">Appliance Issue</label>
-            <textarea id="service-issue" name="issue" placeholder="Example: Whirlpool dryer runs but has no heat, or Samsung refrigerator is warm in fresh food section." required></textarea>
-          </div>
-        </div>
-
-        <button class="button button-pulse" type="submit">SEND REQUEST</button>
-        <p class="form-note">
-          Prefer direct contact? Call or text <a href="tel:+19043358206">(904) 335-8206</a>.
-        </p>
+          <label class="booking-agreement"><input id="service-fee-agreement" type="checkbox" name="accepted_135_service_fee" value="Yes - explicitly accepted" required><span>I understand and accept the $135 service-call/diagnosis fee and the repair approval terms described above.</span></label>
+        </fieldset>
+        <div class="booking-navigation"><button class="button secondary" type="button" id="booking-back" hidden>Back</button><button class="button button-pulse" type="button" id="booking-next">Continue →</button><button class="button button-pulse" type="submit" id="booking-submit" hidden>REQUEST BOOKING →</button></div>
+        <p class="form-note">No payment is collected online. We will contact you to confirm scheduling. Prefer to call? <a href="tel:+19043358206">(904) 335-8206</a>.</p>
       </form>
     </div>
   </div>
@@ -2977,7 +3005,7 @@
       modal.classList.add('is-open');
       modal.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
-      const firstField = document.getElementById('service-name');
+      const firstField = document.querySelector('#booking-form input[name="appliance"]');
       if (firstField) firstField.focus();
     }
 
@@ -2999,6 +3027,43 @@
     document.addEventListener('keydown', event => {
       if (event.key === 'Escape') { closeServiceRequest(); closeContactChoice(); }
     });
+
+
+    // Simple progressive booking: field validation and explicit pricing consent.
+    (function(){
+      const form=document.getElementById('booking-form');
+      if(!form)return;
+      let step=1;
+      const steps=[...form.querySelectorAll('[data-book-step]')];
+      const back=document.getElementById('booking-back');
+      const next=document.getElementById('booking-next');
+      const submit=document.getElementById('booking-submit');
+      function showStep(n){
+        step=n;
+        steps.forEach(el=>{const active=Number(el.dataset.bookStep)===n;el.hidden=!active;el.disabled=!active;});
+        document.querySelectorAll('[data-book-progress]').forEach(el=>{const i=Number(el.dataset.bookProgress);el.classList.toggle('is-current',i===n);el.classList.toggle('is-complete',i<n);});
+        back.hidden=n===1;next.hidden=n===3;submit.hidden=n!==3;
+      }
+      next.addEventListener('click',()=>{
+        const active=steps[step-1];
+        const inputs=[...active.querySelectorAll('input[required]')];
+        if(step===1){const chosen=active.querySelector('input[name="appliance"]:checked');if(!chosen){inputs[0].setCustomValidity('Please select an appliance.');inputs[0].reportValidity();return;}inputs.forEach(i=>i.setCustomValidity(''));}
+        if(step===2&&!inputs.every(i=>i.reportValidity()))return;
+        showStep(step+1);
+      });
+      back.addEventListener('click',()=>showStep(Math.max(1,step-1)));
+      form.querySelectorAll('input[name="appliance"]').forEach(i=>i.addEventListener('change',()=>form.querySelectorAll('input[name="appliance"]').forEach(r=>r.setCustomValidity(''))));
+      form.addEventListener('submit',event=>{
+        const appliance=form.querySelector('input[name="appliance"]:checked');
+        const phone=document.getElementById('service-phone');
+        const consent=document.getElementById('service-fee-agreement');
+        if(!appliance){event.preventDefault();showStep(1);return;}
+        if(!phone.checkValidity()){event.preventDefault();showStep(2);phone.reportValidity();return;}
+        if(!consent.checked){event.preventDefault();showStep(3);consent.reportValidity();return;}
+        submit.disabled=true;submit.textContent='SENDING REQUEST…';
+      });
+      showStep(1);
+    })();
 
     const symptomReadings = {
       'Refrigerator Not Cooling': '208-230V AC · COMPRESSOR CIRCUIT OPEN',
