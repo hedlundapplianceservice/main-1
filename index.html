@@ -621,6 +621,15 @@
       100% { box-shadow: 0 0 0 0 rgba(100, 255, 218, 0); }
     }
 
+    /* Contact choice dialog matches the site's blueprint theme. */
+    .contact-choice-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 22px; }
+    .contact-choice-actions .button { justify-content: center; text-align: center; }
+    .request-service-trigger { margin-top: 0; }
+    @media (max-width: 520px) {
+      .contact-choice-actions { grid-template-columns: 1fr; }
+      .cta-row .button { width: 100%; justify-content: center; }
+    }
+
     .service-modal {
       position: fixed;
       inset: 0;
@@ -2350,9 +2359,6 @@
 
           <div class="hero-title-line">
             <h1>Expert Appliance Repair in Jacksonville</h1>
-            <button class="button ghost-accent request-service-trigger" type="button" onclick="openServiceRequest()">
-              REQUEST SERVICE
-            </button>
           </div>
 
           <p>
@@ -2360,11 +2366,12 @@
           </p>
 
           <div class="cta-row">
-            <a class="button button-pulse" href="tel:+19043358206">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-              CALL (904) 335-8206
-            </a>
-            <a class="button secondary" href="sms:+19043358206">TEXT FOR SERVICE</a>
+            <button class="button button-pulse" type="button" onclick="openContactChoice()" aria-haspopup="dialog" aria-controls="contact-choice-modal">
+              CALL OR TEXT FOR SERVICE
+            </button>
+            <button class="button ghost-accent request-service-trigger" type="button" onclick="openServiceRequest()">
+              REQUEST SERVICE
+            </button>
           </div>
 
         </div>
@@ -2835,6 +2842,19 @@
 
   </main>
 
+  <div class="service-modal" id="contact-choice-modal" aria-hidden="true">
+    <div class="service-modal-card" role="dialog" aria-modal="true" aria-labelledby="contact-choice-title">
+      <button class="service-modal-close" type="button" onclick="closeContactChoice()" aria-label="Close contact options">×</button>
+      <div class="eyebrow">Get in Touch</div>
+      <h2 id="contact-choice-title">Call or Text Mason</h2>
+      <p class="service-modal-intro">Choose how you'd like to contact Hedlund Appliance Service at (904) 335-8206.</p>
+      <div class="contact-choice-actions">
+        <a class="button" href="tel:+19043358206">Call Now</a>
+        <a class="button secondary" href="sms:+19043358206">Send a Text</a>
+      </div>
+    </div>
+  </div>
+
   <div class="service-modal" id="service-request-modal" aria-hidden="true">
     <div class="service-modal-card" role="dialog" aria-modal="true" aria-labelledby="service-request-title">
       <button class="service-modal-close" type="button" onclick="closeServiceRequest()" aria-label="Close request service form">×</button>
@@ -2925,6 +2945,24 @@
 
   <!-- INLINE DIAGNOSTIC HELPER SCRIPT -->
   <script>
+    function openContactChoice() {
+      const modal = document.getElementById('contact-choice-modal');
+      if (!modal) return;
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const firstAction = modal.querySelector('.contact-choice-actions a');
+      if (firstAction) firstAction.focus();
+    }
+
+    function closeContactChoice() {
+      const modal = document.getElementById('contact-choice-modal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
     function openServiceRequest() {
       const modal = document.getElementById('service-request-modal');
       if (!modal) return;
@@ -2946,10 +2984,12 @@
     document.addEventListener('click', event => {
       const modal = document.getElementById('service-request-modal');
       if (modal && event.target === modal) closeServiceRequest();
+      const contactModal = document.getElementById('contact-choice-modal');
+      if (contactModal && event.target === contactModal) closeContactChoice();
     });
 
     document.addEventListener('keydown', event => {
-      if (event.key === 'Escape') closeServiceRequest();
+      if (event.key === 'Escape') { closeServiceRequest(); closeContactChoice(); }
     });
 
     const symptomReadings = {
