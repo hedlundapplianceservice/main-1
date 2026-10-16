@@ -37,23 +37,23 @@
 
   <style>
     :root {
-      /* CHARCOAL, WHITE AND BLUE PALETTE */
-      --bg-blueprint: #151515;
-      --bg-subtle: #222222;
-      --bg-card: #292929;
+      /* GRAPHITE AND SILVER PALETTE */
+      --bg-blueprint: #121212;
+      --bg-subtle: #202020;
+      --bg-card: #262626;
 
       --text-white: #ffffff;
       --text-main: #f5f5f5;
-      --text-muted: #b8b8b8;
+      --text-muted: #d6d6d6;
 
       --border-strong: #ffffff;
       --border-medium: rgba(255, 255, 255, 0.4);
       --border-light: rgba(255, 255, 255, 0.15);
 
-      /* BRIGHT BLUE ACCENTS */
-      --accent: #55b5ff;
-      --accent-dim: rgba(85,181,255, 0.15);
-      --accent-dark: #55b5ff;
+      /* SILVER ACCENTS */
+      --accent: #d6d6d6;
+      --accent-dim: rgba(214, 214, 214, 0.15);
+      --accent-dark: #a8a8a8;
 
       --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -146,9 +146,9 @@
     }
 
     @keyframes pulseDot {
-      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(85,181,255, 0.7); }
-      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(85,181,255, 0); }
-      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(85,181,255, 0); }
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(214, 214, 214, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(214, 214, 214, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(214, 214, 214, 0); }
     }
 
     .social-links {
@@ -268,10 +268,10 @@
     }
 
     .button:hover {
-      background: #85caff;
-      border-color: #85caff;
+      background: #eeeeee;
+      border-color: #eeeeee;
       transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(85,181,255, 0.3);
+      box-shadow: 0 4px 15px rgba(214, 214, 214, 0.3);
     }
 
     .button.secondary {
@@ -290,9 +290,9 @@
     .button-pulse { animation: btnPulse 2s infinite; }
 
     @keyframes btnPulse {
-      0% { box-shadow: 0 0 0 0 rgba(85,181,255, 0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(85,181,255, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(85,181,255, 0); }
+      0% { box-shadow: 0 0 0 0 rgba(214, 214, 214, 0.6); }
+      70% { box-shadow: 0 0 0 12px rgba(214, 214, 214, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(214, 214, 214, 0); }
     }
 
     /* TRUST BADGES */
@@ -354,7 +354,7 @@
       text-decoration: none;
     }
 
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); border-color: var(--accent); }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0, 0, 0,0.4); border-color: var(--accent); }
 
     .service-card .spec-num {
       font-family: var(--font-mono);
@@ -392,7 +392,7 @@
     }
 
     .code-card {
-      background: #0b0b0b;
+      background: #0c0c0c;
       border: 1px solid var(--border-light);
       border-left: 3px solid #ffb020;
       padding: 22px;
@@ -424,7 +424,7 @@
       background: var(--bg-card);
       border: 1px solid var(--border-medium);
       padding: 32px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0,0.4);
     }
 
     .dashboard-header {
@@ -556,7 +556,7 @@
       flex: 0 0 auto;
       width: 34px;
       height: 56px;
-      background: #0b0b0b;
+      background: #0c0c0c;
       border: 2px solid var(--border-medium);
       border-radius: 4px;
       display: flex;
@@ -781,6 +781,7 @@
     ]
   }
   </script>
+  <link rel="stylesheet" href="/assets/site-theme.css?v=20261016-blue">
 </head>
 
 <body class="paper-grid">

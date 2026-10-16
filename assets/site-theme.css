@@ -1,0 +1,35 @@
+/* Shared graphite/silver theme: blue is reserved for service actions. */
+:root {
+  color-scheme: dark;
+  --action-blue: #38bdf8;
+  --action-hover: #7dd3fc;
+}
+.button, .button.secondary, .button.ghost-accent, .header-cta {
+  background: var(--action-blue);
+  color: #121212;
+  border-color: var(--action-blue);
+  text-shadow: none;
+}
+.button:hover, .button.secondary:hover, .button.ghost-accent:hover,
+.header-cta:hover {
+  background: var(--action-hover);
+  color: #121212;
+  border-color: var(--action-hover);
+}
+.button:focus-visible, .header-cta:focus-visible,
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--action-blue);
+  outline-offset: 4px;
+}
+input, select, textarea { accent-color: var(--action-blue); }
+.appliance-options input:checked + span {
+  border-color: var(--action-blue);
+  background: #1b303a;
+  color: #ffffff;
+}
+.booking-agreement input { accent-color: var(--action-blue); }
+.post-body a:not(.button), .content a:not(.button) {
+  text-decoration: underline;
+  text-underline-offset: .18em;
+}
