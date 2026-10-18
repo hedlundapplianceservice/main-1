@@ -2320,6 +2320,28 @@
   }
   </script>
   <link rel="stylesheet" href="/assets/site-theme.css?v=20261016-blue">
+
+  <style id="microwave-directory-styles">
+    .hero .hero-layout{grid-template-columns:minmax(0,1fr);gap:34px}
+    .mw-appliance{display:grid;grid-template-columns:minmax(0,1fr) 128px;gap:16px;padding:22px;border:2px solid var(--border-medium);border-radius:20px;background:linear-gradient(130deg,var(--bg-card),var(--bg-subtle));box-shadow:0 18px 35px #0005,inset 0 2px 0 #ffffff18;max-width:100%;isolation:isolate}
+    .mw-shell{position:relative;min-height:520px;border:7px solid #444;border-radius:12px;background:var(--bg-blueprint);perspective:1600px;min-width:0}
+    .mw-door{position:absolute;inset:-1px;z-index:2;display:flex;align-items:center;justify-content:center;list-style:none;border:2px solid var(--border-medium);border-radius:6px;background:linear-gradient(135deg,#202020,#080808);cursor:pointer;transform-origin:left center;transition:transform .85s cubic-bezier(.2,.7,.2,1);box-shadow:4px 5px 12px #0007}
+    .mw-door::-webkit-details-marker{display:none}.mw-door::marker{content:''}
+    .mw-shell[open]>.mw-door{transform:rotateY(-88deg)}
+    .mw-glass{position:absolute;inset:22px 70px 22px 22px;border:1px solid #ffffff26;border-radius:5px;background:radial-gradient(#ffffff14 1px,transparent 1px);background-size:4px 4px;pointer-events:none}
+    .mw-door-copy{position:relative;display:grid;gap:20px;text-align:center;padding:30px 85px 30px 30px;color:var(--text-white)}
+    .mw-door-copy strong{font-size:clamp(1.8rem,4vw,3.1rem);line-height:1.12;letter-spacing:-.04em}.mw-door-copy>span:not(.mw-kicker){font-size:.85rem;color:var(--text-muted)}.mw-door-copy b{font-size:.85rem;color:var(--action-blue,var(--accent))}
+    .mw-kicker{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;color:var(--text-muted);font-weight:700}
+    .mw-handle{position:absolute;right:20px;top:20%;height:60%;width:30px;border-radius:9px;background:linear-gradient(90deg,#727272,#ededed 45%,#8d8d8d);box-shadow:-6px 3px 9px #000a}
+    .mw-inside{padding:28px 28px 24px;box-shadow:inset 0 0 24px #0008;min-height:506px}.mw-inside h2{font-size:1.6rem;line-height:1.25;margin:8px 0}.mw-inside>p{font-size:.84rem;margin-bottom:18px;color:var(--text-muted)}
+    .mw-brands{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.mw-brands>a,.mw-brands>span{display:grid;place-items:center;text-align:center;padding:12px 5px;border:1px solid var(--border-light);border-radius:5px;background:var(--bg-card);font-weight:750;font-size:.95rem;min-height:50px;overflow-wrap:anywhere}.mw-brands>a:hover{border-color:var(--action-blue);color:var(--action-blue)}
+    .mw-more{margin:12px 0 22px}.mw-more>summary,.mw-process>summary{cursor:pointer;color:var(--text-main);font-size:.8rem;padding:7px 0}.mw-extra{margin-top:10px}.mw-extra>a,.mw-extra>span{font-size:.8rem;min-height:43px}
+    .mw-options{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 16px}.mw-options button{cursor:pointer;font:inherit;font-size:.8rem;color:var(--text-main);border:1px solid var(--border-medium);border-radius:30px;background:var(--bg-card);padding:9px 13px}.mw-options button:hover{border-color:var(--action-blue);color:var(--action-blue)}
+    .mw-process{border-top:1px solid var(--border-light);padding:8px 0;margin-bottom:16px}.mw-process ol{padding:10px 0 0 22px;font-size:.82rem;color:var(--text-muted);display:grid;gap:9px}.mw-process strong{color:var(--text-white)}.mw-book{font-size:.8rem}
+    .mw-controls{display:flex;flex-direction:column;align-items:center;gap:22px;padding:12px 0;min-width:0}.mw-display{background:#080808;border:2px solid #555;border-radius:5px;color:var(--action-blue,var(--accent));font-family:var(--font-mono);font-size:1rem;padding:13px 3px;text-align:center;width:100%}.mw-display small{display:block;font-size:.45rem;letter-spacing:.1em;color:var(--text-muted);margin-top:8px}.mw-vents{height:48px;width:80%;background:repeating-linear-gradient(0deg,transparent 0 5px,#606060 5px 7px)}.mw-control-name{font-family:var(--font-mono);font-size:.52rem;text-align:center;color:var(--text-muted);line-height:1.8;letter-spacing:.06em}.mw-keys{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;width:80%}.mw-keys i{height:16px;border:1px solid #555;border-radius:3px;background:#303030}.mw-toggle{margin-top:auto;background:var(--action-blue,var(--accent));color:#121212;border:0;border-radius:5px;font:700 .74rem var(--font-mono);padding:17px 5px;width:100%;cursor:pointer;box-shadow:0 4px 0 #0007}.mw-toggle[hidden]{display:none}.mw-door:focus-visible{outline:3px solid var(--action-blue);outline-offset:4px}
+    @media(max-width:600px){.mw-appliance{grid-template-columns:minmax(0,1fr) 66px;gap:8px;padding:10px;border-radius:12px}.mw-shell{min-height:570px;border-width:4px}.mw-inside{padding:22px 14px;min-height:562px}.mw-inside h2{font-size:1.15rem}.mw-inside>p{font-size:.75rem}.mw-kicker{font-size:.55rem}.mw-brands{gap:5px}.mw-brands>a,.mw-brands>span{font-size:.71rem;padding:10px 3px;min-height:44px}.mw-door-copy{padding:24px 42px 24px 10px;gap:18px}.mw-door-copy strong{font-size:1.65rem}.mw-door-copy>.mw-kicker{font-size:.5rem}.mw-door-copy>span:not(.mw-kicker){font-size:.72rem}.mw-door-copy b{font-size:.72rem}.mw-handle{right:9px;width:22px}.mw-glass{inset:12px 39px 12px 12px}.mw-controls{gap:18px}.mw-display{font-size:.67rem;padding:12px 0}.mw-display small{font-size:.35rem}.mw-control-name{font-size:.37rem}.mw-keys{gap:5px}.mw-toggle{font-size:.55rem;padding:16px 3px}.mw-options{gap:6px}.mw-options button{font-size:.69rem;padding:8px}.mw-more>summary,.mw-process>summary{font-size:.72rem}.mw-extra{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(prefers-reduced-motion:reduce){.mw-door{transition:none}}
+  </style>
 </head>
 
 <body class="paper-grid">
@@ -2410,69 +2432,26 @@
 
         </div>
 
-        <div class="washer-dryer-stack">
-
-          <!-- WASHER BRAND SHOWCASE -->
-          <div class="washer-wrapper" id="washer-wrapper" onclick="toggleWasher()" role="button" tabindex="0" aria-label="Open brand list">
-            <div class="washer-top-panel">
-              <div class="washer-knob-row">
-                <div class="washer-knob"></div>
-                <div class="washer-knob"></div>
-              </div>
-              <div class="washer-display">BRANDS WE SERVICE</div>
+        <!-- Combined microwave brand and service directory -->
+        <div class="mw-appliance" id="service-microwave">
+          <details class="mw-shell" id="mw-shell">
+            <summary class="mw-door" aria-label="Open microwave: view serviced brands and repair process">
+              <span class="mw-glass" aria-hidden="true"></span>
+              <span class="mw-door-copy"><span class="mw-kicker">HEDLUND APPLIANCE SERVICE</span><strong>Your brand.<br>Your appliance.<br>Let’s fix it.</strong><span>Open the door to explore brands &amp; service.</span><b>Pull the handle →</b></span>
+              <span class="mw-handle" aria-hidden="true"></span>
+            </summary>
+            <div class="mw-inside" id="mw-inside">
+              <div class="mw-kicker">// BRANDS WE SERVICE</div><h2>Familiar brands. Local service.</h2>
+              <p>Find your brand without waiting for a rotating display.</p>
+              <div class="mw-brands"><a href="/whirlpool-appliance-repair-jacksonville/">Whirlpool</a><a href="/ge-appliance-repair-jacksonville/">GE Appliances</a><a href="/lg-appliance-repair-jacksonville/">LG</a><a href="/samsung-appliance-repair-jacksonville/">Samsung</a><a href="/bosch-appliance-repair-jacksonville/">Bosch</a><span>KitchenAid</span></div>
+              <details class="mw-more"><summary>See all 28 serviced brands +</summary><div class="mw-brands mw-extra"><span>Frigidaire</span><a href="/maytag-appliance-repair-jacksonville/">Maytag</a><span>Amana</span><span>Hotpoint</span><span>Kenmore</span><span>Beko</span><span>Café</span><span>GE Profile</span><span>LG Studio</span><span>Fisher &amp; Paykel</span><span>Electrolux</span><span>Thor Kitchen</span><span>Thermador</span><span>Miele</span><span>Monogram</span><span>Viking</span><span>JennAir</span><span>BlueStar</span><span>Dacor</span><span>Sub-Zero</span><span>Speed Queen</span><span>Asko</span></div></details>
+              <div class="mw-kicker">// WHAT NEEDS FIXING?</div>
+              <div class="mw-options"><button type="button" data-mw-appliance="Washer">Washer</button><button type="button" data-mw-appliance="Dryer">Dryer</button><button type="button" data-mw-appliance="Refrigerator / Freezer">Refrigerator</button><button type="button" data-mw-appliance="Dishwasher">Dishwasher</button><button type="button" data-mw-appliance="Oven / Range">Oven / range</button><button type="button" data-mw-appliance="Other Appliance">Other appliance</button></div>
+              <details class="mw-process"><summary>How your service visit works +</summary><ol><li><strong>Schedule.</strong> Call, text, or request a visit.</li><li><strong>Diagnose.</strong> Mason checks the appliance and explains the issue.</li><li><strong>Approve.</strong> Review the repair cost before any additional work.</li><li><strong>Repair &amp; test.</strong> Any needed parts are installed and the appliance is tested.</li></ol></details>
+              <button class="button mw-book" type="button" onclick="openServiceRequest()">BOOK NOW →</button>
             </div>
-            <div class="washer-frame">
-              <div class="washer-cavity">
-                <div class="washer-cavity-inner">
-                  <div class="washer-brand-rotator" aria-live="polite">
-                    <span class="brand-kicker">Servicing</span>
-                    <a class="washer-brand-current" id="washer-brand-current" href="/whirlpool-appliance-repair-jacksonville/" onclick="event.stopPropagation()">Whirlpool</a>
-                    <span class="brand-sub">Major Appliance Brands</span>
-                  </div>
-                </div>
-              </div>
-              <div class="washer-door">
-                <div class="washer-window">TAP TO<br>VIEW<br>BRANDS</div>
-                <div class="washer-handle"></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="dryer-wrapper" id="service-process-dryer">
-          <div class="dryer-top-panel">
-            <div class="dryer-knob"></div>
-            <div class="dryer-display">SERVICE CALL // DIAGNOSIS</div>
-          </div>
-          <div class="dryer-door" role="button" tabindex="0" onclick="toggleServiceProcess(event)" aria-expanded="false" aria-controls="service-process-dryer" aria-label="Open service process dryer">
-            <div class="service-process-scene" aria-label="Hedlund Appliance Service repair process">
-              <div class="service-call-chip">
-                <strong>DIAGNOSIS</strong>
-                <span>IN-TOWN SERVICE CALL</span>
-              </div>
-              <div class="process-steps">
-                <div class="process-step">
-                  <div class="process-num">1</div>
-                  <div class="process-copy"><strong>Scheduling</strong><span>Call or text to pick the best visit window.</span></div>
-                </div>
-                <div class="process-step">
-                  <div class="process-num">2</div>
-                  <div class="process-copy"><strong>Diagnostic Visit</strong><span>Diagnosis included with the service call.</span></div>
-                </div>
-                <div class="process-step">
-                  <div class="process-num">3</div>
-                  <div class="process-copy"><strong>Part Install</strong><span>Approve the repair and Mason installs the needed part.</span></div>
-                </div>
-                <div class="process-step">
-                  <div class="process-num">4</div>
-                  <div class="process-copy"><strong>Fixed!</strong><span>Your appliance is tested before the job wraps.</span></div>
-                </div>
-              </div>
-              <div class="process-vignette" aria-hidden="true"></div>
-            </div>
-
-          </div>
-        </div>
-
+          </details>
+          <div class="mw-controls"><div class="mw-display"><span id="mw-status">READY</span><small>LOCAL SERVICE</small></div><div class="mw-vents" aria-hidden="true"></div><span class="mw-control-name">HEDLUND<br>APPLIANCE SERVICE</span><div class="mw-keys" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button class="mw-toggle" type="button" aria-controls="mw-shell" aria-expanded="false" hidden>OPEN DOOR</button></div>
         </div>
       </div>
     </section>
@@ -3146,92 +3125,30 @@
       }
     }
 
-    const washerBrands = [
-      { name: 'Whirlpool', href: '/whirlpool-appliance-repair-jacksonville/' },
-      { name: 'GE Appliances', href: '/ge-appliance-repair-jacksonville/' },
-      { name: 'Frigidaire' },
-      { name: 'LG', href: '/lg-appliance-repair-jacksonville/' },
-      { name: 'Samsung', href: '/samsung-appliance-repair-jacksonville/' },
-      { name: 'Maytag', href: '/maytag-appliance-repair-jacksonville/' },
-      { name: 'Amana' },
-      { name: 'Hotpoint' },
-      { name: 'Kenmore' },
-      { name: 'Beko' },
-      { name: 'Bosch', href: '/bosch-appliance-repair-jacksonville/' },
-      { name: 'KitchenAid' },
-      { name: 'Café' },
-      { name: 'GE Profile' },
-      { name: 'LG Studio' },
-      { name: 'Fisher & Paykel' },
-      { name: 'Electrolux' },
-      { name: 'Thor Kitchen' },
-      { name: 'Thermador' },
-      { name: 'Miele' },
-      { name: 'Monogram' },
-      { name: 'Viking' },
-      { name: 'JennAir' },
-      { name: 'BlueStar' },
-      { name: 'Dacor' },
-      { name: 'Sub-Zero' },
-      { name: 'Speed Queen' },
-      { name: 'Asko' }
-    ];
-    let washerBrandIndex = 0;
-    let washerBrandTimer = null;
-
-    function renderWasherBrand() {
-      const brandEl = document.getElementById('washer-brand-current');
-      if (!brandEl) return;
-
-      const brand = washerBrands[washerBrandIndex % washerBrands.length];
-      brandEl.classList.add('brand-changing');
-
-      window.setTimeout(() => {
-        brandEl.textContent = brand.name;
-        if (brand.href) {
-          brandEl.href = brand.href;
-          brandEl.removeAttribute('aria-disabled');
-        } else {
-          brandEl.removeAttribute('href');
-          brandEl.setAttribute('aria-disabled', 'true');
-        }
-        brandEl.classList.remove('brand-changing');
-      }, 180);
-    }
-
-    function startWasherBrandRotation() {
-      renderWasherBrand();
-      if (washerBrandTimer) return;
-      washerBrandTimer = window.setInterval(() => {
-        washerBrandIndex += 1;
-        renderWasherBrand();
-      }, 2000);
-    }
-
-    function stopWasherBrandRotation() {
-      window.clearInterval(washerBrandTimer);
-      washerBrandTimer = null;
-    }
-
-    function toggleWasher() {
-      const washer = document.getElementById('washer-wrapper');
-      washer.classList.toggle('washer-open');
-      if (washer.classList.contains('washer-open')) {
-        startWasherBrandRotation();
-      } else {
-        stopWasherBrandRotation();
-      }
-    }
-
-    function toggleServiceProcess(event) {
-      event.stopPropagation();
-      const dryer = document.getElementById('service-process-dryer');
-      const trigger = event.currentTarget;
-      if (!dryer || !trigger) return;
-      const expanded = dryer.classList.toggle('process-expanded');
-      trigger.setAttribute('aria-expanded', String(expanded));
-      trigger.setAttribute('aria-label', expanded ? 'Close service process dryer' : 'Open service process dryer');
-    }
+    // The summary opens the microwave even when JavaScript is unavailable.
+    (function () {
+      const shell = document.getElementById('mw-shell');
+      const toggle = document.querySelector('.mw-toggle');
+      const summary = shell.querySelector(':scope > summary');
+      toggle.hidden = false;
+      toggle.addEventListener('click', () => { shell.open = !shell.open; });
+      shell.addEventListener('toggle', () => {
+        toggle.setAttribute('aria-expanded', String(shell.open));
+        toggle.textContent = shell.open ? 'CLOSE DOOR' : 'OPEN DOOR';
+        document.getElementById('mw-status').textContent = shell.open ? 'WELCOME' : 'READY';
+        summary.setAttribute('aria-label', shell.open ? 'Close microwave door' : 'Open microwave: view serviced brands and repair process');
+      });
+      shell.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && shell.open) { shell.open = false; summary.focus(); }
+      });
+      document.querySelectorAll('[data-mw-appliance]').forEach(button => {
+        button.addEventListener('click', () => {
+          openServiceRequest();
+          const radio = Array.from(document.querySelectorAll('#booking-form input[name="appliance"]')).find(input => input.value === button.dataset.mwAppliance);
+          if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); radio.focus(); }
+        });
+      });
+    })();
 
     document.querySelectorAll('[role="button"][tabindex="0"]').forEach(el => {
       el.addEventListener('keydown', event => {
@@ -3261,3 +3178,4 @@
 
 </body>
 </html>
+
