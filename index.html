@@ -786,163 +786,6 @@
     @media (max-width: 1024px) { .local-seo-grid, .near-me-service-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 640px) { .local-seo-grid, .near-me-service-grid { grid-template-columns: 1fr; } .local-seo-panel { padding: 20px; } .near-me-card { min-height: auto; } }
 
-    /* VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD */
-    .diagnostic-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-medium);
-      padding: 32px;
-      margin: 40px 0 0 0;
-      position: relative;
-    }
-
-    .symptom-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 12px;
-      margin: 20px 0 24px;
-    }
-
-    .symptom-btn {
-      background: var(--bg-subtle);
-      border: 1px solid var(--border-light);
-      color: var(--text-main);
-      padding: 12px;
-      font-family: var(--font-mono);
-      font-size: 0.85rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: left;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .symptom-btn:hover, .symptom-btn.active {
-      border-color: var(--accent);
-      background: var(--accent-dim);
-      color: var(--accent);
-    }
-
-    /* MULTIMETER PROBE READOUT */
-    .probe-readout {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: #0c0c0c;
-      border: 1px solid var(--border-light);
-      border-left: 3px solid #ffb020;
-      padding: 10px 14px;
-      margin: 20px 0 22px;
-      font-family: var(--font-mono);
-      flex-wrap: wrap;
-    }
-
-    .probe-readout-label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-
-    .probe-readout-value {
-      font-size: 0.85rem;
-      color: #ffb020;
-      font-weight: 700;
-      letter-spacing: 0.03em;
-    }
-
-    .probe-readout-value.flicker {
-      animation: probeFlicker 0.4s steps(2, end) 2;
-    }
-
-    @keyframes probeFlicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.25; }
-    }
-
-    .probe-tip {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--border-light);
-      display: inline-block;
-      margin-right: 6px;
-      transition: background 0.2s ease, box-shadow 0.2s ease;
-      vertical-align: middle;
-    }
-
-    .symptom-btn.active .probe-tip {
-      background: #ffb020;
-      box-shadow: 0 0 6px #ffb020;
-    }
-
-    .meter-jacks {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      margin-left: auto;
-      padding-left: 10px;
-    }
-
-    .meter-jack {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-
-    .meter-jack-hole {
-      width: 15px;
-      height: 15px;
-      border-radius: 50%;
-      background: #0c0c0c;
-      border: 3px solid;
-      box-sizing: border-box;
-    }
-
-    .meter-jack.red .meter-jack-hole {
-      border-color: #ff3b30;
-      box-shadow: 0 0 5px rgba(255, 59, 48, 0.5);
-    }
-
-    .meter-jack.black .meter-jack-hole {
-      border-color: #d0d5dd;
-    }
-
-    .meter-jack-label {
-      font-family: var(--font-mono);
-      font-size: 0.55rem;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    /* MULTIMETER TEST WIRES */
-    .wire-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 3;
-      overflow: visible;
-    }
-
-    .wire-path {
-      fill: none;
-      stroke-width: 2.5;
-      stroke-linecap: round;
-      opacity: 0;
-      transition: opacity 0.25s ease;
-    }
-
-    .wire-path.red { stroke: #ff3b30; filter: drop-shadow(0 0 2px rgba(255, 59, 48, 0.6)); }
-    .wire-path.black { stroke: #d0d5dd; filter: drop-shadow(0 0 2px rgba(208, 213, 221, 0.4)); }
-
-    .wire-svg.wires-visible .wire-path {
-      opacity: 0.95;
-    }
-
     /* INTERACTIVE OVEN REVIEWS ANIMATION */
     .oven-section {
       padding: 16px 0 40px;
@@ -2415,7 +2258,7 @@
           <div class="eyebrow">Precision Technical Service // Jacksonville, FL</div>
 
           <div class="hero-title-line">
-            <h1>Expert Appliance Repair in Jacksonville</h1>
+            <h1>Appliance Repair in Jacksonville, FL &amp; the Beaches</h1>
           </div>
 
           <p>
@@ -2452,64 +2295,6 @@
             </div>
           </details>
           <div class="mw-controls"><div class="mw-display"><span id="mw-status">READY</span><small>LOCAL SERVICE</small></div><div class="mw-vents" aria-hidden="true"></div><span class="mw-control-name">HEDLUND<br>APPLIANCE SERVICE</span><div class="mw-keys" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><button class="mw-toggle" type="button" aria-controls="mw-shell" aria-expanded="false" hidden>OPEN DOOR</button></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VISUAL DIAGNOSTIC SYMPTOM CHECKER CARD -->
-    <section style="padding: 40px 0 16px; background: var(--bg-subtle);">
-      <div class="wrap">
-        <div class="diagnostic-card">
-          <svg class="wire-svg" id="wire-svg">
-            <path class="wire-path red" id="wire-red-path" d=""></path>
-            <path class="wire-path black" id="wire-black-path" d=""></path>
-          </svg>
-
-          <div class="eyebrow">// Quick Interactive Diagnostic</div>
-          <h3 style="color: var(--text-white); font-size: 1.5rem; margin-bottom: 8px;">Experiencing an Appliance Fault?</h3>
-          <p style="color: var(--text-muted); font-size: 0.95rem;">Select your symptom below to prep technician response and dispatch priority:</p>
-
-          <div class="probe-readout">
-            <span class="probe-readout-label">⏚ PROBE READING:</span>
-            <span class="probe-readout-value" id="probe-value">STANDBY // AWAITING INPUT</span>
-            <div class="meter-jacks">
-              <div class="meter-jack black">
-                <div class="meter-jack-hole" id="terminal-black"></div>
-                <span class="meter-jack-label">COM</span>
-              </div>
-              <div class="meter-jack red">
-                <div class="meter-jack-hole" id="terminal-red"></div>
-                <span class="meter-jack-label">VΩmA</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="symptom-grid">
-            <button type="button" class="symptom-btn" aria-label="Select refrigerator cooling loss symptom" onclick="setSymptom('Refrigerator Not Cooling')">
-              <span class="probe-tip"></span><span>❄️ Refrigerator Cooling Loss</span>
-            </button>
-            <button type="button" class="symptom-btn" aria-label="Select dryer heating failure symptom" onclick="setSymptom('Dryer Not Heating')">
-              <span class="probe-tip"></span><span>🔥 Dryer Heating Failure</span>
-            </button>
-            <button type="button" class="symptom-btn" aria-label="Select washer leak or drain symptom" onclick="setSymptom('Washer Leaking / Not Draining')">
-              <span class="probe-tip"></span><span>💧 Washer Drain / Leak</span>
-            </button>
-            <button type="button" class="symptom-btn" aria-label="Select dishwasher standing water symptom" onclick="setSymptom('Dishwasher Standing Water')">
-              <span class="probe-tip"></span><span>🍽️ Dishwasher Standing Water</span>
-            </button>
-            <button type="button" class="symptom-btn" aria-label="Select oven or range heating issue symptom" onclick="setSymptom('Oven / Range Heating Issue')">
-              <span class="probe-tip"></span><span>🍳 Oven Igniter / Element Fault</span>
-            </button>
-          </div>
-
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
-            <a id="symptom-cta" class="button button-pulse" href="tel:+19043358206">
-              CALL (904) 335-8206 FOR DISPATCH
-            </a>
-            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent);">
-              [Direct Tech Access · Zero Waiting]
-            </span>
-          </div>
         </div>
       </div>
     </section>
@@ -3045,68 +2830,6 @@
       showStep(1);
     })();
 
-    const symptomReadings = {
-      'Refrigerator Not Cooling': '208-230V AC · COMPRESSOR CIRCUIT OPEN',
-      'Dryer Not Heating': '0.0Ω · HEATING ELEMENT OPEN',
-      'Washer Leaking / Not Draining': '120V AC · DRAIN PUMP OVER-DRAW',
-      'Dishwasher Standing Water': '120V AC · DRAIN SOLENOID NO CONTINUITY',
-      'Oven / Range Heating Issue': '48Ω · IGNITER OUT OF RANGE'
-    };
-
-    function wirePath(start, end) {
-      const sag = 46;
-      const midY = Math.max(start.y, end.y) + sag;
-      return `M ${start.x},${start.y} C ${start.x},${midY} ${end.x},${midY} ${end.x},${end.y}`;
-    }
-
-    function drawWires(targetBtn) {
-      const svg = document.getElementById('wire-svg');
-      const card = document.querySelector('.diagnostic-card');
-      const redTerm = document.getElementById('terminal-red');
-      const blackTerm = document.getElementById('terminal-black');
-      const tip = targetBtn.querySelector('.probe-tip');
-      if (!svg || !card || !redTerm || !blackTerm || !tip) return;
-
-      const cardRect = card.getBoundingClientRect();
-      const redRect = redTerm.getBoundingClientRect();
-      const blackRect = blackTerm.getBoundingClientRect();
-      const tipRect = tip.getBoundingClientRect();
-
-      const redStart = { x: redRect.left + redRect.width / 2 - cardRect.left, y: redRect.top + redRect.height / 2 - cardRect.top };
-      const blackStart = { x: blackRect.left + blackRect.width / 2 - cardRect.left, y: blackRect.top + blackRect.height / 2 - cardRect.top };
-      const end = { x: tipRect.left + tipRect.width / 2 - cardRect.left, y: tipRect.top + tipRect.height / 2 - cardRect.top };
-
-      document.getElementById('wire-red-path').setAttribute('d', wirePath(redStart, end));
-      document.getElementById('wire-black-path').setAttribute('d', wirePath(blackStart, { x: end.x - 6, y: end.y }));
-
-      svg.classList.add('wires-visible');
-      window.__activeSymptomBtn = targetBtn;
-    }
-
-    window.addEventListener('resize', () => {
-      if (window.__activeSymptomBtn) drawWires(window.__activeSymptomBtn);
-    });
-
-    function setSymptom(issue) {
-      document.querySelectorAll('.symptom-btn').forEach(btn => btn.classList.remove('active'));
-      const btn = event.currentTarget;
-      btn.classList.add('active');
-      
-      const cta = document.getElementById('symptom-cta');
-      cta.innerText = `DISPATCH FOR: ${issue.toUpperCase()} →`;
-
-      const probeValue = document.getElementById('probe-value');
-      if (probeValue) {
-        const reading = symptomReadings[issue] || `${issue.toUpperCase()} // FAULT DETECTED`;
-        probeValue.innerText = reading;
-        probeValue.classList.remove('flicker');
-        void probeValue.offsetWidth;
-        probeValue.classList.add('flicker');
-      }
-
-      drawWires(btn);
-    }
-
     function toggleOven() {
       document.getElementById('oven-wrapper').classList.toggle('oven-open');
     }
@@ -3179,5 +2902,6 @@
 
 </body>
 </html>
+
 
 
