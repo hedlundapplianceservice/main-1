@@ -2186,6 +2186,8 @@
     .mw-brand-directory{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
     @media(prefers-reduced-motion:reduce){.mw-door{transition:none}}
   </style>
+  <link rel="stylesheet" href="/assets/repair-gallery.css?v=20261022">
+  <script src="/assets/repair-gallery.js?v=20261022" defer></script>
 </head>
 
 <body class="paper-grid">
@@ -2613,6 +2615,38 @@
       </div>
     </section>
 
+        <section class="repair-gallery" id="repair-gallery" aria-labelledby="repair-gallery-title" aria-roledescription="carousel">
+      <div class="wrap">
+        <div class="eyebrow">Behind the Repair</div>
+        <h2 id="repair-gallery-title">A closer look at our work</h2>
+        <p class="repair-gallery-intro">Real appliance photos from Hedlund Appliance Service. Take a look inside the machines we work on.</p>
+        <div class="repair-gallery-frame">
+          <figure class="repair-gallery-slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="repair-gallery-photo"><img src="/assets/repair-gallery/washer-water-inlet-valves.jpg" width="508" height="677" alt="Washer water inlet valve assembly with electrical connectors" loading="lazy" decoding="async"></div>
+            <figcaption><span class="repair-gallery-label">Hedlund Appliance Service // In the field</span><h3>Washer water inlet valves</h3><p>A close look at the valves and wiring that control water entering the washer.</p></figcaption>
+          </figure>
+          <figure class="repair-gallery-slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="repair-gallery-photo"><img src="/assets/repair-gallery/dishwasher-pump-area.jpg" width="387" height="290" alt="Dishwasher pump area and connected water hoses" loading="lazy" decoding="async"></div>
+            <figcaption><span class="repair-gallery-label">Hedlund Appliance Service // In the field</span><h3>Inside a dishwasher</h3><p>The pump area and water connections beneath the dishwasher tub.</p></figcaption>
+          </figure>
+          <figure class="repair-gallery-slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="repair-gallery-photo"><img src="/assets/repair-gallery/dryer-motor-and-blower.jpg" width="381" height="508" alt="Dryer drive motor and blower assembly with the cabinet open" loading="lazy" decoding="async"></div>
+            <figcaption><span class="repair-gallery-label">Hedlund Appliance Service // In the field</span><h3>Dryer motor and blower</h3><p>The drive motor and blower assembly inside a disassembled dryer.</p></figcaption>
+          </figure>
+          <figure class="repair-gallery-slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="repair-gallery-photo"><img src="/assets/repair-gallery/dryer-motor-closeup.jpg" width="387" height="290" alt="Closeup of a dryer motor and its electrical wiring" loading="lazy" decoding="async"></div>
+            <figcaption><span class="repair-gallery-label">Hedlund Appliance Service // In the field</span><h3>A closer look at the dryer motor</h3><p>A detailed view of the motor and wiring inside the dryer cabinet.</p></figcaption>
+          </figure>
+          <div class="repair-gallery-controls" hidden>
+            <div class="repair-gallery-arrows"><button type="button" data-gallery-prev aria-label="Previous repair photo">&#8592;</button><span class="repair-gallery-count" data-gallery-count>1 / 4</span><button type="button" data-gallery-next aria-label="Next repair photo">&#8594;</button></div>
+            <div class="repair-gallery-dots" role="group" aria-label="Choose a repair photo"><button type="button" class="repair-gallery-dot" data-gallery-slide="0" aria-label="Show repair photo 1" aria-current="true"></button><button type="button" class="repair-gallery-dot" data-gallery-slide="1" aria-label="Show repair photo 2" aria-current="false"></button><button type="button" class="repair-gallery-dot" data-gallery-slide="2" aria-label="Show repair photo 3" aria-current="false"></button><button type="button" class="repair-gallery-dot" data-gallery-slide="3" aria-label="Show repair photo 4" aria-current="false"></button></div>
+            <button type="button" class="repair-gallery-play" data-gallery-play>Pause slides</button>
+          </div>
+        </div>
+        <p class="repair-gallery-sr" aria-live="polite" aria-atomic="true" data-gallery-status></p>
+      </div>
+    </section>
+
     <section class="final-cta">
       <div class="wrap">
 
@@ -2902,6 +2936,3 @@
 
 </body>
 </html>
-
-
-
