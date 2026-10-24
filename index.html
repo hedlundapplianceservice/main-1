@@ -2714,12 +2714,12 @@
             <label><input type="radio" name="appliance" value="Other Appliance" required><span>Other Appliance</span></label>
           </div>
         </fieldset>
-        <fieldset class="booking-step" data-book-step="2" hidden disabled>
+        <fieldset class="booking-step" data-book-step="2" hidden>
           <legend>Step 2 — Where can we reach you?</legend>
           <div class="form-field"><label for="service-phone">Phone Number</label><input id="service-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(904) 555-0123" pattern="[+0-9().\\- ]{10,20}" minlength="10" required></div>
           <p class="form-note">We’ll use your number to contact you about scheduling your requested visit. This form does not reserve a time automatically.</p>
         </fieldset>
-        <fieldset class="booking-step" data-book-step="3" hidden disabled>
+        <fieldset class="booking-step" data-book-step="3" hidden>
           <legend>Step 3 — Review and accept the service-call terms</legend>
           <div class="booking-fee-card">
             <span class="booking-fee-label">SERVICE CALL &amp; DIAGNOSIS</span>
@@ -2839,7 +2839,7 @@
       const submit=document.getElementById('booking-submit');
       function showStep(n){
         step=n;
-        steps.forEach(el=>{const active=Number(el.dataset.bookStep)===n;el.hidden=!active;el.disabled=!active;});
+        steps.forEach(el=>{const active=Number(el.dataset.bookStep)===n;el.hidden=!active;el.disabled=false;});
         document.querySelectorAll('[data-book-progress]').forEach(el=>{const i=Number(el.dataset.bookProgress);el.classList.toggle('is-current',i===n);el.classList.toggle('is-complete',i<n);});
         back.hidden=n===1;next.hidden=n===3;submit.hidden=n!==3;
       }
@@ -2863,6 +2863,14 @@
         if(!phone.checkValidity()){event.preventDefault();showStep(2);phone.reportValidity();return;}
         if(!consent.checked){event.preventDefault();showStep(3);consent.reportValidity();return;}
         submit.disabled=true;submit.textContent='SENDING REQUEST…';
+      });
+      // Backup: always add essential lead data to the browser's form payload,
+      // even if a future UI change accidentally disables the visible controls.
+      form.addEventListener('formdata', event => {
+        const phone = document.getElementById('service-phone');
+        const appliance = form.querySelector('input[name="appliance"]:checked');
+        event.formData.set('phone', phone ? phone.value.trim() : '');
+        if (appliance) event.formData.set('appliance', appliance.value);
       });
       showStep(1);
     })();
