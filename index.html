@@ -2856,6 +2856,9 @@
         const appliance=form.querySelector('input[name="appliance"]:checked');
         const phone=document.getElementById('service-phone');
         const consent=document.getElementById('service-fee-agreement');
+        // Hidden booking steps are disabled while navigating; re-enable them
+        // before validating and posting so FormSubmit receives appliance and phone.
+        steps.forEach(fieldset => { fieldset.disabled = false; });
         if(!appliance){event.preventDefault();showStep(1);return;}
         if(!phone.checkValidity()){event.preventDefault();showStep(2);phone.reportValidity();return;}
         if(!consent.checked){event.preventDefault();showStep(3);consent.reportValidity();return;}
